@@ -1,0 +1,20 @@
+Version 1.0.4
++ Automatically remove the return carriage (\r) when reading a Windows text file under Linux. Added 6 unit test to test this capability.
+
+
+Version 1.0.3
++ Added RAII for dynamically allocated arrays.
+
+
+Version 1.0.2
++ Added 3 more unit tests to test ReadAll functions with Upper Plane Unicode code points. 
++ Total: 55 unit tests for Windows and 59 unit tests for Linux.
+
+
+Version 1.0.1
++ Added 4 unit tests to test ReadAll functions
++ Fixed UTF8Reader and BEUnicodeReader ReadAll functions
+
+
+Version 1.0.0
++ First public release of Elmax File Library

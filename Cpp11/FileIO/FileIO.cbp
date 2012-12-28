@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="FileIO" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="libFileIO" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/Debug/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="libFileIO" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/Release/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Unit filename="Binary/Reader/xBinaryReader.cpp" />
+		<Unit filename="Binary/Reader/xBinaryReader.h" />
+		<Unit filename="Binary/Utils/BaseArray.cpp" />
+		<Unit filename="Binary/Utils/BaseArray.h" />
+		<Unit filename="Binary/Utils/BinaryTypeReadRef.cpp" />
+		<Unit filename="Binary/Utils/BinaryTypeReadRef.h" />
+		<Unit filename="Binary/Utils/BinaryTypeRef.cpp" />
+		<Unit filename="Binary/Utils/BinaryTypeRef.h" />
+		<Unit filename="Binary/Utils/StrArray.cpp" />
+		<Unit filename="Binary/Utils/StrArray.h" />
+		<Unit filename="Binary/Utils/WStrArray.cpp" />
+		<Unit filename="Binary/Utils/WStrArray.h" />
+		<Unit filename="Binary/Writer/xBinaryWriter.cpp" />
+		<Unit filename="Binary/Writer/xBinaryWriter.h" />
+		<Unit filename="Common/BaseConverter.cpp" />
+		<Unit filename="Common/BaseConverter.h" />
+		<Unit filename="Common/Common.cpp" />
+		<Unit filename="Common/Common.h" />
+		<Unit filename="Common/Enumeration.cpp" />
+		<Unit filename="Common/Enumeration.h" />
+		<Unit filename="Common/RAII_Array.cpp" />
+		<Unit filename="Common/RAII_Array.h" />
+		<Unit filename="Linux/LinuxOperation.cpp" />
+		<Unit filename="Linux/LinuxOperation.h" />
+		<Unit filename="Text/Reader/AsciiReader.cpp" />
+		<Unit filename="Text/Reader/AsciiReader.h" />
+		<Unit filename="Text/Reader/BEUnicodeReader.cpp" />
+		<Unit filename="Text/Reader/BEUnicodeReader.h" />
+		<Unit filename="Text/Reader/BaseTextReader.cpp" />
+		<Unit filename="Text/Reader/BaseTextReader.h" />
+		<Unit filename="Text/Reader/UTF8Reader.cpp" />
+		<Unit filename="Text/Reader/UTF8Reader.h" />
+		<Unit filename="Text/Reader/UnicodeReader.cpp" />
+		<Unit filename="Text/Reader/UnicodeReader.h" />
+		<Unit filename="Text/Reader/xTextReader.cpp" />
+		<Unit filename="Text/Reader/xTextReader.h" />
+		<Unit filename="Text/Utils/DataType.cpp" />
+		<Unit filename="Text/Utils/DataType.h" />
+		<Unit filename="Text/Utils/DataTypeRef.cpp" />
+		<Unit filename="Text/Utils/DataTypeRef.h" />
+		<Unit filename="Text/Utils/SplitStrategy.cpp" />
+		<Unit filename="Text/Utils/SplitStrategy.h" />
+		<Unit filename="Text/Utils/StrUtil.cpp" />
+		<Unit filename="Text/Utils/StrUtil.h" />
+		<Unit filename="Text/Utils/StrUtilRef.cpp" />
+		<Unit filename="Text/Utils/StrUtilRef.h" />
+		<Unit filename="Text/Utils/StrtokStrategy.cpp" />
+		<Unit filename="Text/Utils/StrtokStrategy.h" />
+		<Unit filename="Text/Utils/xStringBuilder.cpp" />
+		<Unit filename="Text/Utils/xStringBuilder.h" />
+		<Unit filename="Text/Writer/AsciiWriter.cpp" />
+		<Unit filename="Text/Writer/AsciiWriter.h" />
+		<Unit filename="Text/Writer/BEUnicodeWriter.cpp" />
+		<Unit filename="Text/Writer/BEUnicodeWriter.h" />
+		<Unit filename="Text/Writer/BaseTextWriter.cpp" />
+		<Unit filename="Text/Writer/BaseTextWriter.h" />
+		<Unit filename="Text/Writer/UTF8Writer.cpp" />
+		<Unit filename="Text/Writer/UTF8Writer.h" />
+		<Unit filename="Text/Writer/UnicodeWriter.cpp" />
+		<Unit filename="Text/Writer/UnicodeWriter.h" />
+		<Unit filename="Text/Writer/xTextWriter.cpp" />
+		<Unit filename="Text/Writer/xTextWriter.h" />
+		<Unit filename="UTF16Utils/utf16.cpp" />
+		<Unit filename="UTF16Utils/utf16.h" />
+		<Unit filename="UTF8Utils/utf8.h" />
+		<Unit filename="UTF8Utils/utf8/checked.h" />
+		<Unit filename="UTF8Utils/utf8/core.h" />
+		<Unit filename="UTF8Utils/utf8/unchecked.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

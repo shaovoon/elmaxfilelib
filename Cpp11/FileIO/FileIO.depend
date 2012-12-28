@@ -1,0 +1,197 @@
+# depslib dependency file v1.0
+1349847474 source:/home/shaovoon/Documents/FileLib/FileIO/Binary/Reader/xBinaryReader.cpp
+	"xBinaryReader.h"
+	"../../Text/Utils/StrUtil.h"
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/Binary/Reader/xBinaryReader.h
+	<cstdio>
+	<string>
+	"../Utils/BinaryTypeReadRef.h"
+	"../../Common/Common.h"
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/Binary/Utils/BinaryTypeReadRef.h
+	"../../Common/Common.h"
+	"BaseArray.h"
+	"StrArray.h"
+	"WStrArray.h"
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/Common/Common.h
+	"Enumeration.h"
+	"../Microsoft/WinOperation.h"
+	"../Linux/LinuxOperation.h"
+	<stdexcept>
+	<cstring>
+	<cstdlib>
+	<wchar.h>
+	<sstream>
+	"../UTF16Utils/utf16.h"
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/Common/Enumeration.h
+	<map>
+	<string>
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/Microsoft/WinOperation.h
+	<string>
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/Linux/LinuxOperation.h
+	<string>
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/UTF16Utils/utf16.h
+	<string>
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/Binary/Utils/BaseArray.h
+	"../../Common/Common.h"
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/Binary/Utils/StrArray.h
+	"../../Common/Common.h"
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/Binary/Utils/WStrArray.h
+	"../../Common/Common.h"
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/Text/Utils/StrUtil.h
+	"DataType.h"
+	"DataTypeRef.h"
+	"SplitStrategy.h"
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/Text/Utils/DataType.h
+	<string>
+	"../../Common/Common.h"
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/Text/Utils/DataTypeRef.h
+	<string>
+	"../../Common/Common.h"
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/Text/Utils/SplitStrategy.h
+	<vector>
+	<string>
+	"DataTypeRef.h"
+
+1349847474 source:/home/shaovoon/Documents/FileLib/FileIO/Binary/Utils/BaseArray.cpp
+	"BaseArray.h"
+
+1349847474 source:/home/shaovoon/Documents/FileLib/FileIO/Binary/Utils/BinaryTypeReadRef.cpp
+	"BinaryTypeReadRef.h"
+
+1349847474 source:/home/shaovoon/Documents/FileLib/FileIO/Binary/Utils/BinaryTypeRef.cpp
+	"BinaryTypeRef.h"
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/Binary/Utils/BinaryTypeRef.h
+	<string>
+	"BaseArray.h"
+	"../../Common/Common.h"
+
+1349847474 source:/home/shaovoon/Documents/FileLib/FileIO/Binary/Utils/StrArray.cpp
+	"StrArray.h"
+
+1349847474 source:/home/shaovoon/Documents/FileLib/FileIO/Binary/Utils/WStrArray.cpp
+	"WStrArray.h"
+
+1349847474 source:/home/shaovoon/Documents/FileLib/FileIO/Binary/Writer/xBinaryWriter.cpp
+	"xBinaryWriter.h"
+	"../../Text/Utils/StrUtil.h"
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/Binary/Writer/xBinaryWriter.h
+	<cstdio>
+	<string>
+	"../Utils/BinaryTypeRef.h"
+	"../../Common/Common.h"
+
+1349847474 source:/home/shaovoon/Documents/FileLib/FileIO/Common/BaseConverter.cpp
+	"BaseConverter.h"
+	<climits>
+	<cfloat>
+	<sstream>
+	<cstdio>
+	<iomanip>
+	"../Text/Utils/StrUtil.h"
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/Common/BaseConverter.h
+	<string>
+	"Common.h"
+
+1349847474 source:/home/shaovoon/Documents/FileLib/FileIO/Common/Common.cpp
+	"Common.h"
+
+1349847474 source:/home/shaovoon/Documents/FileLib/FileIO/Common/Enumeration.cpp
+
+1349847474 source:/home/shaovoon/Documents/FileLib/FileIO/Linux/LinuxOperation.cpp
+	"LinuxOperation.h"
+	<cstdio>
+	"../Text/Utils/StrUtil.h"
+
+1349847474 source:/home/shaovoon/Documents/FileLib/FileIO/Text/Reader/AsciiReader.cpp
+	"AsciiReader.h"
+	"../Utils/StrUtil.h"
+	<vector>
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/Text/Reader/AsciiReader.h
+	"BaseTextReader.h"
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/Text/Reader/BaseTextReader.h
+	<cstdio>
+	<string>
+	"../../Common/Common.h"
+
+1349847474 source:/home/shaovoon/Documents/FileLib/FileIO/Text/Reader/BEUnicodeReader.cpp
+	"BEUnicodeReader.h"
+	"../../Common/Enumeration.h"
+	"../Utils/StrUtil.h"
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/Text/Reader/BEUnicodeReader.h
+	"BaseTextReader.h"
+
+1349847474 source:/home/shaovoon/Documents/FileLib/FileIO/Text/Reader/BaseTextReader.cpp
+	"BaseTextReader.h"
+	<vector>
+	<sys/stat.h>
+	"../Utils/StrUtil.h"
+
+1349847474 source:/home/shaovoon/Documents/FileLib/FileIO/Text/Reader/UTF8Reader.cpp
+	"UTF8Reader.h"
+	"../../UTF8Utils/utf8.h"
+	"../Utils/StrUtil.h"
+	<vector>
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/Text/Reader/UTF8Reader.h
+	"BaseTextReader.h"
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/UTF8Utils/utf8.h
+	"utf8/checked.h"
+	"utf8/unchecked.h"
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/UTF8Utils/utf8/checked.h
+	"core.h"
+	<stdexcept>
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/UTF8Utils/utf8/core.h
+	<iterator>
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/UTF8Utils/utf8/unchecked.h
+	"core.h"
+
+1349847474 source:/home/shaovoon/Documents/FileLib/FileIO/Text/Reader/UnicodeReader.cpp
+	"UnicodeReader.h"
+	"../Utils/StrUtil.h"
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/Text/Reader/UnicodeReader.h
+	"BaseTextReader.h"
+
+1349847474 source:/home/shaovoon/Documents/FileLib/FileIO/Text/Reader/xTextReader.cpp
+	"xTextReader.h"
+	"../Utils/StrUtilRef.h"
+	"UTF8Reader.h"
+	"UnicodeReader.h"
+	"BEUnicodeReader.h"
+	"AsciiReader.h"
+	"../../Common/Enumeration.h"
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/Text/Reader/xTextReader.h
+	"../Utils/SplitStrategy.h"
+	"../Utils/DataTypeRef.h"
+	"BaseTextReader.h"
+
+1349847474 /home/shaovoon/Documents/FileLib/FileIO/Text/Utils/StrUtilRef.h
+	"DataType.h"
+	"DataTypeRef.h"
+	"SplitStrategy.h"
+
