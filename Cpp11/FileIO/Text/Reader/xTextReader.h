@@ -93,6 +93,8 @@ public:
 		return 0;
 	}
 
+	bool ReadAll( std::wstring& text );
+
 	int GetLastError(std::wstring& str);
 	void ClearLastError();
 

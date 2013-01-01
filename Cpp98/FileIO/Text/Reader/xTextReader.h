@@ -76,6 +76,8 @@ public:
 	size_t ReadLine( DataTypeRef D1, DataTypeRef D2, DataTypeRef D3, DataTypeRef D4,
 		DataTypeRef D5, DataTypeRef D6, DataTypeRef D7, DataTypeRef D8, DataTypeRef D9, DataTypeRef D10 );
 
+	bool ReadAll( std::wstring& text );
+
 	int GetLastError(std::wstring& str);
 	void ClearLastError();
 

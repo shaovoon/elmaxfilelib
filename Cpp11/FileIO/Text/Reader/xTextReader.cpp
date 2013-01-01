@@ -117,6 +117,15 @@ bool xTextReader::IsEOF()
 	return true;
 }
 
+bool xTextReader::ReadAll( std::wstring& text )
+{
+	if(pReader!=nullptr)
+	{
+		return pReader->ReadAll(text);
+	}
+
+	return false;
+}
 
 
 int xTextReader::GetLastError(std::wstring& msg)

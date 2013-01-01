@@ -512,6 +512,16 @@ size_t xTextReader::ReadLine( DataTypeRef D1, DataTypeRef D2, DataTypeRef D3, Da
 	return 0;
 }
 
+bool xTextReader::ReadAll( std::wstring& text )
+{
+	if(pReader!=NULL)
+	{
+		return pReader->ReadAll(text);
+	}
+
+	return false;
+}
+
 int xTextReader::GetLastError(std::wstring& msg)
 {
 	if(pReader!=NULL)
