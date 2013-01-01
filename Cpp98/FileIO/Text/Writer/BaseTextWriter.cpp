@@ -9,7 +9,6 @@ BaseTextWriter::BaseTextWriter(void)
 	: fp(NULL)
 	, err(L"")
 	, errNum(0)
-	, enableException(true)
 {
 }
 
@@ -124,11 +123,3 @@ void BaseTextWriter::ClearLastError()
 	errNum = 0;
 }
 
-bool BaseTextWriter::EnableException(bool enable)
-{
-	bool prev = enableException;
-
-	enableException = enable;
-
-	return prev;
-}

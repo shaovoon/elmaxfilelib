@@ -26,7 +26,6 @@ public:
 
 	int GetLastError(std::wstring& str);
 	void ClearLastError();
-	bool EnableException(bool enable);
 
 protected:
 	BaseTextWriter(const BaseTextWriter&) {}
@@ -43,7 +42,6 @@ protected:
 
 	std::wstring err;
 	int errNum;
-	bool enableException;
 };
 
 }

@@ -34,8 +34,7 @@ bool BEUnicodeWriter::Open(const std::wstring& file, FILE_OP op)
 	{
 		errNum = ELMAX_FILE_NOT_OPENED;
 		err = GetErrorMsg(errNum);
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(file)+ ": file cannot be opened!");
+		throw std::runtime_error(StrUtil::ConvToString(file)+ ": file cannot be opened!");
 	}
 
 	return fp != NULL;
@@ -53,8 +52,7 @@ bool BEUnicodeWriter::WriteBOM()
 	{
 		errNum = ELMAX_WRITE_ERROR;
 		err = GetErrorMsg(errNum);
-		if(enableException)
-			throw std::runtime_error("Write error");
+		throw std::runtime_error("Write BOM error");
 
 		return false;
 	}
@@ -75,8 +73,7 @@ bool BEUnicodeWriter::Write( const std::wstring& text )
 	{
 		errNum = ELMAX_WRITE_ERROR;
 		err = GetErrorMsg(errNum);
-		if(enableException)
-			throw std::runtime_error("Write error");
+		throw std::runtime_error("Write error");
 	}
 
 	return ret;
@@ -95,8 +92,7 @@ bool BEUnicodeWriter::WriteLine( const std::wstring& text )
 	{
 		errNum = ELMAX_WRITE_ERROR;
 		err = GetErrorMsg(errNum);
-		if(enableException)
-			throw std::runtime_error("Write error");
+		throw std::runtime_error("Write error");
 	}
 
 	return ret;

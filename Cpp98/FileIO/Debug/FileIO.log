@@ -1,0 +1,63 @@
+﻿Build started 1/1/2013 12:47:34 PM.
+     1>Project "C:\Users\wong\Documents\GitHub\elmaxfilelib\Cpp98\FileIO\FileIO.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\FileIO.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W4 /WX- /Od /Oy- /D _MICROSOFT /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Text\Writer\BEUnicodeWriter.cpp Text\Writer\UTF8Writer.cpp Text\Writer\UnicodeWriter.cpp
+         UnicodeWriter.cpp
+     1>c:\users\wong\documents\github\elmaxfilelib\cpp98\fileio\text\writer\unicodewriter.h(24): warning C4100: 'other' : unreferenced formal parameter
+         UTF8Writer.cpp
+     1>c:\users\wong\documents\github\elmaxfilelib\cpp98\fileio\text\writer\utf8writer.h(23): warning C4100: 'other' : unreferenced formal parameter
+         BEUnicodeWriter.cpp
+     1>c:\users\wong\documents\github\elmaxfilelib\cpp98\fileio\text\writer\beunicodewriter.h(23): warning C4100: 'other' : unreferenced formal parameter
+         Generating Code...
+     1>c:\users\wong\documents\github\elmaxfilelib\cpp98\fileio\text\writer\beunicodewriter.cpp(57): warning C4702: unreachable code
+     1>c:\users\wong\documents\github\elmaxfilelib\cpp98\fileio\text\writer\utf8writer.cpp(57): warning C4702: unreachable code
+     1>c:\users\wong\documents\github\elmaxfilelib\cpp98\fileio\text\writer\unicodewriter.cpp(56): warning C4702: unreachable code
+       Lib:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"C:\Users\wong\Documents\GitHub\elmaxfilelib\Cpp98\Debug\FileIO.lib" /NOLOGO Debug\xBinaryReader.obj
+         Debug\BaseArray.obj
+         Debug\BinaryTypeReadRef.obj
+         Debug\BinaryTypeRef.obj
+         Debug\StrArray.obj
+         Debug\WStrArray.obj
+         Debug\xBinaryWriter.obj
+         Debug\BaseConverter.obj
+         Debug\Common.obj
+         Debug\Enumeration.obj
+         Debug\RAII_Array.obj
+         Debug\WinOperation.obj
+         Debug\stdafx.obj
+         Debug\AsciiReader.obj
+         Debug\BaseTextReader.obj
+         Debug\BEUnicodeReader.obj
+         Debug\UnicodeReader.obj
+         Debug\UTF8Reader.obj
+         Debug\xTextReader.obj
+         Debug\DataType.obj
+         Debug\DataTypeRef.obj
+         Debug\SplitStrategy.obj
+         Debug\StrtokStrategy.obj
+         Debug\StrUtil.obj
+         Debug\StrUtilRef.obj
+         Debug\AsciiWriter.obj
+         Debug\BaseTextWriter.obj
+         Debug\BEUnicodeWriter.obj
+         Debug\UnicodeWriter.obj
+         Debug\UTF8Writer.obj
+         Debug\xTextWriter.obj
+         Debug\utf16.obj
+     1>SplitStrategy.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+     1>WStrArray.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+     1>StrArray.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+     1>BaseArray.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+         FileIO.vcxproj -> C:\Users\wong\Documents\GitHub\elmaxfilelib\Cpp98\Debug\FileIO.lib
+       FinalizeBuildStatus:
+         Deleting file "Debug\FileIO.unsuccessfulbuild".
+         Touching "Debug\FileIO.lastbuildstate".
+     1>Done Building Project "C:\Users\wong\Documents\GitHub\elmaxfilelib\Cpp98\FileIO\FileIO.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.94

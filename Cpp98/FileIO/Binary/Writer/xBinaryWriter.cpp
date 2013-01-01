@@ -7,7 +7,6 @@ xBinaryWriter::xBinaryWriter(void)
 	: fp(NULL)
 	, err(L"")
 	, errNum(0)
-	, enableException(true)
 {
 }
 
@@ -36,8 +35,7 @@ bool xBinaryWriter::Open(const std::wstring& file)
 	{
 		errNum = ELMAX_FILE_NOT_OPENED;
 		err = GetErrorMsg(errNum);
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(file)+ ": file cannot be opened!");
+		throw std::runtime_error(StrUtil::ConvToString(file)+ ": file cannot be opened!");
 	}
 
 	return fp != NULL;
@@ -53,8 +51,7 @@ bool xBinaryWriter::Open(const std::string& file)
 	{
 		errNum = ELMAX_FILE_NOT_OPENED;
 		err = GetErrorMsg(errNum);
-		if(enableException)
-			throw std::runtime_error(file + ": file cannot be opened!");
+		throw std::runtime_error(file + ": file cannot be opened!");
 	}
 
 	return fp != NULL;
@@ -111,8 +108,7 @@ size_t xBinaryWriter::Write( BinaryTypeRef D1 )
 	{
 		errNum = ELMAX_WRITE_ERROR;
 		err = StrUtil::Format(L"{0}: Less than 1 elements are written! ({1} elements written)", GetErrorMsg(errNum), totalWritten);
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(err));
+		throw std::runtime_error(StrUtil::ConvToString(err));
 	}
 
 	return totalWritten;
@@ -155,8 +151,7 @@ size_t xBinaryWriter::Write( BinaryTypeRef D1, BinaryTypeRef D2 )
 	{
 		errNum = ELMAX_WRITE_ERROR;
 		err = StrUtil::Format(L"{0}: Less than 2 elements are written! ({1} elements written)", GetErrorMsg(errNum), totalWritten);
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(err));
+		throw std::runtime_error(StrUtil::ConvToString(err));
 	}
 
 	return totalWritten;
@@ -213,8 +208,7 @@ size_t xBinaryWriter::Write( BinaryTypeRef D1, BinaryTypeRef D2, BinaryTypeRef D
 	{
 		errNum = ELMAX_WRITE_ERROR;
 		err = StrUtil::Format(L"{0}: Less than 3 elements are written! ({1} elements written)", GetErrorMsg(errNum), totalWritten);
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(err));
+		throw std::runtime_error(StrUtil::ConvToString(err));
 	}
 
 	return totalWritten;
@@ -283,8 +277,7 @@ size_t xBinaryWriter::Write( BinaryTypeRef D1, BinaryTypeRef D2, BinaryTypeRef D
 	{
 		errNum = ELMAX_WRITE_ERROR;
 		err = StrUtil::Format(L"{0}: Less than 4 elements are written! ({1} elements written)", GetErrorMsg(errNum), totalWritten);
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(err));
+		throw std::runtime_error(StrUtil::ConvToString(err));
 	}
 
 	return totalWritten;
@@ -366,8 +359,7 @@ size_t xBinaryWriter::Write( BinaryTypeRef D1, BinaryTypeRef D2, BinaryTypeRef D
 	{
 		errNum = ELMAX_WRITE_ERROR;
 		err = StrUtil::Format(L"{0}: Less than 5 elements are written! ({1} elements written)", GetErrorMsg(errNum), totalWritten);
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(err));
+		throw std::runtime_error(StrUtil::ConvToString(err));
 	}
 
 	return totalWritten;
@@ -464,8 +456,7 @@ size_t xBinaryWriter::Write( BinaryTypeRef D1, BinaryTypeRef D2, BinaryTypeRef D
 	{
 		errNum = ELMAX_WRITE_ERROR;
 		err = StrUtil::Format(L"{0}: Less than 6 elements are written! ({1} elements written)", GetErrorMsg(errNum), totalWritten);
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(err));
+		throw std::runtime_error(StrUtil::ConvToString(err));
 	}
 
 	return totalWritten;
@@ -574,8 +565,7 @@ size_t xBinaryWriter::Write( BinaryTypeRef D1, BinaryTypeRef D2, BinaryTypeRef D
 	{
 		errNum = ELMAX_WRITE_ERROR;
 		err = StrUtil::Format(L"{0}: Less than 7 elements are written! ({1} elements written)", GetErrorMsg(errNum), totalWritten);
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(err));
+		throw std::runtime_error(StrUtil::ConvToString(err));
 	}
 
 	return totalWritten;
@@ -698,8 +688,7 @@ size_t xBinaryWriter::Write( BinaryTypeRef D1, BinaryTypeRef D2, BinaryTypeRef D
 	{
 		errNum = ELMAX_WRITE_ERROR;
 		err = StrUtil::Format(L"{0}: Less than 8 elements are written! ({1} elements written)", GetErrorMsg(errNum), totalWritten);
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(err));
+		throw std::runtime_error(StrUtil::ConvToString(err));
 	}
 
 	return totalWritten;
@@ -835,8 +824,7 @@ size_t xBinaryWriter::Write( BinaryTypeRef D1, BinaryTypeRef D2, BinaryTypeRef D
 	{
 		errNum = ELMAX_WRITE_ERROR;
 		err = StrUtil::Format(L"{0}: Less than 9 elements are written! ({1} elements written)", GetErrorMsg(errNum), totalWritten);
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(err));
+		throw std::runtime_error(StrUtil::ConvToString(err));
 	}
 
 	return totalWritten;
@@ -984,8 +972,7 @@ size_t xBinaryWriter::Write( BinaryTypeRef D1, BinaryTypeRef D2, BinaryTypeRef D
 	{
 		errNum = ELMAX_WRITE_ERROR;
 		err = StrUtil::Format(L"{0}: Less than 10 elements are written! ({1} elements written)", GetErrorMsg(errNum), totalWritten);
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(err));
+		throw std::runtime_error(StrUtil::ConvToString(err));
 	}
 
 	return totalWritten;
@@ -1014,11 +1001,3 @@ void xBinaryWriter::ClearLastError()
 	errNum = 0;
 }
 
-bool xBinaryWriter::EnableException(bool enable)
-{
-	bool prev = enableException;
-
-	enableException = enable;
-
-	return prev;
-}

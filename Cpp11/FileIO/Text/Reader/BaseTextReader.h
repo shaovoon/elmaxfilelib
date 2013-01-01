@@ -29,8 +29,6 @@ public:
 
 	int GetLastError(std::wstring& str);
 	void ClearLastError();
-	bool EnableException(bool enable);
-
 
 protected:
 	bool FileToContents( 
@@ -53,7 +51,6 @@ protected:
 	std::wstring err;
 	int errNum;
 
-	bool enableException;
 	bool hasBOM;
 
 private:

@@ -60,8 +60,6 @@ public:
 	int GetLastError(std::wstring& msg);
 	void ClearLastError();
 
-	bool EnableException(bool enable);
-
 private:
 	xBinaryReader(const xBinaryReader&) {}
 	xBinaryReader& operator=(const xBinaryReader& other) { return *this; }
@@ -69,7 +67,6 @@ private:
 	FILE* fp;
 	std::wstring err;
 	int errNum;
-	bool enableException;
 };
 
 }

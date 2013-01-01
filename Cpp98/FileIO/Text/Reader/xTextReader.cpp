@@ -532,11 +532,3 @@ void xTextReader::ClearLastError()
 	}
 }
 
-bool xTextReader::EnableException(bool enable)
-{
-	bool prev = enableException;
-
-	enableException = enable;
-
-	return prev;
-}

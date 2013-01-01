@@ -71,8 +71,7 @@ bool UnicodeReader::Open(const std::wstring& file)
 	{
 		errNum = ELMAX_FILE_NOT_OPENED;
 		err = GetErrorMsg(errNum);
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(file)+ ": file cannot be opened!");
+		throw std::runtime_error(StrUtil::ConvToString(file)+ ": file cannot be opened!");
 	}
 
 	ReadBOM();
@@ -94,8 +93,7 @@ bool UnicodeReader::Read( std::wstring& text, size_t len )
 		std::wstring str = StrUtil::Format(L": Read {0} bytes out of {1} required!", lenRead, len);
 		err = GetErrorMsg(errNum) + str;
 
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(err));
+		throw std::runtime_error(StrUtil::ConvToString(err));
 
 		return false;
 	}
@@ -164,8 +162,7 @@ bool UnicodeReader::ReadAll( std::wstring& text )
 		std::wstring str = StrUtil::Format(L": Read {0} bytes out of {1} required!", lenRead, size);
 		err = GetErrorMsg(errNum) + str;
 
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(err));
+		throw std::runtime_error(StrUtil::ConvToString(err));
 
 		return false;
 	}

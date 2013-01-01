@@ -29,7 +29,6 @@ public:
 
 	int GetLastError(std::wstring& str);
 	void ClearLastError();
-	bool EnableException(bool enable);
 
 
 protected:
@@ -53,7 +52,6 @@ protected:
 	std::wstring err;
 	int errNum;
 
-	bool enableException;
 	bool hasBOM;
 
 private:

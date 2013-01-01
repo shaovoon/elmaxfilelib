@@ -1,0 +1,14 @@
+﻿Build started 1/1/2013 12:45:41 PM.
+     1>Project "C:\Users\wong\Documents\GitHub\elmaxfilelib\Cpp11\UnitTest\UnitTest.vcxproj" on node 2 (Build target(s)).
+     1>CTP_Warning:
+         'Microsoft Visual C++ Compiler Nov 2012 CTP' is for testing purposes only.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\wong\Documents\GitHub\elmaxfilelib\Cpp11\Debug\UnitTest.dll" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\UnitTest\lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\wong\Documents\GitHub\elmaxfilelib\Cpp11\Debug\UnitTest.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\wong\Documents\GitHub\elmaxfilelib\Cpp11\Debug\UnitTest.lib" /MACHINE:X86 "/fe:C:\Program Files (x86)\Microsoft Visual C++ Compiler Nov 2012 CTP\\bin\c1xx.dll"  /DLL Debug\stdafx.obj
+         Debug\unittest1.obj
+            Creating library C:\Users\wong\Documents\GitHub\elmaxfilelib\Cpp11\Debug\UnitTest.lib and object C:\Users\wong\Documents\GitHub\elmaxfilelib\Cpp11\Debug\UnitTest.exp
+         UnitTest.vcxproj -> C:\Users\wong\Documents\GitHub\elmaxfilelib\Cpp11\Debug\UnitTest.dll
+     1>Done Building Project "C:\Users\wong\Documents\GitHub\elmaxfilelib\Cpp11\UnitTest\UnitTest.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.45

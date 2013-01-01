@@ -79,8 +79,6 @@ public:
 	int GetLastError(std::wstring& str);
 	void ClearLastError();
 
-	bool EnableException(bool enable);
-
 private:
 	xTextReader(const xTextReader&) {}
 	xTextReader& operator=(const xTextReader& other) { return* this; }
@@ -88,7 +86,6 @@ private:
 	BaseTextReader* pReader;
 	ISplitStrategy* m_pSplitStrategy;
 
-	bool enableException;
 };
 
 }

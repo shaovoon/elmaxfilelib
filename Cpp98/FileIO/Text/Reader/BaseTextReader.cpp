@@ -12,7 +12,6 @@ BaseTextReader::BaseTextReader(void)
 	: fp(NULL)
 	, err(L"")
 	, errNum(0)
-	, enableException(true)
 	, hasBOM(false)
 {
 }
@@ -184,11 +183,3 @@ void BaseTextReader::ClearLastError()
 	errNum = 0;
 }
 
-bool BaseTextReader::EnableException(bool enable)
-{
-	bool prev = enableException;
-
-	enableException = enable;
-
-	return prev;
-}

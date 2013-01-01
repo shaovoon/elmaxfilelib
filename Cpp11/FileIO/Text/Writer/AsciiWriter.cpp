@@ -32,8 +32,7 @@ bool AsciiWriter::Open(const std::wstring& file, FILE_OP op)
 	{
 		errNum = ELMAX_FILE_NOT_OPENED;
 		err = GetErrorMsg(errNum);
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(file)+ ": file cannot be opened!");
+		throw std::runtime_error(StrUtil::ConvToString(file)+ ": file cannot be opened!");
 	}
 
 	return fp != nullptr;
@@ -46,8 +45,7 @@ bool AsciiWriter::Write( const std::wstring& text )
 	{
 		errNum = ELMAX_WRITE_ERROR;
 		err = GetErrorMsg(errNum);
-		if(enableException)
-			throw std::runtime_error("Write error");
+		throw std::runtime_error("Write error");
 	}
 	return ret;
 }
@@ -59,8 +57,7 @@ bool AsciiWriter::WriteLine( const std::wstring& text )
 	{
 		errNum = ELMAX_WRITE_ERROR;
 		err = GetErrorMsg(errNum);
-		if(enableException)
-			throw std::runtime_error("Write error");
+		throw std::runtime_error("Write error");
 	}
 	return ret;
 }

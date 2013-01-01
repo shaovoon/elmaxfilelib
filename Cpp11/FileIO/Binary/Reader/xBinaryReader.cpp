@@ -7,7 +7,6 @@ xBinaryReader::xBinaryReader(void)
 	: fp(nullptr)
 	, err(L"")
 	, errNum(0)
-	, enableException(true)
 {
 }
 
@@ -37,8 +36,7 @@ bool xBinaryReader::Open(const std::wstring& file)
 	{
 		errNum = ELMAX_FILE_NOT_OPENED;
 		err = GetErrorMsg(errNum);
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(file)+ ": file cannot be opened!");
+		throw std::runtime_error(StrUtil::ConvToString(file)+ ": file cannot be opened!");
 	}
 
 	return fp != nullptr;
@@ -54,8 +52,7 @@ bool xBinaryReader::Open(const std::string& file)
 	{
 		errNum = ELMAX_FILE_NOT_OPENED;
 		err = GetErrorMsg(errNum);
-		if(enableException)
-			throw std::runtime_error(file+ ": file cannot be opened!");
+		throw std::runtime_error(file+ ": file cannot be opened!");
 	}
 
 	return fp != nullptr;
@@ -111,11 +108,3 @@ void xBinaryReader::ClearLastError()
 	errNum = 0;
 }
 
-bool xBinaryReader::EnableException(bool enable)
-{
-	bool prev = enableException;
-
-	enableException = enable;
-
-	return prev;
-}

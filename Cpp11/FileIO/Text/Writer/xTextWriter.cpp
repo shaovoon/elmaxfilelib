@@ -114,11 +114,3 @@ void xTextWriter::ClearLastError()
 	}
 }
 
-bool xTextWriter::EnableException(bool enable)
-{
-	bool prev = enableException;
-
-	enableException = enable;
-
-	return prev;
-}

@@ -7,7 +7,6 @@ xBinaryReader::xBinaryReader(void)
 	: fp(NULL)
 	, err(L"")
 	, errNum(0)
-	, enableException(true)
 {
 }
 
@@ -37,8 +36,7 @@ bool xBinaryReader::Open(const std::wstring& file)
 	{
 		errNum = ELMAX_FILE_NOT_OPENED;
 		err = GetErrorMsg(errNum);
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(file)+ ": file cannot be opened!");
+		throw std::runtime_error(StrUtil::ConvToString(file)+ ": file cannot be opened!");
 	}
 
 	return fp != NULL;
@@ -54,8 +52,7 @@ bool xBinaryReader::Open(const std::string& file)
 	{
 		errNum = ELMAX_FILE_NOT_OPENED;
 		err = GetErrorMsg(errNum);
-		if(enableException)
-			throw std::runtime_error(file+ ": file cannot be opened!");
+		throw std::runtime_error(file+ ": file cannot be opened!");
 	}
 
 	return fp != NULL;
@@ -113,8 +110,7 @@ size_t xBinaryReader::Read( BinaryTypeReadRef D1 )
 	{
 		errNum = ELMAX_READ_ERROR;
 		err = StrUtil::Format(L"{0}: Less than 1 elements are read! ({1} elements read)", GetErrorMsg(errNum), totalRead);
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(err));
+		throw std::runtime_error(StrUtil::ConvToString(err));
 	}
 
 	return totalRead;
@@ -159,8 +155,7 @@ size_t xBinaryReader::Read( BinaryTypeReadRef D1, BinaryTypeReadRef D2 )
 	{
 		errNum = ELMAX_READ_ERROR;
 		err = StrUtil::Format(L"{0}: Less than 2 elements are read! ({1} elements read)", GetErrorMsg(errNum), totalRead);
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(err));
+		throw std::runtime_error(StrUtil::ConvToString(err));
 	}
 
 	return totalRead;
@@ -220,8 +215,7 @@ size_t xBinaryReader::Read( BinaryTypeReadRef D1, BinaryTypeReadRef D2, BinaryTy
 	{
 		errNum = ELMAX_READ_ERROR;
 		err = StrUtil::Format(L"{0}: Less than 3 elements are read! ({1} elements read)", GetErrorMsg(errNum), totalRead);
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(err));
+		throw std::runtime_error(StrUtil::ConvToString(err));
 	}
 
 	return totalRead;
@@ -294,8 +288,7 @@ size_t xBinaryReader::Read( BinaryTypeReadRef D1, BinaryTypeReadRef D2, BinaryTy
 	{
 		errNum = ELMAX_READ_ERROR;
 		err = StrUtil::Format(L"{0}: Less than 4 elements are read! ({1} elements read)", GetErrorMsg(errNum), totalRead);
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(err));
+		throw std::runtime_error(StrUtil::ConvToString(err));
 	}
 
 	return totalRead;
@@ -382,8 +375,7 @@ size_t xBinaryReader::Read( BinaryTypeReadRef D1, BinaryTypeReadRef D2, BinaryTy
 	{
 		errNum = ELMAX_READ_ERROR;
 		err = StrUtil::Format(L"{0}: Less than 5 elements are read! ({1} elements read)", GetErrorMsg(errNum), totalRead);
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(err));
+		throw std::runtime_error(StrUtil::ConvToString(err));
 	}
 
 	return totalRead;
@@ -486,8 +478,7 @@ size_t xBinaryReader::Read( BinaryTypeReadRef D1, BinaryTypeReadRef D2, BinaryTy
 	{
 		errNum = ELMAX_READ_ERROR;
 		err = StrUtil::Format(L"{0}: Less than 6 elements are read! ({1} elements read)", GetErrorMsg(errNum), totalRead);
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(err));
+		throw std::runtime_error(StrUtil::ConvToString(err));
 	}
 
 	return totalRead;
@@ -603,8 +594,7 @@ size_t xBinaryReader::Read( BinaryTypeReadRef D1, BinaryTypeReadRef D2, BinaryTy
 	{
 		errNum = ELMAX_READ_ERROR;
 		err = StrUtil::Format(L"{0}: Less than 7 elements are read! ({1} elements read)", GetErrorMsg(errNum), totalRead);
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(err));
+		throw std::runtime_error(StrUtil::ConvToString(err));
 	}
 
 	return totalRead;
@@ -734,8 +724,7 @@ size_t xBinaryReader::Read( BinaryTypeReadRef D1, BinaryTypeReadRef D2, BinaryTy
 	{
 		errNum = ELMAX_READ_ERROR;
 		err = StrUtil::Format(L"{0}: Less than 8 elements are read! ({1} elements read)", GetErrorMsg(errNum), totalRead);
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(err));
+		throw std::runtime_error(StrUtil::ConvToString(err));
 	}
 
 	return totalRead;
@@ -880,8 +869,7 @@ size_t xBinaryReader::Read( BinaryTypeReadRef D1, BinaryTypeReadRef D2, BinaryTy
 	{
 		errNum = ELMAX_READ_ERROR;
 		err = StrUtil::Format(L"{0}: Less than 9 elements are read! ({1} elements read)", GetErrorMsg(errNum), totalRead);
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(err));
+		throw std::runtime_error(StrUtil::ConvToString(err));
 	}
 
 	return totalRead;
@@ -1039,8 +1027,7 @@ size_t xBinaryReader::Read( BinaryTypeReadRef D1, BinaryTypeReadRef D2, BinaryTy
 	{
 		errNum = ELMAX_READ_ERROR;
 		err = StrUtil::Format(L"{0}: Less than 10 elements are read! ({1} elements read)", GetErrorMsg(errNum), totalRead);
-		if(enableException)
-			throw std::runtime_error(StrUtil::ConvToString(err));
+		throw std::runtime_error(StrUtil::ConvToString(err));
 	}
 
 	return totalRead;
@@ -1069,11 +1056,3 @@ void xBinaryReader::ClearLastError()
 	errNum = 0;
 }
 
-bool xBinaryReader::EnableException(bool enable)
-{
-	bool prev = enableException;
-
-	enableException = enable;
-
-	return prev;
-}

@@ -59,8 +59,6 @@ public:
 	int GetLastError(std::wstring& str);
 	void ClearLastError();
 
-	bool EnableException(bool enable);
-
 private:
 	xTextWriter(const xTextWriter&) {}
 	xTextWriter& operator=(const xTextWriter& other) { return *this; }
@@ -68,7 +66,6 @@ private:
 	BaseTextWriter* pWriter;
 	bool BOMWritten;
 
-	bool enableException;
 };
 
 }
