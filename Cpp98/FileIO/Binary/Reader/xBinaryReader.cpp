@@ -36,7 +36,6 @@ bool xBinaryReader::Open(const std::wstring& file)
 	{
 		errNum = ELMAX_FILE_NOT_OPENED;
 		err = GetErrorMsg(errNum);
-		throw std::runtime_error(StrUtil::ConvToString(file)+ ": file cannot be opened!");
 	}
 
 	return fp != NULL;
@@ -52,7 +51,6 @@ bool xBinaryReader::Open(const std::string& file)
 	{
 		errNum = ELMAX_FILE_NOT_OPENED;
 		err = GetErrorMsg(errNum);
-		throw std::runtime_error(file+ ": file cannot be opened!");
 	}
 
 	return fp != NULL;

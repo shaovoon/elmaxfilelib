@@ -32,7 +32,6 @@ bool AsciiWriter::Open(const std::wstring& file, FILE_OP op)
 	{
 		errNum = ELMAX_FILE_NOT_OPENED;
 		err = GetErrorMsg(errNum);
-		throw std::runtime_error(StrUtil::ConvToString(file)+ ": file cannot be opened!");
 	}
 
 	return fp != NULL;

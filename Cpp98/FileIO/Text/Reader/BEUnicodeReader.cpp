@@ -72,7 +72,6 @@ bool BEUnicodeReader::Open(const std::wstring& file)
 	{
 		errNum = ELMAX_FILE_NOT_OPENED;
 		err = GetErrorMsg(errNum);
-		throw std::runtime_error(StrUtil::ConvToString(file)+ ": file cannot be opened!");
 	}
 
 	ReadBOM();

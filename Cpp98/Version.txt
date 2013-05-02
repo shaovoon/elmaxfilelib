@@ -1,3 +1,7 @@
+Version 1.0.5
++ File Open does not throw runtime exception now. Please rely on the returned boolean to check if file is opened successfully.
+
+
 Version 1.0.4
 + Automatically remove the return carriage (\r) when reading a Windows text file under Linux. Added 6 unit test to test this capability.
 
