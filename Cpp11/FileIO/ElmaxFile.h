@@ -1,25 +1,25 @@
 #pragma once
 
-#include "../FileIO/Common/Common.h"
+#include "Common/Common.h"
 
-#include "../FileIO/Text/Writer/AsciiWriter.h"
-#include "../FileIO/Text/Reader/AsciiReader.h"
+#include "Text/Writer/AsciiWriter.h"
+#include "Text/Reader/AsciiReader.h"
 
-#include "../FileIO/Text/Writer/UnicodeWriter.h"
-#include "../FileIO/Text/Reader/UnicodeReader.h"
+#include "Text/Writer/UnicodeWriter.h"
+#include "Text/Reader/UnicodeReader.h"
 
-#include "../FileIO/Text/Writer/BEUnicodeWriter.h"
-#include "../FileIO/Text/Reader/BEUnicodeReader.h"
+#include "Text/Writer/BEUnicodeWriter.h"
+#include "Text/Reader/BEUnicodeReader.h"
 
-#include "../FileIO/Text/Writer/UTF8Writer.h"
-#include "../FileIO/Text/Reader/UTF8Reader.h"
+#include "Text/Writer/UTF8Writer.h"
+#include "Text/Reader/UTF8Reader.h"
 
-#include "../FileIO/Text/Utils/StrtokStrategy.h"
+#include "Text/Utils/StrtokStrategy.h"
 
-#include "../FileIO/Binary/Writer/xBinaryWriter.h"
-#include "../FileIO/Binary/Reader/xBinaryReader.h"
+#include "Binary/Writer/xBinaryWriter.h"
+#include "Binary/Reader/xBinaryReader.h"
 
-#include "../FileIO/Text/Writer/xTextWriter.h"
-#include "../FileIO/Text/Reader/xTextReader.h"
+#include "Text/Writer/xTextWriter.h"
+#include "Text/Reader/xTextReader.h"
 
-#include "../FileIO/Text/Utils/StrUtil.h"
+#include "Text/Utils/StrUtil.h"
