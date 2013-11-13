@@ -111,9 +111,9 @@ public:
 
 private:
 	// copy constructor
-	StrArray(const StrArray& other) {}
+	StrArray(const StrArray&) {}
 	// assignment
-	StrArray& operator=(const StrArray& other) { return *this; }
+	StrArray& operator=(const StrArray&) { return *this; }
 
 	char* m_ptr;
 	size_t m_nSize; // number of elements

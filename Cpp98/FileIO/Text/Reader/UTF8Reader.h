@@ -26,7 +26,7 @@ public:
 
 private:
 	UTF8Reader(const UTF8Reader&) {}
-	UTF8Reader& operator=(const UTF8Reader& other) { return* this; }
+	UTF8Reader& operator=(const UTF8Reader&) { return* this; }
 
 	void ReadBOM();
 

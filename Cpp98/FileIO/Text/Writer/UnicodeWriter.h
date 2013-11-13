@@ -21,7 +21,7 @@ public:
 
 private:
 	UnicodeWriter(const UnicodeWriter&) {}
-	UnicodeWriter& operator=(const UnicodeWriter& other) { return *this; }
+	UnicodeWriter& operator=(const UnicodeWriter&) { return *this; }
 
 	bool WriteBOM();
 

@@ -109,9 +109,9 @@ public:
 	}
 private:
 	// copy constructor
-	WStrArray(const WStrArray& other) {}
+	WStrArray(const WStrArray&) {}
 	// assignment
-	WStrArray& operator=(const WStrArray& other) { return *this; }
+	WStrArray& operator=(const WStrArray&) { return *this; }
 
 	wchar_t* m_ptr;
 	size_t m_nSize;

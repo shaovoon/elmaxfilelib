@@ -27,7 +27,7 @@ public:
 
 private:
 	AsciiReader(const AsciiReader&) {}
-	AsciiReader& operator=(const AsciiReader& other) { return* this; }
+	AsciiReader& operator=(const AsciiReader&) { return* this; }
 
 	static std::wstring AsciiToWStr(const std::string& str);
 

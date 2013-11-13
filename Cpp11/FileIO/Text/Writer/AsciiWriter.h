@@ -21,7 +21,7 @@ public:
 
 private:
 	AsciiWriter(const AsciiWriter&) {}
-	AsciiWriter& operator=(const AsciiWriter& other) { return *this; }
+	AsciiWriter& operator=(const AsciiWriter&) { return *this; }
 
 	bool Write( const wchar_t* text, size_t nBufLen );
 

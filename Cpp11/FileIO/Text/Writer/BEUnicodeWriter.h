@@ -20,7 +20,7 @@ public:
 
 private:
 	BEUnicodeWriter(const BEUnicodeWriter&) {}
-	BEUnicodeWriter& operator=(const BEUnicodeWriter& other) { return *this; }
+	BEUnicodeWriter& operator=(const BEUnicodeWriter&) { return *this; }
 
 	bool WriteBOM();
 

@@ -20,7 +20,7 @@ public:
 
 private:
 	UTF8Writer(const UTF8Writer&) {}
-	UTF8Writer& operator=(const UTF8Writer& other) { return *this; }
+	UTF8Writer& operator=(const UTF8Writer&) { return *this; }
 
 	bool WriteBOM();
 

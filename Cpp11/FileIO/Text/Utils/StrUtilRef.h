@@ -13,7 +13,7 @@ public:
 	StrUtilRef(void);
 	~StrUtilRef(void);
 
-	static std::wstring Format( std::wstring fmt, size_t index )
+	static std::wstring Format( std::wstring fmt, size_t )
 	{
 		return fmt;
 	}

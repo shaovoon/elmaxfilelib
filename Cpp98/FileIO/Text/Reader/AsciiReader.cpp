@@ -21,7 +21,7 @@ AsciiReader::~AsciiReader(void)
 	Close();
 }
 
-bool AsciiReader::IsValid(const std::wstring& file)
+bool AsciiReader::IsValid(const std::wstring&)
 {
 	return true;
 }

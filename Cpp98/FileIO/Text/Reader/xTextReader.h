@@ -83,7 +83,7 @@ public:
 
 private:
 	xTextReader(const xTextReader&) {}
-	xTextReader& operator=(const xTextReader& other) { return* this; }
+	xTextReader& operator=(const xTextReader&) { return* this; }
 
 	BaseTextReader* pReader;
 	ISplitStrategy* m_pSplitStrategy;

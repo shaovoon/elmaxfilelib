@@ -80,7 +80,7 @@ public:
 
 private:
 	xTextWriter(const xTextWriter&) {}
-	xTextWriter& operator=(const xTextWriter& other) { return *this; }
+	xTextWriter& operator=(const xTextWriter&) { return *this; }
 
 	BaseTextWriter* pWriter;
 	bool BOMWritten;

@@ -66,8 +66,7 @@ DataType::DataType( const double& d )
 
 DataType::DataType( const std::string& s )
 {
-	BaseConverter conv;
-	conv.SetString(m_str, s);
+	BaseConverter::SetString(m_str, s);
 }
 
 DataType::DataType( const std::wstring& ws )
@@ -77,8 +76,7 @@ DataType::DataType( const std::wstring& ws )
 
 DataType::DataType( const char* pc )
 {
-	BaseConverter conv;
-	conv.SetString(m_str, pc);
+	BaseConverter::SetString(m_str, pc);
 }
 
 DataType::DataType( const wchar_t* pwc )

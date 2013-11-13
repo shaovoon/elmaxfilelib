@@ -26,7 +26,7 @@ public:
 
 private:
 	UnicodeReader(const UnicodeReader&) {}
-	UnicodeReader& operator=(const UnicodeReader& other) { return* this; }
+	UnicodeReader& operator=(const UnicodeReader&) { return* this; }
 
 	void ReadBOM();
 	

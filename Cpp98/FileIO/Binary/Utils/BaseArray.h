@@ -144,9 +144,9 @@ public:
 
 private:
 	// copy constructor
-	BaseArray(const BaseArray& other) {}
+	BaseArray(const BaseArray&) {}
 	// assignment
-	BaseArray& operator=(const BaseArray& other) { return *this; }
+	BaseArray& operator=(const BaseArray&) { return *this; }
 
 	char* m_ptr;
 	size_t m_nElemSize; // element size

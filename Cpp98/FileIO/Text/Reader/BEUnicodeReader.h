@@ -25,7 +25,7 @@ public:
 
 private:
 	BEUnicodeReader(const BEUnicodeReader&) {}
-	BEUnicodeReader& operator=(const BEUnicodeReader& other) { return* this; }
+	BEUnicodeReader& operator=(const BEUnicodeReader&) { return* this; }
 
 	static void ConvToLittleEndian(wchar_t* p, size_t size);
 

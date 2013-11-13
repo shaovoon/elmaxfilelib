@@ -55,7 +55,7 @@ public:
 
 private:
 	xBinaryWriter(const xBinaryWriter&) {}
-	xBinaryWriter& operator=(const xBinaryWriter& other) { return* this; }
+	xBinaryWriter& operator=(const xBinaryWriter&) { return* this; }
 
 	FILE* fp;
 	std::wstring err;

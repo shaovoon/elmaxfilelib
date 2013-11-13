@@ -62,7 +62,7 @@ public:
 
 private:
 	xBinaryReader(const xBinaryReader&) {}
-	xBinaryReader& operator=(const xBinaryReader& other) { return *this; }
+	xBinaryReader& operator=(const xBinaryReader&) { return *this; }
 
 	FILE* fp;
 	std::wstring err;
