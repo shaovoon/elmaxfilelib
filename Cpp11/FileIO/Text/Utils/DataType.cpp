@@ -1,5 +1,6 @@
 #include "DataType.h"
 #include "../../Common/BaseConverter.h"
+#include <boost/lexical_cast.hpp>
 
 using namespace Elmax;
 
@@ -9,58 +10,58 @@ DataType::~DataType(void)
 
 DataType::DataType( short i )
 {
-	BaseConverter conv;
-	conv.SetInt16(m_str, i);
+	std::string temp = boost::lexical_cast<std::string>(i);
+	m_str = BaseConverter::ConvToString(temp);
 }
 
 DataType::DataType( unsigned short ui )
 {
-	BaseConverter conv;
-	conv.SetUInt16(m_str, ui);
+	std::string temp = boost::lexical_cast<std::string>(ui);
+	m_str = BaseConverter::ConvToString(temp);
 }
 
 DataType::DataType( int i )
 {
-	BaseConverter conv;
-	conv.SetInt32(m_str, i);
+	std::string temp = boost::lexical_cast<std::string>(i);
+	m_str = BaseConverter::ConvToString(temp);
 }
 
 DataType::DataType( unsigned int ui )
 {
-	BaseConverter conv;
-	conv.SetUInt32(m_str, ui);
+	std::string temp = boost::lexical_cast<std::string>(ui);
+	m_str = BaseConverter::ConvToString(temp);
 }
 
 #ifdef __APPLE__
 DataType::DataType( size_t ui )
 {
-	BaseConverter conv;
-	conv.SetSizeT(m_str, ui);
+	std::string temp = boost::lexical_cast<std::string>(ui);
+	m_str = BaseConverter::ConvToString(temp);
 }
 #endif
 
 DataType::DataType( const ELMAX_INT64& i64 )
 {
-	BaseConverter conv;
-	conv.SetInt64(m_str, i64);
+	std::string temp = boost::lexical_cast<std::string>(i64);
+	m_str = BaseConverter::ConvToString(temp);
 }
 
 DataType::DataType( const unsigned ELMAX_INT64& ui64 )
 {
-	BaseConverter conv;
-	conv.SetUInt64(m_str, ui64);
+	std::string temp = boost::lexical_cast<std::string>(ui64);
+	m_str = BaseConverter::ConvToString(temp);
 }
 
 DataType::DataType( float f )
 {
-	BaseConverter conv;
-	conv.SetFloat(m_str, f);
+	std::string temp = boost::lexical_cast<std::string>(f);
+	m_str = BaseConverter::ConvToString(temp);
 }
 
 DataType::DataType( const double& d )
 {
-	BaseConverter conv;
-	conv.SetDouble(m_str, d);
+	std::string temp = boost::lexical_cast<std::string>(d);
+	m_str = BaseConverter::ConvToString(temp);
 }
 
 DataType::DataType( const std::string& s )
@@ -87,14 +88,14 @@ DataType::DataType( const wchar_t* pwc )
 
 DataType::DataType( char c )
 {
-	BaseConverter conv;
-	conv.SetInt8(m_str, c);
+	std::string temp = boost::lexical_cast<std::string>(c);
+	m_str = BaseConverter::ConvToString(temp);
 }
 
 DataType::DataType( unsigned char c )
 {
-	BaseConverter conv;
-	conv.SetUInt8(m_str, c);
+	std::string temp = boost::lexical_cast<std::string>(c);
+	m_str = BaseConverter::ConvToString(temp);
 }
 
 DataType::DataType( wchar_t wc )

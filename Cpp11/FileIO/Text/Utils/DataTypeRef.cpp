@@ -5,6 +5,8 @@
 #include "DataTypeRef.h"
 #include "../../Common/BaseConverter.h"
 #include "../../Common/Common.h"
+#include <boost/lexical_cast.hpp>
+
 using namespace Elmax;
 
 DataTypeRef::~DataTypeRef(void)
@@ -18,27 +20,76 @@ bool DataTypeRef::ConvStrToType( const std::wstring& str )
 	switch( m_type )
 	{
 	case DTR_INT:
-		conv.GetInt32(str, *(m_ptr.pi));
+		try
+		{
+			*(m_ptr.pi) = boost::lexical_cast<int>(BaseConverter::ConvToString(str));
+		}
+		catch (boost::bad_lexical_cast &)
+		{
+			*(m_ptr.pi) = -1;
+		}
 		break;
 	case DTR_UINT:
-		conv.GetUInt32(str, *(m_ptr.pui));
+		try
+		{
+			*(m_ptr.pui) = boost::lexical_cast<unsigned int>(BaseConverter::ConvToString(str));
+		}
+		catch (boost::bad_lexical_cast &)
+		{
+			*(m_ptr.pui) = 0;
+		}
 		break;
 #ifdef __APPLE__
 	case DTR_SIZE_T:
-		conv.GetSizeT(str, *(m_ptr.psizet));
+		try
+		{
+			*(m_ptr.psizet) = boost::lexical_cast<size_t>(BaseConverter::ConvToString(str));
+		}
+		catch (boost::bad_lexical_cast &)
+		{
+			*(m_ptr.psizet) = 0;
+		}
 		break;
 #endif
 	case DTR_SHORT:
-		conv.GetInt16(str, *(m_ptr.psi));
+		try
+		{
+			*(m_ptr.psi) = boost::lexical_cast<short>(BaseConverter::ConvToString(str));
+		}
+		catch (boost::bad_lexical_cast &)
+		{
+			*(m_ptr.psi) = -1;
+		}
 		break;
 	case DTR_USHORT:
-		conv.GetUInt16(str, *(m_ptr.pusi));
+		try
+		{
+			*(m_ptr.pusi) = boost::lexical_cast<unsigned short>(BaseConverter::ConvToString(str));
+		}
+		catch (boost::bad_lexical_cast &)
+		{
+			*(m_ptr.pusi) = 0;
+		}
 		break;
 	case DTR_FLOAT:
-		conv.GetFloat(str, *(m_ptr.pf));
+		try
+		{
+			*(m_ptr.pf) = boost::lexical_cast<float>(BaseConverter::ConvToString(str));
+		}
+		catch (boost::bad_lexical_cast &)
+		{
+			*(m_ptr.pf) = 0.0f;
+		}
 		break;
 	case DTR_DOUBLE:
-		conv.GetDouble(str, *(m_ptr.pd));
+		try
+		{
+			*(m_ptr.pd) = boost::lexical_cast<double>(BaseConverter::ConvToString(str));
+		}
+		catch (boost::bad_lexical_cast &)
+		{
+			*(m_ptr.pd) = 0.0;
+		}
 		break;
 	case DTR_STR:
 		{
@@ -68,16 +119,44 @@ bool DataTypeRef::ConvStrToType( const std::wstring& str )
 		*(m_ptr.pws) = str;
 		break;
 	case DTR_INT64:
-		conv.GetInt64(str, *(m_ptr.pi64));
+		try
+		{
+			*(m_ptr.pi64) = boost::lexical_cast<__int64>(BaseConverter::ConvToString(str));
+		}
+		catch (boost::bad_lexical_cast &)
+		{
+			*(m_ptr.pi64) = -1;
+		}
 		break;
 	case DTR_UINT64:
-		conv.GetUInt64(str, *(m_ptr.pui64));
+		try
+		{
+			*(m_ptr.pui64) = boost::lexical_cast<unsigned __int64>(BaseConverter::ConvToString(str));
+		}
+		catch (boost::bad_lexical_cast &)
+		{
+			*(m_ptr.pui64) = 0;
+		}
 		break;
 	case DTR_CHAR:
-		conv.GetInt8(str, *(m_ptr.pc));
+		try
+		{
+			*(m_ptr.pc) = boost::lexical_cast<char>(BaseConverter::ConvToString(str));
+		}
+		catch (boost::bad_lexical_cast &)
+		{
+			*(m_ptr.pc) = '-';
+		}
 		break;
 	case DTR_UCHAR:
-		conv.GetUInt8(str, *(m_ptr.puc));
+		try
+		{
+			*(m_ptr.puc) = boost::lexical_cast<char>(BaseConverter::ConvToString(str));
+		}
+		catch (boost::bad_lexical_cast &)
+		{
+			*(m_ptr.puc) = '-';
+		}
 		break;
 	case DTR_WCHAR:
 		if( str.size() > 0 )

@@ -40,7 +40,6 @@ bool DataTypeRef::ConvStrToType( const std::wstring& str )
 		break;
 #ifdef __APPLE__
 	case DTR_SIZE_T:
-		conv.GetSizeT(str, *(m_ptr.psizet));
 		try
 		{
 			*(m_ptr.psizet) = boost::lexical_cast<size_t>(BaseConverter::ConvToString(str));
