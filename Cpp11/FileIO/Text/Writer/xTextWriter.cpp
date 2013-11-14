@@ -70,7 +70,7 @@ bool xTextWriter::WriteLine()
 {
 	if(pWriter!=nullptr)
 	{
-		return pWriter->WriteLine(L"");
+		return pWriter->Write(L"\n");
 	}
 
 	return false;

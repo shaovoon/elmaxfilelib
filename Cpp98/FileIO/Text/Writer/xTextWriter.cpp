@@ -185,7 +185,7 @@ bool xTextWriter::WriteLine()
 {
 	if(pWriter!=NULL)
 	{
-		return pWriter->WriteLine(L"");
+		return pWriter->Write(L"\n");
 	}
 
 	return false;
