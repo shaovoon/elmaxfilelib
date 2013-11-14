@@ -5,8 +5,8 @@
 CPP      = g++-4.7
 CC       = gcc-4.7
 # WINDRES  = windres.exe
-OBJ      = Binary/Reader/xBinaryReader.o Binary/Utils/BaseArray.o Binary/Utils/BinaryTypeReadRef.o Binary/Utils/BinaryTypeRef.o Binary/Utils/StrArray.o Binary/Utils/WStrArray.o Binary/Writer/xBinaryWriter.o Text/Reader/AsciiReader.o Text/Reader/BaseTextReader.o Text/Reader/BEUnicodeReader.o Text/Reader/UnicodeReader.o Text/Reader/UTF8Reader.o Text/Reader/xTextReader.o Text/Utils/DataType.o Text/Utils/DataTypeRef.o Text/Utils/SplitStrategy.o Text/Utils/StrtokStrategy.o Text/Utils/StrUtil.o Text/Utils/StrUtilRef.o Text/Writer/AsciiWriter.o Text/Writer/BaseTextWriter.o Text/Writer/BEUnicodeWriter.o Text/Writer/UnicodeWriter.o Text/Writer/UTF8Writer.o Text/Writer/xTextWriter.o Common/BaseConverter.o Common/Common.o Common/Enumeration.o Common/RAII_Array.o Linux/LinuxOperation.o UTF16Utils/utf16.o $(RES)
-LINKOBJ  = Binary/Reader/xBinaryReader.o Binary/Utils/BaseArray.o Binary/Utils/BinaryTypeReadRef.o Binary/Utils/BinaryTypeRef.o Binary/Utils/StrArray.o Binary/Utils/WStrArray.o Binary/Writer/xBinaryWriter.o Text/Reader/AsciiReader.o Text/Reader/BaseTextReader.o Text/Reader/BEUnicodeReader.o Text/Reader/UnicodeReader.o Text/Reader/UTF8Reader.o Text/Reader/xTextReader.o Text/Utils/DataType.o Text/Utils/DataTypeRef.o Text/Utils/SplitStrategy.o Text/Utils/StrtokStrategy.o Text/Utils/StrUtil.o Text/Utils/StrUtilRef.o Text/Writer/AsciiWriter.o Text/Writer/BaseTextWriter.o Text/Writer/BEUnicodeWriter.o Text/Writer/UnicodeWriter.o Text/Writer/UTF8Writer.o Text/Writer/xTextWriter.o Common/BaseConverter.o Common/Common.o Common/Enumeration.o Common/RAII_Array.o Linux/LinuxOperation.o UTF16Utils/utf16.o $(RES)
+OBJ      = Binary/Reader/xBinaryReader.o Binary/Utils/BaseArray.o Binary/Utils/BinaryTypeReadRef.o Binary/Utils/BinaryTypeRef.o Binary/Utils/StrArray.o Binary/Utils/WStrArray.o Binary/Writer/xBinaryWriter.o Text/Stream/istream.o Text/Stream/ostream.o Text/Reader/AsciiReader.o Text/Reader/BaseTextReader.o Text/Reader/BEUnicodeReader.o Text/Reader/UnicodeReader.o Text/Reader/UTF8Reader.o Text/Reader/xTextReader.o Text/Utils/DataType.o Text/Utils/DataTypeRef.o Text/Utils/SplitStrategy.o Text/Utils/StrtokStrategy.o Text/Utils/StrUtil.o Text/Utils/StrUtilRef.o Text/Writer/AsciiWriter.o Text/Writer/BaseTextWriter.o Text/Writer/BEUnicodeWriter.o Text/Writer/UnicodeWriter.o Text/Writer/UTF8Writer.o Text/Writer/xTextWriter.o Common/BaseConverter.o Common/Common.o Common/Enumeration.o Common/RAII_Array.o Linux/LinuxOperation.o UTF16Utils/utf16.o $(RES)
+LINKOBJ  = Binary/Reader/xBinaryReader.o Binary/Utils/BaseArray.o Binary/Utils/BinaryTypeReadRef.o Binary/Utils/BinaryTypeRef.o Binary/Utils/StrArray.o Binary/Utils/WStrArray.o Binary/Writer/xBinaryWriter.o Text/Stream/istream.o Text/Stream/ostream.o Text/Reader/AsciiReader.o Text/Reader/BaseTextReader.o Text/Reader/BEUnicodeReader.o Text/Reader/UnicodeReader.o Text/Reader/UTF8Reader.o Text/Reader/xTextReader.o Text/Utils/DataType.o Text/Utils/DataTypeRef.o Text/Utils/SplitStrategy.o Text/Utils/StrtokStrategy.o Text/Utils/StrUtil.o Text/Utils/StrUtilRef.o Text/Writer/AsciiWriter.o Text/Writer/BaseTextWriter.o Text/Writer/BEUnicodeWriter.o Text/Writer/UnicodeWriter.o Text/Writer/UTF8Writer.o Text/Writer/xTextWriter.o Common/BaseConverter.o Common/Common.o Common/Enumeration.o Common/RAII_Array.o Linux/LinuxOperation.o UTF16Utils/utf16.o $(RES)
 # LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc  
 # INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" 
 # CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" 
@@ -47,6 +47,12 @@ Binary/Utils/WStrArray.o: Binary/Utils/WStrArray.cpp
 
 Binary/Writer/xBinaryWriter.o: Binary/Writer/xBinaryWriter.cpp
 	$(CPP) -c Binary/Writer/xBinaryWriter.cpp -o Binary/Writer/xBinaryWriter.o $(CXXFLAGS)
+
+Text/Stream/istream.o: Text/Stream/istream.cpp
+	$(CPP) -c Text/Stream/istream.cpp -o Text/Stream/istream.o $(CXXFLAGS)
+
+Text/Stream/ostream.o: Text/Stream/ostream.cpp
+	$(CPP) -c Text/Stream/ostream.cpp -o Text/Stream/ostream.o $(CXXFLAGS)
 
 Text/Reader/AsciiReader.o: Text/Reader/AsciiReader.cpp
 	$(CPP) -c Text/Reader/AsciiReader.cpp -o Text/Reader/AsciiReader.o $(CXXFLAGS)

@@ -5,8 +5,8 @@
 CPP      = g++-4.7
 CC       = gcc-4.7
 # WINDRES  = windres.exe
-OBJ      = Assert.o LinuxUnitTest.o $(RES)
-LINKOBJ  = Assert.o LinuxUnitTest.o $(RES)
+OBJ      = Assert.o LinuxUnitTest.o CustomStruct.o $(RES)
+LINKOBJ  = Assert.o LinuxUnitTest.o CustomStruct.o $(RES)
 LIBS     = -static-libgcc ../FileIO/FileLib.a  -g 
 # INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" 
 # CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" 
@@ -25,6 +25,9 @@ clean: clean-custom
 
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o "UnitTest.exe" $(LIBS)
+
+CustomStruct.o: CustomStruct.cpp
+	$(CPP) -c CustomStruct.cpp -o CustomStruct.o $(CXXFLAGS)
 
 Assert.o: Assert.cpp
 	$(CPP) -c Assert.cpp -o Assert.o $(CXXFLAGS)

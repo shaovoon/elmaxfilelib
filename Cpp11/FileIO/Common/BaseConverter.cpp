@@ -409,9 +409,10 @@ bool BaseConverter::IsFloat(const std::wstring& str)
 std::string BaseConverter::ConvToString(const std::wstring& text)
 {
 	std::string str = "";
-	for(size_t i=0; i<text.length(); ++i)
+	for(size_t i=0; i<text.size(); ++i)
 	{
-		str += (char)(text[i]);
+		if(text[i]!=65535)
+			str += (char)(text[i]);
 	}
 
 	return str;
@@ -420,7 +421,7 @@ std::string BaseConverter::ConvToString(const std::wstring& text)
 std::wstring BaseConverter::ConvToString(const std::string& text)
 {
 	std::wstring str = L"";
-	for(size_t i=0; i<text.length(); ++i)
+	for(size_t i=0; i<text.size(); ++i)
 	{
 		str += (wchar_t)(text[i]);
 	}

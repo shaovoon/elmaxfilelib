@@ -38,6 +38,8 @@
 		</Compiler>
 		<Unit filename="Assert.cpp" />
 		<Unit filename="Assert.h" />
+		<Unit filename="CustomStruct.cpp" />
+		<Unit filename="CustomStruct.h" />
 		<Unit filename="LinuxUnitTest.cpp" />
 		<Extensions>
 			<code_completion />

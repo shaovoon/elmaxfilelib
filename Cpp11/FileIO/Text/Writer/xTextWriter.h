@@ -50,7 +50,6 @@ public:
 		}
 
 		return false;
-
 	}
 
 

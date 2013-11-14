@@ -4,6 +4,7 @@
 
 #include <string>
 #include "Assert.h"
+#include "CustomStruct.h"
 
 #include "../FileIO/Common/Common.h"
 
@@ -2376,6 +2377,262 @@ void UnicodeCarriageReturnReadAll()
 
 	reader.Close();
 }
+void TextAsciiStruct()
+{
+	using namespace Elmax;
+	xTextWriter writer;
+	std::wstring file = GetTempPath(L"textAsciiStruct.txt");
+	Assert::AreEqual(true, writer.Open(file, FT_ASCII, NEW), L"File cannot be opened for writing!");
+	int i = 25698;
+	double d = 1254.69;
+	MyStruct my = { 22, 33 };
+	writer.Write(L"{0},{1},{2}", i, my, d);
+	writer.Close();
+
+	xTextReader reader;
+	Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+	bool eof = reader.IsEOF();
+	Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+	if(eof==false)
+	{
+		int i2 = 0;
+		double d2 = 0.0;
+
+		reader.SetDelimiter(L",");
+		MyStruct my2 = { 0, 0 };
+		size_t totalRead = reader.ReadLine(i2, my2, d2);
+		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read");
+		Assert::AreEqual(i, i2, L"Integer values are not the same");
+		Assert::AreEqual(my2.a, my.a, L"MyStruct.a values are not the same");
+		Assert::AreEqual(my2.b, my.b, L"MyStruct.b values are not the same");
+		Assert::AreEqual(d, d2, L"Double values are not the same");
+	}
+	reader.Close();
+}
+void TextAsciiDiffDelimiterStruct()
+{
+	using namespace Elmax;
+	xTextWriter writer;
+	std::wstring file = GetTempPath(L"textAsciiDiffDelimiterStruct.txt");
+	Assert::AreEqual(true, writer.Open(file, FT_ASCII, NEW), L"File cannot be opened for writing!");
+	int i = 25698;
+	double d = 1254.69;
+	DiffDelimiterStruct my = { 22, 33 };
+	writer.Write(L"{0},{1},{2}", i, my, d);
+	writer.Close();
+
+	xTextReader reader;
+	Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+	bool eof = reader.IsEOF();
+	Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+	if(eof==false)
+	{
+		int i2 = 0;
+		double d2 = 0.0;
+
+		reader.SetDelimiter(L",");
+		DiffDelimiterStruct my2 = { 0, 0 };
+		size_t totalRead = reader.ReadLine(i2, my2, d2);
+		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read");
+		Assert::AreEqual(i, i2, L"Integer values are not the same");
+		Assert::AreEqual(my2.a, my.a, L"DiffDelimiterStruct.a values are not the same");
+		Assert::AreEqual(my2.b, my.b, L"DiffDelimiterStruct.b values are not the same");
+		Assert::AreEqual(d, d2, L"Double values are not the same");
+	}
+	reader.Close();
+}
+void TextUnicodeStruct()
+{
+	using namespace Elmax;
+	xTextWriter writer;
+	std::wstring file = GetTempPath(L"textUnicodeStruct.txt");
+	Assert::AreEqual(true, writer.Open(file, FT_UNICODE, NEW), L"File cannot be opened for writing!");
+	int i = 25698;
+	double d = 1254.69;
+	MyStruct my = { 22, 33 };
+	writer.Write(L"{0},{1},{2}", i, my, d);
+	writer.Close();
+
+	xTextReader reader;
+	Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+	bool eof = reader.IsEOF();
+	Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+	if(eof==false)
+	{
+		int i2 = 0;
+		double d2 = 0.0;
+
+		reader.SetDelimiter(L",");
+		MyStruct my2 = { 0, 0 };
+		size_t totalRead = reader.ReadLine(i2, my2, d2);
+		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read");
+		Assert::AreEqual(i, i2, L"Integer values are not the same");
+		Assert::AreEqual(my2.a, my.a, L"MyStruct.a values are not the same");
+		Assert::AreEqual(my2.b, my.b, L"MyStruct.b values are not the same");
+		Assert::AreEqual(d, d2, L"Double values are not the same");
+	}
+	reader.Close();
+}
+void TextUnicodeDiffDelimiterStruct()
+{
+	using namespace Elmax;
+	xTextWriter writer;
+	std::wstring file = GetTempPath(L"textUnicodeDiffDelimiterStruct.txt");
+	Assert::AreEqual(true, writer.Open(file, FT_UNICODE, NEW), L"File cannot be opened for writing!");
+	int i = 25698;
+	double d = 1254.69;
+	DiffDelimiterStruct my = { 22, 33 };
+	writer.Write(L"{0},{1},{2}", i, my, d);
+	writer.Close();
+
+	xTextReader reader;
+	Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+	bool eof = reader.IsEOF();
+	Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+	if(eof==false)
+	{
+		int i2 = 0;
+		double d2 = 0.0;
+
+		reader.SetDelimiter(L",");
+		DiffDelimiterStruct my2 = { 0, 0 };
+		size_t totalRead = reader.ReadLine(i2, my2, d2);
+		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read");
+		Assert::AreEqual(i, i2, L"Integer values are not the same");
+		Assert::AreEqual(my2.a, my.a, L"DiffDelimiterStruct.a values are not the same");
+		Assert::AreEqual(my2.b, my.b, L"DiffDelimiterStruct.b values are not the same");
+		Assert::AreEqual(d, d2, L"Double values are not the same");
+	}
+	reader.Close();
+}
+void TextBEUnicodeStruct()
+{
+	using namespace Elmax;
+	xTextWriter writer;
+	std::wstring file = GetTempPath(L"textBEUnicodeStruct.txt");
+	Assert::AreEqual(true, writer.Open(file, FT_BEUNICODE, NEW), L"File cannot be opened for writing!");
+	int i = 25698;
+	double d = 1254.69;
+	MyStruct my = { 22, 33 };
+	writer.Write(L"{0},{1},{2}", i, my, d);
+	writer.Close();
+
+	xTextReader reader;
+	Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+	bool eof = reader.IsEOF();
+	Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+	if(eof==false)
+	{
+		int i2 = 0;
+		double d2 = 0.0;
+
+		reader.SetDelimiter(L",");
+		MyStruct my2 = { 0, 0 };
+		size_t totalRead = reader.ReadLine(i2, my2, d2);
+		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read");
+		Assert::AreEqual(i, i2, L"Integer values are not the same");
+		Assert::AreEqual(my2.a, my.a, L"MyStruct.a values are not the same");
+		Assert::AreEqual(my2.b, my.b, L"MyStruct.b values are not the same");
+		Assert::AreEqual(d, d2, L"Double values are not the same");
+	}
+	reader.Close();
+}
+void TextBEUnicodeDiffDelimiterStruct()
+{
+	using namespace Elmax;
+	xTextWriter writer;
+	std::wstring file = GetTempPath(L"textBEUnicodeDiffDelimiterStruct.txt");
+	Assert::AreEqual(true, writer.Open(file, FT_BEUNICODE, NEW), L"File cannot be opened for writing!");
+	int i = 25698;
+	double d = 1254.69;
+	DiffDelimiterStruct my = { 22, 33 };
+	writer.Write(L"{0},{1},{2}", i, my, d);
+	writer.Close();
+
+	xTextReader reader;
+	Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+	bool eof = reader.IsEOF();
+	Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+	if(eof==false)
+	{
+		int i2 = 0;
+		double d2 = 0.0;
+
+		reader.SetDelimiter(L",");
+		DiffDelimiterStruct my2 = { 0, 0 };
+		size_t totalRead = reader.ReadLine(i2, my2, d2);
+		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read");
+		Assert::AreEqual(i, i2, L"Integer values are not the same");
+		Assert::AreEqual(my2.a, my.a, L"DiffDelimiterStruct.a values are not the same");
+		Assert::AreEqual(my2.b, my.b, L"DiffDelimiterStruct.b values are not the same");
+		Assert::AreEqual(d, d2, L"Double values are not the same");
+	}
+	reader.Close();
+}
+void TextUTF8Struct()
+{
+	using namespace Elmax;
+	xTextWriter writer;
+	std::wstring file = GetTempPath(L"textUTF8Struct.txt");
+	Assert::AreEqual(true, writer.Open(file, FT_UTF8, NEW), L"File cannot be opened for writing!");
+	int i = 25698;
+	double d = 1254.69;
+	MyStruct my = { 22, 33 };
+	writer.Write(L"{0},{1},{2}", i, my, d);
+	writer.Close();
+
+	xTextReader reader;
+	Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+	bool eof = reader.IsEOF();
+	Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+	if(eof==false)
+	{
+		int i2 = 0;
+		double d2 = 0.0;
+
+		reader.SetDelimiter(L",");
+		MyStruct my2 = { 0, 0 };
+		size_t totalRead = reader.ReadLine(i2, my2, d2);
+		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read");
+		Assert::AreEqual(i, i2, L"Integer values are not the same");
+		Assert::AreEqual(my2.a, my.a, L"MyStruct.a values are not the same");
+		Assert::AreEqual(my2.b, my.b, L"MyStruct.b values are not the same");
+		Assert::AreEqual(d, d2, L"Double values are not the same");
+	}
+	reader.Close();
+}
+void TextUTF8DiffDelimiterStruct()
+{
+	using namespace Elmax;
+	xTextWriter writer;
+	std::wstring file = GetTempPath(L"textUTF8DiffDelimiterStruct.txt");
+	Assert::AreEqual(true, writer.Open(file, FT_UTF8, NEW), L"File cannot be opened for writing!");
+	int i = 25698;
+	double d = 1254.69;
+	DiffDelimiterStruct my = { 22, 33 };
+	writer.Write(L"{0},{1},{2}", i, my, d);
+	writer.Close();
+
+	xTextReader reader;
+	Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+	bool eof = reader.IsEOF();
+	Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+	if(eof==false)
+	{
+		int i2 = 0;
+		double d2 = 0.0;
+
+		reader.SetDelimiter(L",");
+		DiffDelimiterStruct my2 = { 0, 0 };
+		size_t totalRead = reader.ReadLine(i2, my2, d2);
+		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read");
+		Assert::AreEqual(i, i2, L"Integer values are not the same");
+		Assert::AreEqual(my2.a, my.a, L"DiffDelimiterStruct.a values are not the same");
+		Assert::AreEqual(my2.b, my.b, L"DiffDelimiterStruct.b values are not the same");
+		Assert::AreEqual(d, d2, L"Double values are not the same");
+	}
+	reader.Close();
+}
 
 int main(int argc, char* argv[])
 {
@@ -2512,6 +2769,24 @@ int main(int argc, char* argv[])
 		cout<<"UTF8CarriageReturnReadAll"<<endl;
 		UnicodeCarriageReturnReadAll();
 		cout<<"UnicodeCarriageReturnReadAll"<<endl;
+
+		TextAsciiStruct();
+		cout<<"TextAsciiStruct"<<endl;
+		TextAsciiDiffDelimiterStruct();
+		cout<<"TextAsciiDiffDelimiterStruct"<<endl;
+		TextUnicodeStruct();
+		cout<<"TextUnicodeStruct"<<endl;
+		TextUnicodeDiffDelimiterStruct();
+		cout<<"TextUnicodeDiffDelimiterStruct"<<endl;
+
+		TextBEUnicodeStruct();
+		cout<<"TextBEUnicodeStruct"<<endl;
+		TextBEUnicodeDiffDelimiterStruct();
+		cout<<"TextBEUnicodeDiffDelimiterStruct"<<endl;
+		TextUTF8Struct();
+		cout<<"TextUTF8Struct"<<endl;
+		TextUTF8DiffDelimiterStruct();
+		cout<<"TextUTF8DiffDelimiterStruct"<<endl;
 	}
 	catch (std::runtime_error& e)
 	{

@@ -10,8 +10,7 @@
 using namespace Elmax;
 
 xTextReader::xTextReader(void)
-	:	pReader(nullptr),
-		m_pSplitStrategy(nullptr)
+	:	pReader(nullptr)
 {
 }
 

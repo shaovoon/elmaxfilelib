@@ -1,4 +1,5 @@
-Version 1.0.6 (13 Nov 2013)
+Version 1.0.6 (14 Nov 2013)
++ Fixed the error of empty WriteLine not writing newline
 + Data conversion use boost lexical_cast
 
 

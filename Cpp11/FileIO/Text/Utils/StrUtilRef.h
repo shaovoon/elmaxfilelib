@@ -1,8 +1,9 @@
 #pragma once
 
-#include "DataType.h"
+//#include "DataType.h"
 #include "DataTypeRef.h"
 #include "SplitStrategy.h"
+#include "../Stream/ostream.h"
 
 namespace Elmax
 {
@@ -21,8 +22,9 @@ public:
 	template<typename T, typename... Args>
 	static std::wstring Format( std::wstring fmt, size_t index, T& t, Args&... args )
 	{
-		DataType dt(t);
-		std::wstring result = Replace( fmt, index, dt.ToString() );
+		ostream os;
+		os << t;
+		std::wstring result = Replace( fmt, index, os.str() );
 
 		++index;
 

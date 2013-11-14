@@ -1,7 +1,8 @@
 #pragma once
 
 #include "../Utils/SplitStrategy.h"
-#include "../Utils/DataTypeRef.h"
+//#include "../Utils/DataTypeRef.h"
+#include "../Stream/istream.h"
 #include "BaseTextReader.h"
 
 namespace Elmax
@@ -17,22 +18,18 @@ public:
 	bool Open(const std::wstring& file, FILE_TYPE ftype);
 	void Close();
 
-	void SetSplitStrategy( ISplitStrategy* pSplitStrategy )
-	{
-		m_pSplitStrategy = pSplitStrategy;
-	}
-
 	bool IsEOF();
 
-	void ReadArg(std::vector<DataTypeRef*> &)
+	void ReadArg(Elmax::istream &, size_t &)
 	{
 	}
 
 	template<typename T, typename... Args>
-	void ReadArg(std::vector<DataTypeRef*>& vec, T& t, Args&... args)
+	void ReadArg(Elmax::istream& is, size_t& extracted, T& t, Args&... args)
 	{
-		vec.push_back(new DataTypeRef(t));
-		ReadArg(vec, args...);
+		is >> t;
+		++extracted;
+		ReadArg(is, extracted, args...);
 	}
 
 	template<typename... Args>
@@ -45,19 +42,10 @@ public:
 
 			if(b)
 			{
-				std::vector<DataTypeRef*> vec;
-				ReadArg(vec, args...);
-
-				size_t ret = m_pSplitStrategy->Extract(text, vec);
-
-				for(size_t i=0; i<vec.size(); ++i)
-				{
-					delete vec[i];
-				}
-
-				vec.clear();
-
-				return ret;
+				istream is(text, m_delimiter);
+				size_t extracted=0;
+				ReadArg(is, extracted, args...);
+				return extracted;
 			}
 		}
 
@@ -74,23 +62,23 @@ public:
 
 			if(b)
 			{
-				std::vector<DataTypeRef*> vec;
-				ReadArg(vec, args...);
-				
-				size_t ret = m_pSplitStrategy->Extract(text, vec);
+				istream is(text, m_delimiter);
+				size_t extracted=0;
+				ReadArg(is, extracted, args...);
 
-				for(size_t i=0; i<vec.size(); ++i)
-				{
-					delete vec[i];
-				}
-
-				vec.clear();
-
-				return ret;
+				return extracted;
 			}
 		}
 
 		return 0;
+	}
+
+	// return old delimiter
+	std::wstring SetDelimiter(const std::wstring& delimiter)
+	{
+		std::wstring temp  = m_delimiter;
+		m_delimiter = delimiter;
+		return temp;
 	}
 
 	bool ReadAll( std::wstring& text );
@@ -103,8 +91,7 @@ private:
 	xTextReader& operator=(const xTextReader&) { return* this; }
 
 	BaseTextReader* pReader;
-	ISplitStrategy* m_pSplitStrategy;
-
+	std::wstring m_delimiter;
 };
 
 }

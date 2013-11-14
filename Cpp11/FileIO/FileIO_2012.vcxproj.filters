@@ -52,6 +52,9 @@
     <Filter Include="UTF8Utils\utf8">
       <UniqueIdentifier>{22e63ace-baf2-4a43-88fc-116162de2028}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Text\Stream">
+      <UniqueIdentifier>{c9a3d611-bfda-45e2-80a5-05d092f01e28}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -171,6 +174,12 @@
     <ClInclude Include="Common\RAII_Array.h">
       <Filter>Common</Filter>
     </ClInclude>
+    <ClInclude Include="Text\Stream\istream.h">
+      <Filter>Text\Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="Text\Stream\ostream.h">
+      <Filter>Text\Stream</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -268,6 +277,12 @@
     </ClCompile>
     <ClCompile Include="Common\RAII_Array.cpp">
       <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Text\Stream\istream.cpp">
+      <Filter>Text\Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="Text\Stream\ostream.cpp">
+      <Filter>Text\Stream</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
