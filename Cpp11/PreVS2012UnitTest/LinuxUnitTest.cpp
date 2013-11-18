@@ -2787,6 +2787,8 @@ int main(int argc, char* argv[])
 		cout<<"TextUTF8Struct"<<endl;
 		TextUTF8DiffDelimiterStruct();
 		cout<<"TextUTF8DiffDelimiterStruct"<<endl;
+		
+		cout<<"All unit tests passed!"<<endl;
 	}
 	catch (std::runtime_error& e)
 	{

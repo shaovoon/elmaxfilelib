@@ -2066,6 +2066,7 @@ int main(int argc, char* argv[])
 		UTF8ReadAll2();
 		UnicodeReadAll2();
 		BEUnicodeReadAll2();
+		cout<<"All unit tests passed!"<<endl;
 	}
 	catch (std::runtime_error& e)
 	{

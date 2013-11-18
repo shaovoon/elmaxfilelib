@@ -2512,7 +2512,7 @@ int main(int argc, char* argv[])
 		cout<<"UTF8CarriageReturnReadAll"<<endl;
 		UnicodeCarriageReturnReadAll();
 		cout<<"UnicodeCarriageReturnReadAll"<<endl;
-
+		cout<<"All unit tests passed!"<<endl;
 	}
 	catch (std::runtime_error& e)
 	{
