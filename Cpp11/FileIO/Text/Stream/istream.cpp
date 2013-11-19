@@ -35,7 +35,7 @@ istream& istream::operator >> (int& val)
 	process(val);
 	return *this;
 }
-istream& istream::operator >> (__int64& val)
+istream& istream::operator >> (ELMAX_INT64& val)
 {
 	process(val);
 	return *this;
@@ -55,7 +55,7 @@ istream& istream::operator >> (unsigned int& val)
 	process(val);
 	return *this;
 }
-istream& istream::operator >> (unsigned __int64& val)
+istream& istream::operator >> (unsigned ELMAX_INT64& val)
 {
 	process(val);
 	return *this;

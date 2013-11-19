@@ -41,14 +41,14 @@ bool FolderExists(const std::wstring& Path)
 
 std::wstring GetTempPath(const std::wstring& file)
 {
-	std::wstring folder = L"/home/shaovoon/Documents/Scrapped/";
+	std::wstring folder = L"temp/";
 	std::wstring fullpath = folder + file;
 	return fullpath;
 }
 
 std::string GetTempPathA(const std::string& file)
 {
-	std::string folder = "/home/shaovoon/Documents/Scrapped/";
+	std::string folder = "temp/";
 	std::string fullpath = folder + file;
 	return fullpath;
 }

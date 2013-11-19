@@ -42,14 +42,14 @@ bool FolderExists(const std::wstring& Path)
 
 std::wstring GetTempPath(const std::wstring& file)
 {
-	std::wstring folder = L"/home/shaovoon/Documents/Scrapped/";
+	std::wstring folder = L"temp/";
 	std::wstring fullpath = folder + file;
 	return fullpath;
 }
 
 std::string GetTempPathA(const std::string& file)
 {
-	std::string folder = "/home/shaovoon/Documents/Scrapped/";
+	std::string folder = "temp/";
 	std::string fullpath = folder + file;
 	return fullpath;
 }
@@ -881,7 +881,7 @@ void TextAsciiPOD()
 	std::wstring file = GetTempPath(L"textAsciiPOD.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_ASCII, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	writer.Write(L"{0},{1}", i, d);
 	writer.Close();
 
@@ -894,8 +894,7 @@ void TextAsciiPOD()
 		int i2 = 0;
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, d2);
 		Assert::AreEqual((size_t)(2), totalRead, L"2 values are not read!");
 
@@ -913,7 +912,7 @@ void TextUTF8POD()
 	std::wstring file = GetTempPath(L"textUTF8POD.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_UTF8, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	writer.Write(L"{0},{1}", i, d);
 	writer.Close();
 
@@ -926,8 +925,7 @@ void TextUTF8POD()
 		int i2 = 0;
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, d2);
 		Assert::AreEqual((size_t)(2), totalRead, L"2 values are not read!");
 
@@ -945,7 +943,7 @@ void TextUnicodePOD()
 	std::wstring file = GetTempPath(L"textUnicodePOD.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_UNICODE, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	writer.Write(L"{0},{1}", i, d);
 	writer.Close();
 
@@ -958,8 +956,7 @@ void TextUnicodePOD()
 		int i2 = 0;
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, d2);
 		Assert::AreEqual((size_t)(2), totalRead, L"2 values are not read!");
 
@@ -977,7 +974,7 @@ void TextBEUnicodePOD()
 	std::wstring file = GetTempPath(L"textBEUnicodePOD.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_BEUNICODE, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	writer.Write(L"{0},{1}", i, d);
 	writer.Close();
 
@@ -990,8 +987,7 @@ void TextBEUnicodePOD()
 		int i2 = 0;
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, d2);
 		Assert::AreEqual((size_t)(2), totalRead, L"2 values are not read!");
 
@@ -1009,7 +1005,7 @@ void TextAsciiPODWriteLine()
 	std::wstring file = GetTempPath(L"textAsciiPODWriteLine.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_ASCII, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	writer.WriteLine(L"{0},{1}", i, d);
 	writer.Close();
 
@@ -1022,8 +1018,7 @@ void TextAsciiPODWriteLine()
 		int i2 = 0;
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, d2);
 		Assert::AreEqual((size_t)(2), totalRead, L"2 values are not read!");
 
@@ -1041,7 +1036,7 @@ void TextUTF8PODWriteLine()
 	std::wstring file = GetTempPath(L"textUTF8PODWriteLine.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_UTF8, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	writer.WriteLine(L"{0},{1}", i, d);
 	writer.Close();
 
@@ -1054,8 +1049,7 @@ void TextUTF8PODWriteLine()
 		int i2 = 0;
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, d2);
 		Assert::AreEqual((size_t)(2), totalRead, L"2 values are not read!");
 
@@ -1073,7 +1067,7 @@ void TextUnicodePODWriteLine()
 	std::wstring file = GetTempPath(L"textUnicodePODWriteLine.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_UNICODE, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	writer.WriteLine(L"{0},{1}", i, d);
 	writer.Close();
 
@@ -1086,8 +1080,7 @@ void TextUnicodePODWriteLine()
 		int i2 = 0;
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, d2);
 		Assert::AreEqual((size_t)(2), totalRead, L"2 values are not read!");
 
@@ -1105,7 +1098,7 @@ void TextBEUnicodePODWriteLine()
 	std::wstring file = GetTempPath(L"textBEUnicodePODWriteLine.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_BEUNICODE, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	writer.WriteLine(L"{0},{1}", i, d);
 	writer.Close();
 
@@ -1118,8 +1111,7 @@ void TextBEUnicodePODWriteLine()
 		int i2 = 0;
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, d2);
 		Assert::AreEqual((size_t)(2), totalRead, L"2 values are not read!");
 
@@ -1137,7 +1129,7 @@ void TextAsciiWString()
 	std::wstring file = GetTempPath(L"textAsciiWString.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_ASCII, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	std::wstring str = L"Coding Monkey";
 	writer.Write(L"{0},{1},{2}", i, str, d);
 	writer.Close();
@@ -1152,8 +1144,7 @@ void TextAsciiWString()
 		std::wstring str2 = L"";
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, str2, d2);
 		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read!");
 
@@ -1172,7 +1163,7 @@ void TextUTF8WString()
 	std::wstring file = GetTempPath(L"textUTF8WString.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_UTF8, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	std::wstring str = L"Coding Monkey";
 	writer.Write(L"{0},{1},{2}", i, str, d);
 	writer.Close();
@@ -1187,8 +1178,7 @@ void TextUTF8WString()
 		std::wstring str2 = L"";
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, str2, d2);
 		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read!");
 
@@ -1207,7 +1197,7 @@ void TextUnicodeWString()
 	std::wstring file = GetTempPath(L"textUnicodeWString.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_UNICODE, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	std::wstring str = L"Coding Monkey";
 	writer.Write(L"{0},{1},{2}", i, str, d);
 	writer.Close();
@@ -1222,8 +1212,7 @@ void TextUnicodeWString()
 		std::wstring str2 = L"";
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, str2, d2);
 		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read!");
 
@@ -1242,7 +1231,7 @@ void TextBEUnicodeWString()
 	std::wstring file = GetTempPath(L"textBEUnicodeWString.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_BEUNICODE, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	std::wstring str = L"Coding Monkey";
 	writer.Write(L"{0},{1},{2}", i, str, d);
 	writer.Close();
@@ -1257,8 +1246,7 @@ void TextBEUnicodeWString()
 		std::wstring str2 = L"";
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, str2, d2);
 		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read!");
 
@@ -1277,7 +1265,7 @@ void TextAsciiWStringWriteLine()
 	std::wstring file = GetTempPath(L"textAsciiWStringWriteLine.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_ASCII, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	std::wstring str = L"Coding Monkey";
 	writer.WriteLine(L"{0},{1},{2}", i, str, d);
 	writer.Close();
@@ -1292,8 +1280,7 @@ void TextAsciiWStringWriteLine()
 		std::wstring str2 = L"";
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, str2, d2);
 		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read!");
 
@@ -1312,7 +1299,7 @@ void TextUTF8WStringWriteLine()
 	std::wstring file = GetTempPath(L"textUTF8WStringWriteLine.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_UTF8, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	std::wstring str = L"Coding Monkey";
 	writer.WriteLine(L"{0},{1},{2}", i, str, d);
 	writer.Close();
@@ -1327,8 +1314,7 @@ void TextUTF8WStringWriteLine()
 		std::wstring str2 = L"";
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, str2, d2);
 		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read!");
 		Assert::AreEqual(i, i2, L"Integer values are not the same");
@@ -1346,7 +1332,7 @@ void TextUnicodeWStringWriteLine()
 	std::wstring file = GetTempPath(L"textUnicodeWStringWriteLine.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_UNICODE, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	std::wstring str = L"Coding Monkey";
 	writer.WriteLine(L"{0},{1},{2}", i, str, d);
 	writer.Close();
@@ -1361,8 +1347,7 @@ void TextUnicodeWStringWriteLine()
 		std::wstring str2 = L"";
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, str2, d2);
 		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read!");
 		Assert::AreEqual(i, i2, L"Integer values are not the same");
@@ -1380,7 +1365,7 @@ void TextBEUnicodeWStringWriteLine()
 	std::wstring file = GetTempPath(L"textBEUnicodeWStringWriteLine.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_BEUNICODE, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	std::wstring str = L"Coding Monkey";
 	writer.WriteLine(L"{0},{1},{2}", i, str, d);
 	writer.Close();
@@ -1395,8 +1380,7 @@ void TextBEUnicodeWStringWriteLine()
 		std::wstring str2 = L"";
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, str2, d2);
 		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read!");
 		Assert::AreEqual(i, i2, L"Integer values are not the same");
@@ -1414,7 +1398,7 @@ void TextAsciiString()
 	std::wstring file = GetTempPath(L"textAsciiString.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_ASCII, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	std::string str = "Coding Monkey";
 	writer.Write(L"{0},{1},{2}", i, str, d);
 	writer.Close();
@@ -1429,8 +1413,7 @@ void TextAsciiString()
 		std::string str2 = "";
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, str2, d2);
 		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read!");
 		Assert::AreEqual(i, i2, L"Integer values are not the same");
@@ -1448,7 +1431,7 @@ void TextUTF8String()
 	std::wstring file = GetTempPath(L"textUTF8String.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_UTF8, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	std::string str = "Coding Monkey";
 	writer.Write(L"{0},{1},{2}", i, str, d);
 	writer.Close();
@@ -1463,8 +1446,7 @@ void TextUTF8String()
 		std::string str2 = "";
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, str2, d2);
 		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read!");
 		Assert::AreEqual(i, i2, L"Integer values are not the same");
@@ -1482,7 +1464,7 @@ void TextUnicodeString()
 	std::wstring file = GetTempPath(L"textUnicodeString.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_UNICODE, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	std::string str = "Coding Monkey";
 	writer.Write(L"{0},{1},{2}", i, str, d);
 	writer.Close();
@@ -1497,8 +1479,7 @@ void TextUnicodeString()
 		std::string str2 = "";
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, str2, d2);
 		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read!");
 		Assert::AreEqual(i, i2, L"Integer values are not the same");
@@ -1516,7 +1497,7 @@ void TextBEUnicodeString()
 	std::wstring file = GetTempPath(L"textBEUnicodeString.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_BEUNICODE, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	std::string str = "Coding Monkey";
 	writer.Write(L"{0},{1},{2}", i, str, d);
 	writer.Close();
@@ -1531,8 +1512,7 @@ void TextBEUnicodeString()
 		std::string str2 = "";
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, str2, d2);
 		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read!");
 		Assert::AreEqual(i, i2, L"Integer values are not the same");
@@ -1550,7 +1530,7 @@ void TextAsciiStringWriteLine()
 	std::wstring file = GetTempPath(L"textAsciiStringWriteLine.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_ASCII, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	std::string str = "Coding Monkey";
 	writer.WriteLine(L"{0},{1},{2}", i, str, d);
 	writer.Close();
@@ -1565,8 +1545,7 @@ void TextAsciiStringWriteLine()
 		std::string str2 = "";
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, str2, d2);
 		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read!");
 		Assert::AreEqual(i, i2, L"Integer values are not the same");
@@ -1584,7 +1563,7 @@ void TextUTF8StringWriteLine()
 	std::wstring file = GetTempPath(L"textUTF8StringWriteLine.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_UTF8, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	std::string str = "Coding Monkey";
 	writer.WriteLine(L"{0},{1},{2}", i, str, d);
 	writer.Close();
@@ -1599,8 +1578,7 @@ void TextUTF8StringWriteLine()
 		std::string str2 = "";
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, str2, d2);
 		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read!");
 		Assert::AreEqual(i, i2, L"Integer values are not the same");
@@ -1618,7 +1596,7 @@ void TextUnicodeStringWriteLine()
 	std::wstring file = GetTempPath(L"textUnicodeStringWriteLine.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_UNICODE, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	std::string str = "Coding Monkey";
 	writer.WriteLine(L"{0},{1},{2}", i, str, d);
 	writer.Close();
@@ -1633,8 +1611,7 @@ void TextUnicodeStringWriteLine()
 		std::string str2 = "";
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, str2, d2);
 		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read!");
 		Assert::AreEqual(i, i2, L"Integer values are not the same");
@@ -1652,7 +1629,7 @@ void TextBEUnicodeStringWriteLine()
 	std::wstring file = GetTempPath(L"textBEUnicodeStringWriteLine.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_BEUNICODE, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	std::string str = "Coding Monkey";
 	writer.WriteLine(L"{0},{1},{2}", i, str, d);
 	writer.Close();
@@ -1667,8 +1644,7 @@ void TextBEUnicodeStringWriteLine()
 		std::string str2 = "";
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, str2, d2);
 		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read!");
 		Assert::AreEqual(i, i2, L"Integer values are not the same");
@@ -1693,7 +1669,7 @@ void TextAllOtherTypes()
 	unsigned int ui = 3569858236;
 	ELMAX_INT64 i64 = 35698582368L;
 	unsigned ELMAX_INT64 ui64 = 36693588379L;
-	float f = 1254.69f;
+	float f = 1254.5f;
 	writer.WriteLine(L"{0},{1},{2},{3},{4},{5},{6},{7}", c, uc, s, us, ui, i64, ui64, f);
 	writer.Close();
 
@@ -1712,8 +1688,7 @@ void TextAllOtherTypes()
 		unsigned ELMAX_INT64 ui642 = 0L;
 		float f2 = 0.0f;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(c2, uc2, s2, us2, ui2, i642, ui642, f2);
 		Assert::AreEqual((size_t)(8), totalRead, L"8 values are not read!");
 		Assert::AreEqual(c, c2, L"Char values are not the same");
@@ -1743,7 +1718,7 @@ void BinaryAllOtherTypes()
 	unsigned int ui = 3569858236;
 	ELMAX_INT64 i64 = 35698582368L;
 	unsigned ELMAX_INT64 ui64 = 36693588379L;
-	float f = 1254.69f;
+	float f = 1254.5f;
 	writer.Write(c, uc, s, us, ui, i64, ui64, f);
 	writer.Close();
 
@@ -1813,7 +1788,7 @@ void BinaryPODSeek()
 	std::wstring file = GetTempPath(L"binaryPODSeek.bin");
 	Assert::AreEqual(true, writer.Open(file), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	short sh = 1516;
 	writer.Write(i, d, sh);
 	writer.Close();
@@ -1846,7 +1821,7 @@ void TextFileMismatched()
 	std::wstring file = GetTempPath(L"textFileMismatched.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_UNICODE, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	writer.Write(L"{0},{1}", i, d);
 	writer.Close();
 
@@ -1859,8 +1834,7 @@ void TextFileMismatched()
 		int i2 = 0;
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, d2);
 		Assert::AreEqual((size_t)(2), totalRead, L"2 values are not read");
 		Assert::AreEqual(i, i2, L"Integer values are not the same");
@@ -1878,7 +1852,7 @@ void TextUnicodeUTF16()
 	std::wstring file = GetTempPath(L"textUnicodeUTF16.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_UNICODE, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	std::wstring str = L"Hello";
 	wchar_t ch1 = 0x007a;
 	str += ch1;
@@ -1899,8 +1873,7 @@ void TextUnicodeUTF16()
 		std::wstring str2 = L"";
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, str2, d2);
 		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read");
 		Assert::AreEqual(i, i2, L"Integer values are not the same");
@@ -1919,7 +1892,7 @@ void TextBEUnicodeUTF16()
 	std::wstring file = GetTempPath(L"textBEUnicodeUTF16.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_BEUNICODE, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	std::wstring str = L"Hello";
 	wchar_t ch1 = 0x007a;
 	str += ch1;
@@ -1940,8 +1913,7 @@ void TextBEUnicodeUTF16()
 		std::wstring str2 = L"";
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, str2, d2);
 		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read");
 		Assert::AreEqual(i, i2, L"Integer values are not the same");
@@ -1960,7 +1932,7 @@ void TextUnicodeUTF16Line()
 	std::wstring file = GetTempPath(L"textUnicodeUTF16Line.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_UNICODE, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	std::wstring str = L"Hello";
 	wchar_t ch1 = 0x007a;
 	str += ch1;
@@ -1981,8 +1953,7 @@ void TextUnicodeUTF16Line()
 		std::wstring str2 = L"";
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, str2, d2);
 		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read");
 		Assert::AreEqual(i, i2, L"Integer values are not the same");
@@ -2001,7 +1972,7 @@ void TextBEUnicodeUTF16Line()
 	std::wstring file = GetTempPath(L"textBEUnicodeUTF16Line.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_BEUNICODE, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	std::wstring str = L"Hello";
 	wchar_t ch1 = 0x007a;
 	str += ch1;
@@ -2022,8 +1993,7 @@ void TextBEUnicodeUTF16Line()
 		std::wstring str2 = L"";
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, str2, d2);
 		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read");
 		Assert::AreEqual(i, i2, L"Integer values are not the same");
@@ -2042,7 +2012,7 @@ void TextUTF8UTF16()
 	std::wstring file = GetTempPath(L"textUTF8UTF16.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_UTF8, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	std::wstring str = L"Hello";
 	wchar_t ch1 = 0x007a;
 	str += ch1;
@@ -2063,8 +2033,7 @@ void TextUTF8UTF16()
 		std::wstring str2 = L"";
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, str2, d2);
 		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read");
 		Assert::AreEqual(i, i2, L"Integer values are not the same");
@@ -2083,7 +2052,7 @@ void TextUTF8UTF16Line()
 	std::wstring file = GetTempPath(L"textUTF8UTF16Line.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_UTF8, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	std::wstring str = L"Hello";
 	wchar_t ch1 = 0x007a;
 	str += ch1;
@@ -2104,8 +2073,7 @@ void TextUTF8UTF16Line()
 		std::wstring str2 = L"";
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, str2, d2);
 		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read");
 		Assert::AreEqual(i, i2, L"Integer values are not the same");
@@ -2124,7 +2092,7 @@ void TextUTF8NoBOM()
 	std::wstring file = GetTempPath(L"textUTF8NoBOM.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_ASCII, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	std::wstring str = L"Hello";
 	writer.WriteLine(L"{0},{1},{2}", i, str, d);
 	writer.Close();
@@ -2139,8 +2107,7 @@ void TextUTF8NoBOM()
 		std::wstring str2 = L"";
 		double d2 = 0.0;
 
-		StrtokStrategy strat(L",");
-		reader.SetSplitStrategy(&strat);
+		reader.SetDelimiter(L",");
 		size_t totalRead = reader.ReadLine(i2, str2, d2);
 		Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read");
 		Assert::AreEqual(i, i2, L"Integer values are not the same");
@@ -2379,12 +2346,14 @@ void UnicodeCarriageReturnReadAll()
 }
 void TextAsciiStruct()
 {
+	Assert::FunctionName = __FUNCTION__;
+
 	using namespace Elmax;
 	xTextWriter writer;
 	std::wstring file = GetTempPath(L"textAsciiStruct.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_ASCII, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	MyStruct my = { 22, 33 };
 	writer.Write(L"{0},{1},{2}", i, my, d);
 	writer.Close();
@@ -2411,12 +2380,14 @@ void TextAsciiStruct()
 }
 void TextAsciiDiffDelimiterStruct()
 {
+	Assert::FunctionName = __FUNCTION__;
+
 	using namespace Elmax;
 	xTextWriter writer;
 	std::wstring file = GetTempPath(L"textAsciiDiffDelimiterStruct.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_ASCII, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	DiffDelimiterStruct my = { 22, 33 };
 	writer.Write(L"{0},{1},{2}", i, my, d);
 	writer.Close();
@@ -2443,12 +2414,14 @@ void TextAsciiDiffDelimiterStruct()
 }
 void TextUnicodeStruct()
 {
+	Assert::FunctionName = __FUNCTION__;
+
 	using namespace Elmax;
 	xTextWriter writer;
 	std::wstring file = GetTempPath(L"textUnicodeStruct.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_UNICODE, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	MyStruct my = { 22, 33 };
 	writer.Write(L"{0},{1},{2}", i, my, d);
 	writer.Close();
@@ -2475,12 +2448,14 @@ void TextUnicodeStruct()
 }
 void TextUnicodeDiffDelimiterStruct()
 {
+	Assert::FunctionName = __FUNCTION__;
+
 	using namespace Elmax;
 	xTextWriter writer;
 	std::wstring file = GetTempPath(L"textUnicodeDiffDelimiterStruct.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_UNICODE, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	DiffDelimiterStruct my = { 22, 33 };
 	writer.Write(L"{0},{1},{2}", i, my, d);
 	writer.Close();
@@ -2507,12 +2482,14 @@ void TextUnicodeDiffDelimiterStruct()
 }
 void TextBEUnicodeStruct()
 {
+	Assert::FunctionName = __FUNCTION__;
+
 	using namespace Elmax;
 	xTextWriter writer;
 	std::wstring file = GetTempPath(L"textBEUnicodeStruct.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_BEUNICODE, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	MyStruct my = { 22, 33 };
 	writer.Write(L"{0},{1},{2}", i, my, d);
 	writer.Close();
@@ -2539,12 +2516,14 @@ void TextBEUnicodeStruct()
 }
 void TextBEUnicodeDiffDelimiterStruct()
 {
+	Assert::FunctionName = __FUNCTION__;
+
 	using namespace Elmax;
 	xTextWriter writer;
 	std::wstring file = GetTempPath(L"textBEUnicodeDiffDelimiterStruct.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_BEUNICODE, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	DiffDelimiterStruct my = { 22, 33 };
 	writer.Write(L"{0},{1},{2}", i, my, d);
 	writer.Close();
@@ -2571,12 +2550,14 @@ void TextBEUnicodeDiffDelimiterStruct()
 }
 void TextUTF8Struct()
 {
+	Assert::FunctionName = __FUNCTION__;
+
 	using namespace Elmax;
 	xTextWriter writer;
 	std::wstring file = GetTempPath(L"textUTF8Struct.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_UTF8, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	MyStruct my = { 22, 33 };
 	writer.Write(L"{0},{1},{2}", i, my, d);
 	writer.Close();
@@ -2603,12 +2584,14 @@ void TextUTF8Struct()
 }
 void TextUTF8DiffDelimiterStruct()
 {
+	Assert::FunctionName = __FUNCTION__;
+
 	using namespace Elmax;
 	xTextWriter writer;
 	std::wstring file = GetTempPath(L"textUTF8DiffDelimiterStruct.txt");
 	Assert::AreEqual(true, writer.Open(file, FT_UTF8, NEW), L"File cannot be opened for writing!");
 	int i = 25698;
-	double d = 1254.69;
+	double d = 1254.5;
 	DiffDelimiterStruct my = { 22, 33 };
 	writer.Write(L"{0},{1},{2}", i, my, d);
 	writer.Close();

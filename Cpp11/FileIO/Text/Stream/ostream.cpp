@@ -25,7 +25,7 @@ ostream& ostream::operator <<(int val)
 	m_str += BaseConverter::ConvToString(temp);
 	return *this;
 }
-ostream& ostream::operator <<(__int64 val)
+ostream& ostream::operator <<(ELMAX_INT64 val)
 {
 	std::string temp = boost::lexical_cast<std::string>(val);
 	m_str += BaseConverter::ConvToString(temp);
@@ -49,7 +49,7 @@ ostream& ostream::operator <<(unsigned int val)
 	m_str += BaseConverter::ConvToString(temp);
 	return *this;
 }
-ostream& ostream::operator <<(unsigned __int64 val)
+ostream& ostream::operator <<(unsigned ELMAX_INT64 val)
 {
 	std::string temp = boost::lexical_cast<std::string>(val);
 	m_str += BaseConverter::ConvToString(temp);

@@ -1,17 +1,14 @@
 # Project: UnitTest
-# Makefile created by Dev-C++ 5.2.0.3
 
 #CPP      = clang++ -stdlib=libstdc++ -lstdc++ -std=c++11
-CPP      = g++-4.7
-CC       = gcc-4.7
-# WINDRES  = windres.exe
+CPP      = g++ -lstdc++ -std=c++11 
+CC       = gcc
 OBJ      = Assert.o LinuxUnitTest.o CustomStruct.o $(RES)
 LINKOBJ  = Assert.o LinuxUnitTest.o CustomStruct.o $(RES)
 LIBS     = -static-libgcc ../FileIO/FileLib.a  -g 
-# INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" 
-# CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" 
+CXXINCS  = -I ~/Downloads/boost_1_55_0
 BIN      = UnitTest.exe
-CXXFLAGS = -Wall -g -O1 
+CXXFLAGS = -Wall -g -O1 $(CXXINCS) 
 CFLAGS   = -Wall -g -O1  
 RM       = rm -f
 

@@ -22,11 +22,11 @@ public:
 	istream& operator >> (char& val);
 	istream& operator >> (short& val);
 	istream& operator >> (int& val);
-	istream& operator >> (__int64& val);
+	istream& operator >> (ELMAX_INT64& val);
 	istream& operator >> (unsigned char& val);
 	istream& operator >> (unsigned short& val);
 	istream& operator >> (unsigned int& val);
-	istream& operator >> (unsigned __int64& val);
+	istream& operator >> (unsigned ELMAX_INT64& val);
 	istream& operator >> (float& val);
 	istream& operator >> (double& val);
 	istream& operator >>(std::string& val);

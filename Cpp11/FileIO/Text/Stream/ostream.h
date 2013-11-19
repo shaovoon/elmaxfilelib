@@ -18,11 +18,11 @@ public:
 	ostream& operator <<(char val);
 	ostream& operator <<(short val);
 	ostream& operator <<(int val);
-	ostream& operator <<(__int64 val);
+	ostream& operator <<(ELMAX_INT64 val);
 	ostream& operator <<(unsigned char val);
 	ostream& operator <<(unsigned short val);
 	ostream& operator <<(unsigned int val);
-	ostream& operator <<(unsigned __int64 val);
+	ostream& operator <<(unsigned ELMAX_INT64 val);
 	ostream& operator <<(float val);
 	ostream& operator <<(double val);
 	ostream& operator <<(const std::string& val);

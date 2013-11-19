@@ -121,7 +121,7 @@ bool DataTypeRef::ConvStrToType( const std::wstring& str )
 	case DTR_INT64:
 		try
 		{
-			*(m_ptr.pi64) = boost::lexical_cast<__int64>(BaseConverter::ConvToString(str));
+			*(m_ptr.pi64) = boost::lexical_cast<ELMAX_INT64>(BaseConverter::ConvToString(str));
 		}
 		catch (boost::bad_lexical_cast &)
 		{
@@ -131,7 +131,7 @@ bool DataTypeRef::ConvStrToType( const std::wstring& str )
 	case DTR_UINT64:
 		try
 		{
-			*(m_ptr.pui64) = boost::lexical_cast<unsigned __int64>(BaseConverter::ConvToString(str));
+			*(m_ptr.pui64) = boost::lexical_cast<unsigned ELMAX_INT64>(BaseConverter::ConvToString(str));
 		}
 		catch (boost::bad_lexical_cast &)
 		{
