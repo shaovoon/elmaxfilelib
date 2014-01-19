@@ -2,6 +2,8 @@
 #include "../Utils/StrUtilRef.h"
 
 #include "UTF8Writer.h"
+#include "UTF32Writer.h"
+#include "UTF32BEWriter.h"
 #include "UnicodeWriter.h"
 #include "BEUnicodeWriter.h"
 #include "AsciiWriter.h"
@@ -37,6 +39,12 @@ bool xTextWriter::Open(const std::wstring& file, FILE_TYPE ft, FILE_OP op)
 		return pWriter->Open(file, op);
 	case FT_BEUNICODE:
 		pWriter = new BEUnicodeWriter();
+		return pWriter->Open(file, op);
+	case FT_UTF32:
+		pWriter = new UTF32Writer();
+		return pWriter->Open(file, op);
+	case FT_UTF32BE:
+		pWriter = new UTF32BEWriter();
 		return pWriter->Open(file, op);
 	}
 

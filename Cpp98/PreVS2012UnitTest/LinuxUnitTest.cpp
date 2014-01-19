@@ -2951,6 +2951,103 @@ void UTF8CarriageReturn()
 	reader.Close();
 }
 
+void UTF32CarriageReturn()
+{
+	Assert::FunctionName = __FUNCTION__;
+
+	using namespace Elmax;
+	std::wstring file = GetTempPath(L"utf32CarriageReturn.txt");
+	std::wstring line1 = L"Hello My Friend!";
+	std::wstring line2 = L"How are you?";
+
+	std::string fileA = GetTempPathA("utf32CarriageReturn.txt");
+	FILE* fp = std::fopen(fileA.c_str(), "wb");
+	// write BOM 1st.
+	unsigned char bom[4] = { 0xFF, 0xFE, 0x0, 0x0 };
+	fwrite( bom, 1, 4, fp );
+	std::wstring line1A = L"Hello My Friend!\r\n";
+	fwrite((void*)(line1A.c_str()), 4, line1A.size(), fp);
+	std::wstring line2A = L"How are you?\r\n";
+	fwrite((void*)(line2A.c_str()), 4, line2A.size(), fp);
+	fflush(fp);
+	fclose(fp);
+	fp = NULL;
+
+
+	UTF32Reader reader;
+	Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+	bool eof = reader.IsEOF();
+	Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+	if(eof==false)
+	{
+		std::wstring text = L"";
+		bool b = reader.ReadLine(text);
+		Assert::AreEqual(true, b, L"Cannot read 1st line");
+		Assert::AreEqual(line1, text, L"1st line is not the same");
+	}
+	eof = reader.IsEOF();
+	Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+	if(eof==false)
+	{
+		std::wstring text = L"";
+		bool b = reader.ReadLine(text);
+		Assert::AreEqual(true, b, L"Cannot read 2nd line");
+		Assert::AreEqual(line2, text, L"2nd line is not the same");
+	}
+	reader.Close();
+}
+
+void UTF32BECarriageReturn()
+{
+	Assert::FunctionName = __FUNCTION__;
+
+	using namespace Elmax;
+	std::wstring file = GetTempPath(L"utf32beCarriageReturn.txt");
+	std::wstring line1 = L"Hello My Friend!";
+	std::wstring line2 = L"How are you?";
+
+	std::string fileA = GetTempPathA("utf32beCarriageReturn.txt");
+	FILE* fp = std::fopen(fileA.c_str(), "wb");
+	// write BOM 1st.
+	unsigned char bom[4] = { 0x0, 0x0, 0xFE, 0xFF  };
+	fwrite( bom, 1, 4, fp );
+	std::wstring line1A = L"Hello My Friend!\r\n";
+	std::vector<unsigned int> vec;
+	utf16::ConvertToUTF32BE(line1A, vec);
+	fwrite((void*)(&vec[0]), 4, vec.size(), fp);
+
+	std::wstring line2A = L"How are you?\r\n";
+	vec.clear();
+	utf16::ConvertToUTF32BE(line2A, vec);
+	fwrite((void*)(&vec[0]), 4, vec.size(), fp);
+	fflush(fp);
+	fclose(fp);
+	fp = NULL;
+
+
+	UTF32BEReader reader;
+	Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+	bool eof = reader.IsEOF();
+	Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+	if(eof==false)
+	{
+		std::wstring text = L"";
+		bool b = reader.ReadLine(text);
+		Assert::AreEqual(true, b, L"Cannot read 1st line");
+		Assert::AreEqual(line1, text, L"1st line is not the same");
+	}
+	eof = reader.IsEOF();
+	Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+	if(eof==false)
+	{
+		std::wstring text = L"";
+		bool b = reader.ReadLine(text);
+		Assert::AreEqual(true, b, L"Cannot read 2nd line");
+		Assert::AreEqual(line2, text, L"2nd line is not the same");
+	}
+	reader.Close();
+}
+
 void UnicodeCarriageReturn()
 {
 	Assert::FunctionName = __FUNCTION__;
@@ -3319,6 +3416,10 @@ int main(int argc, char* argv[])
 		cout<<"AsciiCarriageReturn"<<endl;
 		UTF8CarriageReturn();
 		cout<<"UTF8CarriageReturn"<<endl;
+		UTF32CarriageReturn();
+		cout<<"UTF32CarriageReturn"<<endl;
+		UTF32BECarriageReturn();
+		cout<<"UTF32BECarriageReturn"<<endl;
 		UnicodeCarriageReturn();
 		cout<<"UnicodeCarriageReturn"<<endl;
 		AsciiCarriageReturnReadAll();

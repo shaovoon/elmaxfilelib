@@ -96,6 +96,8 @@
     <ClInclude Include="Text\Reader\BaseTextReader.h" />
     <ClInclude Include="Text\Reader\BEUnicodeReader.h" />
     <ClInclude Include="Text\Reader\UnicodeReader.h" />
+    <ClInclude Include="Text\Reader\UTF32BEReader.h" />
+    <ClInclude Include="Text\Reader\UTF32Reader.h" />
     <ClInclude Include="Text\Reader\UTF8Reader.h" />
     <ClInclude Include="Text\Reader\xTextReader.h" />
     <ClInclude Include="Text\Stream\istream.h" />
@@ -110,6 +112,8 @@
     <ClInclude Include="Text\Writer\BaseTextWriter.h" />
     <ClInclude Include="Text\Writer\BEUnicodeWriter.h" />
     <ClInclude Include="Text\Writer\UnicodeWriter.h" />
+    <ClInclude Include="Text\Writer\UTF32BEWriter.h" />
+    <ClInclude Include="Text\Writer\UTF32Writer.h" />
     <ClInclude Include="Text\Writer\UTF8Writer.h" />
     <ClInclude Include="Text\Writer\xTextWriter.h" />
     <ClInclude Include="UTF16Utils\utf16.h" />
@@ -139,6 +143,8 @@
     <ClCompile Include="Text\Reader\BaseTextReader.cpp" />
     <ClCompile Include="Text\Reader\BEUnicodeReader.cpp" />
     <ClCompile Include="Text\Reader\UnicodeReader.cpp" />
+    <ClCompile Include="Text\Reader\UTF32BEReader.cpp" />
+    <ClCompile Include="Text\Reader\UTF32Reader.cpp" />
     <ClCompile Include="Text\Reader\UTF8Reader.cpp" />
     <ClCompile Include="Text\Reader\xTextReader.cpp" />
     <ClCompile Include="Text\Stream\istream.cpp" />
@@ -153,6 +159,8 @@
     <ClCompile Include="Text\Writer\BaseTextWriter.cpp" />
     <ClCompile Include="Text\Writer\BEUnicodeWriter.cpp" />
     <ClCompile Include="Text\Writer\UnicodeWriter.cpp" />
+    <ClCompile Include="Text\Writer\UTF32BEWriter.cpp" />
+    <ClCompile Include="Text\Writer\UTF32Writer.cpp" />
     <ClCompile Include="Text\Writer\UTF8Writer.cpp" />
     <ClCompile Include="Text\Writer\xTextWriter.cpp" />
     <ClCompile Include="UTF16Utils\utf16.cpp" />

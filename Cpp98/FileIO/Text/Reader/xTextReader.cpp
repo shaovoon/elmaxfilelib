@@ -67,16 +67,6 @@ bool xTextReader::Open(const std::wstring& file, FILE_TYPE ftype)
 		pReader = new UTF8Reader();
 		return pReader->Open(file);
 	}
-	if(UnicodeReader::IsValid(file))
-	{
-		pReader = new UnicodeReader();
-		return pReader->Open(file);
-	}
-	if(BEUnicodeReader::IsValid(file))
-	{
-		pReader = new BEUnicodeReader();
-		return pReader->Open(file);
-	}
 	if(UTF32Reader::IsValid(file))
 	{
 		pReader = new UTF32Reader();
@@ -85,6 +75,16 @@ bool xTextReader::Open(const std::wstring& file, FILE_TYPE ftype)
 	if(UTF32BEReader::IsValid(file))
 	{
 		pReader = new UTF32BEReader();
+		return pReader->Open(file);
+	}
+	if(UnicodeReader::IsValid(file))
+	{
+		pReader = new UnicodeReader();
+		return pReader->Open(file);
+	}
+	if(BEUnicodeReader::IsValid(file))
+	{
+		pReader = new BEUnicodeReader();
 		return pReader->Open(file);
 	}
 	else

@@ -1,3 +1,7 @@
+Version 2.0.3 (19 Jan 2014)
++ UTF32 and UTF32BE support
+
+
 Version 2.0.2 (14 Nov 2013)
 + Text files: Using streams so <<, >> operators can be overloaded for arbitrary types
 + Fixed the error of empty WriteLine not writing newline

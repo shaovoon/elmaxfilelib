@@ -2,6 +2,8 @@
 #include "../Utils/StrUtilRef.h"
 
 #include "UTF8Reader.h"
+#include "UTF32Reader.h"
+#include "UTF32BEReader.h"
 #include "UnicodeReader.h"
 #include "BEUnicodeReader.h"
 #include "AsciiReader.h"
@@ -25,6 +27,16 @@ bool xTextReader::Open(const std::wstring& file)
 	if(UTF8Reader::IsValid(file))
 	{
 		pReader = new UTF8Reader();
+		return pReader->Open(file);
+	}
+	if(UTF32Reader::IsValid(file))
+	{
+		pReader = new UTF32Reader();
+		return pReader->Open(file);
+	}
+	if(UTF32BEReader::IsValid(file))
+	{
+		pReader = new UTF32BEReader();
 		return pReader->Open(file);
 	}
 	if(UnicodeReader::IsValid(file))
@@ -52,6 +64,16 @@ bool xTextReader::Open(const std::wstring& file, FILE_TYPE ftype)
 	if(UTF8Reader::IsValid(file))
 	{
 		pReader = new UTF8Reader();
+		return pReader->Open(file);
+	}
+	if(UTF32Reader::IsValid(file))
+	{
+		pReader = new UTF32Reader();
+		return pReader->Open(file);
+	}
+	if(UTF32BEReader::IsValid(file))
+	{
+		pReader = new UTF32BEReader();
 		return pReader->Open(file);
 	}
 	if(UnicodeReader::IsValid(file))
@@ -82,6 +104,14 @@ bool xTextReader::Open(const std::wstring& file, FILE_TYPE ftype)
 			break;
 		case FT_ASCII:
 			pReader = new AsciiReader();
+			return pReader->Open(file);
+			break;
+		case FT_UTF32:
+			pReader = new UTF32Reader();
+			return pReader->Open(file);
+			break;
+		case FT_UTF32BE:
+			pReader = new UTF32BEReader();
 			return pReader->Open(file);
 			break;
 		default:

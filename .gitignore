@@ -4,6 +4,7 @@
 *.vcproj.*.user
 *.vcproj.user
 *.vcxproj.user
+*.vcxproj.filters
 *.suo
 *.o
 *.a
