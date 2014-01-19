@@ -272,6 +272,22 @@
 					>
 				</File>
 				<File
+					RelativePath=".\Text\Reader\UTF32BEReader.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Text\Reader\UTF32BEReader.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Text\Reader\UTF32Reader.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Text\Reader\UTF32Reader.h"
+					>
+				</File>
+				<File
 					RelativePath=".\Text\Reader\UTF8Reader.cpp"
 					>
 				</File>
@@ -373,6 +389,22 @@
 				</File>
 				<File
 					RelativePath=".\Text\Writer\UnicodeWriter.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Text\Writer\UTF32BEWriter.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Text\Writer\UTF32BEWriter.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Text\Writer\UTF32Writer.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Text\Writer\UTF32Writer.h"
 					>
 				</File>
 				<File

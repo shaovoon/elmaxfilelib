@@ -73,6 +73,117 @@ public:
 
 	size_t Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
 		DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10 );
+		
+	size_t Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+		DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11	);
+
+	size_t Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+		DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12	);
+
+	size_t Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+		DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13	);
+
+	size_t Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+		DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14	);
+
+	size_t Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+		DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15	);
+
+	size_t Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+		DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16	);
+
+	size_t Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+		DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17	);
+
+	size_t Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+		DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17, DataTypeRef& D18	);
+
+	size_t Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+		DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17, DataTypeRef& D18, DataTypeRef& D19	);
+
+	size_t Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+		DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17, DataTypeRef& D18, DataTypeRef& D19, DataTypeRef& D20	);
+
+	size_t Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+		DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17, DataTypeRef& D18, DataTypeRef& D19, DataTypeRef& D20,
+		DataTypeRef& D21		);
+
+	size_t Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+		DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17, DataTypeRef& D18, DataTypeRef& D19, DataTypeRef& D20,
+		DataTypeRef& D21, DataTypeRef& D22		);
+
+	size_t Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+		DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17, DataTypeRef& D18, DataTypeRef& D19, DataTypeRef& D20,
+		DataTypeRef& D21, DataTypeRef& D22, DataTypeRef& D23		);
+
+	size_t Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+		DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17, DataTypeRef& D18, DataTypeRef& D19, DataTypeRef& D20,
+		DataTypeRef& D21, DataTypeRef& D22, DataTypeRef& D23, DataTypeRef& D24		);
+
+	size_t Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+		DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17, DataTypeRef& D18, DataTypeRef& D19, DataTypeRef& D20,
+		DataTypeRef& D21, DataTypeRef& D22, DataTypeRef& D23, DataTypeRef& D24, DataTypeRef& D25		);
+
+	size_t Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+		DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17, DataTypeRef& D18, DataTypeRef& D19, DataTypeRef& D20,
+		DataTypeRef& D21, DataTypeRef& D22, DataTypeRef& D23, DataTypeRef& D24, DataTypeRef& D25, 
+		DataTypeRef& D26		);
+
+	size_t Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+		DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17, DataTypeRef& D18, DataTypeRef& D19, DataTypeRef& D20,
+		DataTypeRef& D21, DataTypeRef& D22, DataTypeRef& D23, DataTypeRef& D24, DataTypeRef& D25, 
+		DataTypeRef& D26, DataTypeRef& D27		);
+
+	size_t Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+		DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17, DataTypeRef& D18, DataTypeRef& D19, DataTypeRef& D20,
+		DataTypeRef& D21, DataTypeRef& D22, DataTypeRef& D23, DataTypeRef& D24, DataTypeRef& D25, 
+		DataTypeRef& D26, DataTypeRef& D27, DataTypeRef& D28		);
+
+	size_t Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+		DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17, DataTypeRef& D18, DataTypeRef& D19, DataTypeRef& D20,
+		DataTypeRef& D21, DataTypeRef& D22, DataTypeRef& D23, DataTypeRef& D24, DataTypeRef& D25, 
+		DataTypeRef& D26, DataTypeRef& D27, DataTypeRef& D28, DataTypeRef& D29		);
+
+	size_t Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+		DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17, DataTypeRef& D18, DataTypeRef& D19, DataTypeRef& D20,
+		DataTypeRef& D21, DataTypeRef& D22, DataTypeRef& D23, DataTypeRef& D24, DataTypeRef& D25, 
+		DataTypeRef& D26, DataTypeRef& D27, DataTypeRef& D28, DataTypeRef& D29, DataTypeRef& D30		);
+
 
 private:
 	ISplitStrategy* m_pSplitStrategy;

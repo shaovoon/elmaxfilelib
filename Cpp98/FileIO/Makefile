@@ -3,8 +3,8 @@
 CPP      = clang++ -stdlib=libstdc++ -lstdc++ -std=c++11
 #CPP      = g++
 CC       = gcc
-OBJ      = Binary/Reader/xBinaryReader.o Binary/Utils/BaseArray.o Binary/Utils/BinaryTypeReadRef.o Binary/Utils/BinaryTypeRef.o Binary/Utils/StrArray.o Binary/Utils/WStrArray.o Binary/Writer/xBinaryWriter.o Text/Reader/AsciiReader.o Text/Reader/BaseTextReader.o Text/Reader/BEUnicodeReader.o Text/Reader/UnicodeReader.o Text/Reader/UTF8Reader.o Text/Reader/xTextReader.o Text/Utils/DataType.o Text/Utils/DataTypeRef.o Text/Utils/SplitStrategy.o Text/Utils/StrtokStrategy.o Text/Utils/StrUtil.o Text/Utils/StrUtilRef.o Text/Writer/AsciiWriter.o Text/Writer/BaseTextWriter.o Text/Writer/BEUnicodeWriter.o Text/Writer/UnicodeWriter.o Text/Writer/UTF8Writer.o Text/Writer/xTextWriter.o Common/BaseConverter.o Common/Common.o Common/Enumeration.o Common/RAII_Array.o Linux/LinuxOperation.o UTF16Utils/utf16.o $(RES)
-LINKOBJ  = Binary/Reader/xBinaryReader.o Binary/Utils/BaseArray.o Binary/Utils/BinaryTypeReadRef.o Binary/Utils/BinaryTypeRef.o Binary/Utils/StrArray.o Binary/Utils/WStrArray.o Binary/Writer/xBinaryWriter.o Text/Reader/AsciiReader.o Text/Reader/BaseTextReader.o Text/Reader/BEUnicodeReader.o Text/Reader/UnicodeReader.o Text/Reader/UTF8Reader.o Text/Reader/xTextReader.o Text/Utils/DataType.o Text/Utils/DataTypeRef.o Text/Utils/SplitStrategy.o Text/Utils/StrtokStrategy.o Text/Utils/StrUtil.o Text/Utils/StrUtilRef.o Text/Writer/AsciiWriter.o Text/Writer/BaseTextWriter.o Text/Writer/BEUnicodeWriter.o Text/Writer/UnicodeWriter.o Text/Writer/UTF8Writer.o Text/Writer/xTextWriter.o Common/BaseConverter.o Common/Common.o Common/Enumeration.o Common/RAII_Array.o Linux/LinuxOperation.o UTF16Utils/utf16.o $(RES)
+OBJ      = Binary/Reader/xBinaryReader.o Binary/Utils/BaseArray.o Binary/Utils/BinaryTypeReadRef.o Binary/Utils/BinaryTypeRef.o Binary/Utils/StrArray.o Binary/Utils/WStrArray.o Binary/Writer/xBinaryWriter.o Text/Reader/AsciiReader.o Text/Reader/BaseTextReader.o Text/Reader/BEUnicodeReader.o Text/Reader/UnicodeReader.o Text/Reader/UTF8Reader.o Text/Reader/UTF32Reader.o Text/Reader/UTF32BEReader.o Text/Reader/xTextReader.o Text/Utils/DataType.o Text/Utils/DataTypeRef.o Text/Utils/SplitStrategy.o Text/Utils/StrtokStrategy.o Text/Utils/StrUtil.o Text/Utils/StrUtilRef.o Text/Writer/AsciiWriter.o Text/Writer/BaseTextWriter.o Text/Writer/BEUnicodeWriter.o Text/Writer/UnicodeWriter.o Text/Writer/UTF8Writer.o Text/Writer/UTF32Writer.o Text/Writer/UTF32BEWriter.o Text/Writer/xTextWriter.o Common/BaseConverter.o Common/Common.o Common/Enumeration.o Common/RAII_Array.o Linux/LinuxOperation.o UTF16Utils/utf16.o $(RES)
+LINKOBJ  = Binary/Reader/xBinaryReader.o Binary/Utils/BaseArray.o Binary/Utils/BinaryTypeReadRef.o Binary/Utils/BinaryTypeRef.o Binary/Utils/StrArray.o Binary/Utils/WStrArray.o Binary/Writer/xBinaryWriter.o Text/Reader/AsciiReader.o Text/Reader/BaseTextReader.o Text/Reader/BEUnicodeReader.o Text/Reader/UnicodeReader.o Text/Reader/UTF8Reader.o Text/Reader/UTF32Reader.o Text/Reader/UTF32BEReader.o Text/Reader/xTextReader.o Text/Utils/DataType.o Text/Utils/DataTypeRef.o Text/Utils/SplitStrategy.o Text/Utils/StrtokStrategy.o Text/Utils/StrUtil.o Text/Utils/StrUtilRef.o Text/Writer/AsciiWriter.o Text/Writer/BaseTextWriter.o Text/Writer/BEUnicodeWriter.o Text/Writer/UnicodeWriter.o Text/Writer/UTF8Writer.o Text/Writer/UTF32Writer.o Text/Writer/UTF32BEWriter.o Text/Writer/xTextWriter.o Common/BaseConverter.o Common/Common.o Common/Enumeration.o Common/RAII_Array.o Linux/LinuxOperation.o UTF16Utils/utf16.o $(RES)
 CXXINCS  = -I ~/Downloads/boost_1_55_0
 BIN      = FileLib.a
 CXXFLAGS = -Wall -g -O1 $(CXXINCS) 
@@ -59,6 +59,12 @@ Text/Reader/UnicodeReader.o: Text/Reader/UnicodeReader.cpp
 Text/Reader/UTF8Reader.o: Text/Reader/UTF8Reader.cpp
 	$(CPP) -c Text/Reader/UTF8Reader.cpp -o Text/Reader/UTF8Reader.o $(CXXFLAGS)
 
+Text/Reader/UTF32Reader.o: Text/Reader/UTF32Reader.cpp
+	$(CPP) -c Text/Reader/UTF32Reader.cpp -o Text/Reader/UTF32Reader.o $(CXXFLAGS)
+
+Text/Reader/UTF32BEReader.o: Text/Reader/UTF32BEReader.cpp
+	$(CPP) -c Text/Reader/UTF32BEReader.cpp -o Text/Reader/UTF32BEReader.o $(CXXFLAGS)
+
 Text/Reader/xTextReader.o: Text/Reader/xTextReader.cpp
 	$(CPP) -c Text/Reader/xTextReader.cpp -o Text/Reader/xTextReader.o $(CXXFLAGS)
 
@@ -94,6 +100,12 @@ Text/Writer/UnicodeWriter.o: Text/Writer/UnicodeWriter.cpp
 
 Text/Writer/UTF8Writer.o: Text/Writer/UTF8Writer.cpp
 	$(CPP) -c Text/Writer/UTF8Writer.cpp -o Text/Writer/UTF8Writer.o $(CXXFLAGS)
+
+Text/Writer/UTF32Writer.o: Text/Writer/UTF32Writer.cpp
+	$(CPP) -c Text/Writer/UTF32Writer.cpp -o Text/Writer/UTF32Writer.o $(CXXFLAGS)
+
+Text/Writer/UTF32BEWriter.o: Text/Writer/UTF32BEWriter.cpp
+	$(CPP) -c Text/Writer/UTF32BEWriter.cpp -o Text/Writer/UTF32BEWriter.o $(CXXFLAGS)
 
 Text/Writer/xTextWriter.o: Text/Writer/xTextWriter.cpp
 	$(CPP) -c Text/Writer/xTextWriter.cpp -o Text/Writer/xTextWriter.o $(CXXFLAGS)

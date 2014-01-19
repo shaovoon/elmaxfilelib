@@ -355,3 +355,642 @@ size_t StrUtilRef::Split( const std::wstring& StrToExtract, DataTypeRef& D1, Dat
 	return m_pSplitStrategy->Extract( StrToExtract, vecDTR );
 }
 
+size_t StrUtilRef::Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+	DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11)
+{
+	std::vector<DataTypeRef*> vecDTR;
+	vecDTR.push_back(&D1);
+	vecDTR.push_back(&D2);
+	vecDTR.push_back(&D3);
+	vecDTR.push_back(&D4);
+	vecDTR.push_back(&D5);
+	vecDTR.push_back(&D6);
+	vecDTR.push_back(&D7);
+	vecDTR.push_back(&D8);
+	vecDTR.push_back(&D9);
+	vecDTR.push_back(&D10);
+	vecDTR.push_back(&D11);
+
+	assert( m_pSplitStrategy );
+	return m_pSplitStrategy->Extract( StrToExtract, vecDTR );
+}
+
+size_t StrUtilRef::Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+	DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12)
+{
+	std::vector<DataTypeRef*> vecDTR;
+	vecDTR.push_back(&D1);
+	vecDTR.push_back(&D2);
+	vecDTR.push_back(&D3);
+	vecDTR.push_back(&D4);
+	vecDTR.push_back(&D5);
+	vecDTR.push_back(&D6);
+	vecDTR.push_back(&D7);
+	vecDTR.push_back(&D8);
+	vecDTR.push_back(&D9);
+	vecDTR.push_back(&D10);
+	vecDTR.push_back(&D11);
+	vecDTR.push_back(&D12);
+
+	assert( m_pSplitStrategy );
+	return m_pSplitStrategy->Extract( StrToExtract, vecDTR );
+}
+
+size_t StrUtilRef::Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+	DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13)
+{
+	std::vector<DataTypeRef*> vecDTR;
+	vecDTR.push_back(&D1);
+	vecDTR.push_back(&D2);
+	vecDTR.push_back(&D3);
+	vecDTR.push_back(&D4);
+	vecDTR.push_back(&D5);
+	vecDTR.push_back(&D6);
+	vecDTR.push_back(&D7);
+	vecDTR.push_back(&D8);
+	vecDTR.push_back(&D9);
+	vecDTR.push_back(&D10);
+	vecDTR.push_back(&D11);
+	vecDTR.push_back(&D12);
+	vecDTR.push_back(&D13);
+
+	assert( m_pSplitStrategy );
+	return m_pSplitStrategy->Extract( StrToExtract, vecDTR );
+}
+
+size_t StrUtilRef::Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+	DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14)
+{
+	std::vector<DataTypeRef*> vecDTR;
+	vecDTR.push_back(&D1);
+	vecDTR.push_back(&D2);
+	vecDTR.push_back(&D3);
+	vecDTR.push_back(&D4);
+	vecDTR.push_back(&D5);
+	vecDTR.push_back(&D6);
+	vecDTR.push_back(&D7);
+	vecDTR.push_back(&D8);
+	vecDTR.push_back(&D9);
+	vecDTR.push_back(&D10);
+	vecDTR.push_back(&D11);
+	vecDTR.push_back(&D12);
+	vecDTR.push_back(&D13);
+	vecDTR.push_back(&D14);
+
+	assert( m_pSplitStrategy );
+	return m_pSplitStrategy->Extract( StrToExtract, vecDTR );
+}
+
+size_t StrUtilRef::Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+	DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15)
+{
+	std::vector<DataTypeRef*> vecDTR;
+	vecDTR.push_back(&D1);
+	vecDTR.push_back(&D2);
+	vecDTR.push_back(&D3);
+	vecDTR.push_back(&D4);
+	vecDTR.push_back(&D5);
+	vecDTR.push_back(&D6);
+	vecDTR.push_back(&D7);
+	vecDTR.push_back(&D8);
+	vecDTR.push_back(&D9);
+	vecDTR.push_back(&D10);
+	vecDTR.push_back(&D11);
+	vecDTR.push_back(&D12);
+	vecDTR.push_back(&D13);
+	vecDTR.push_back(&D14);
+	vecDTR.push_back(&D15);
+
+	assert( m_pSplitStrategy );
+	return m_pSplitStrategy->Extract( StrToExtract, vecDTR );
+}
+
+size_t StrUtilRef::Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+	DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16)
+{
+	std::vector<DataTypeRef*> vecDTR;
+	vecDTR.push_back(&D1);
+	vecDTR.push_back(&D2);
+	vecDTR.push_back(&D3);
+	vecDTR.push_back(&D4);
+	vecDTR.push_back(&D5);
+	vecDTR.push_back(&D6);
+	vecDTR.push_back(&D7);
+	vecDTR.push_back(&D8);
+	vecDTR.push_back(&D9);
+	vecDTR.push_back(&D10);
+	vecDTR.push_back(&D11);
+	vecDTR.push_back(&D12);
+	vecDTR.push_back(&D13);
+	vecDTR.push_back(&D14);
+	vecDTR.push_back(&D15);
+	vecDTR.push_back(&D16);
+
+	assert( m_pSplitStrategy );
+	return m_pSplitStrategy->Extract( StrToExtract, vecDTR );
+}
+
+size_t StrUtilRef::Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+	DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17)
+{
+	std::vector<DataTypeRef*> vecDTR;
+	vecDTR.push_back(&D1);
+	vecDTR.push_back(&D2);
+	vecDTR.push_back(&D3);
+	vecDTR.push_back(&D4);
+	vecDTR.push_back(&D5);
+	vecDTR.push_back(&D6);
+	vecDTR.push_back(&D7);
+	vecDTR.push_back(&D8);
+	vecDTR.push_back(&D9);
+	vecDTR.push_back(&D10);
+	vecDTR.push_back(&D11);
+	vecDTR.push_back(&D12);
+	vecDTR.push_back(&D13);
+	vecDTR.push_back(&D14);
+	vecDTR.push_back(&D15);
+	vecDTR.push_back(&D16);
+	vecDTR.push_back(&D17);
+
+	assert( m_pSplitStrategy );
+	return m_pSplitStrategy->Extract( StrToExtract, vecDTR );
+}
+
+size_t StrUtilRef::Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+	DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17, DataTypeRef& D18)
+{
+	std::vector<DataTypeRef*> vecDTR;
+	vecDTR.push_back(&D1);
+	vecDTR.push_back(&D2);
+	vecDTR.push_back(&D3);
+	vecDTR.push_back(&D4);
+	vecDTR.push_back(&D5);
+	vecDTR.push_back(&D6);
+	vecDTR.push_back(&D7);
+	vecDTR.push_back(&D8);
+	vecDTR.push_back(&D9);
+	vecDTR.push_back(&D10);
+	vecDTR.push_back(&D11);
+	vecDTR.push_back(&D12);
+	vecDTR.push_back(&D13);
+	vecDTR.push_back(&D14);
+	vecDTR.push_back(&D15);
+	vecDTR.push_back(&D16);
+	vecDTR.push_back(&D17);
+	vecDTR.push_back(&D18);
+
+	assert( m_pSplitStrategy );
+	return m_pSplitStrategy->Extract( StrToExtract, vecDTR );
+}
+
+size_t StrUtilRef::Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+	DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17, DataTypeRef& D18, DataTypeRef& D19)
+{
+	std::vector<DataTypeRef*> vecDTR;
+	vecDTR.push_back(&D1);
+	vecDTR.push_back(&D2);
+	vecDTR.push_back(&D3);
+	vecDTR.push_back(&D4);
+	vecDTR.push_back(&D5);
+	vecDTR.push_back(&D6);
+	vecDTR.push_back(&D7);
+	vecDTR.push_back(&D8);
+	vecDTR.push_back(&D9);
+	vecDTR.push_back(&D10);
+	vecDTR.push_back(&D11);
+	vecDTR.push_back(&D12);
+	vecDTR.push_back(&D13);
+	vecDTR.push_back(&D14);
+	vecDTR.push_back(&D15);
+	vecDTR.push_back(&D16);
+	vecDTR.push_back(&D17);
+	vecDTR.push_back(&D18);
+	vecDTR.push_back(&D19);
+
+	assert( m_pSplitStrategy );
+	return m_pSplitStrategy->Extract( StrToExtract, vecDTR );
+}
+
+size_t StrUtilRef::Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+	DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17, DataTypeRef& D18, DataTypeRef& D19, DataTypeRef& D20)
+{
+	std::vector<DataTypeRef*> vecDTR;
+	vecDTR.push_back(&D1);
+	vecDTR.push_back(&D2);
+	vecDTR.push_back(&D3);
+	vecDTR.push_back(&D4);
+	vecDTR.push_back(&D5);
+	vecDTR.push_back(&D6);
+	vecDTR.push_back(&D7);
+	vecDTR.push_back(&D8);
+	vecDTR.push_back(&D9);
+	vecDTR.push_back(&D10);
+	vecDTR.push_back(&D11);
+	vecDTR.push_back(&D12);
+	vecDTR.push_back(&D13);
+	vecDTR.push_back(&D14);
+	vecDTR.push_back(&D15);
+	vecDTR.push_back(&D16);
+	vecDTR.push_back(&D17);
+	vecDTR.push_back(&D18);
+	vecDTR.push_back(&D19);
+	vecDTR.push_back(&D20);
+
+	assert( m_pSplitStrategy );
+	return m_pSplitStrategy->Extract( StrToExtract, vecDTR );
+}
+
+size_t StrUtilRef::Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+	DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17, DataTypeRef& D18, DataTypeRef& D19, DataTypeRef& D20,
+		DataTypeRef& D21)
+{
+	std::vector<DataTypeRef*> vecDTR;
+	vecDTR.push_back(&D1);
+	vecDTR.push_back(&D2);
+	vecDTR.push_back(&D3);
+	vecDTR.push_back(&D4);
+	vecDTR.push_back(&D5);
+	vecDTR.push_back(&D6);
+	vecDTR.push_back(&D7);
+	vecDTR.push_back(&D8);
+	vecDTR.push_back(&D9);
+	vecDTR.push_back(&D10);
+	vecDTR.push_back(&D11);
+	vecDTR.push_back(&D12);
+	vecDTR.push_back(&D13);
+	vecDTR.push_back(&D14);
+	vecDTR.push_back(&D15);
+	vecDTR.push_back(&D16);
+	vecDTR.push_back(&D17);
+	vecDTR.push_back(&D18);
+	vecDTR.push_back(&D19);
+	vecDTR.push_back(&D20);
+	vecDTR.push_back(&D21);
+
+	assert( m_pSplitStrategy );
+	return m_pSplitStrategy->Extract( StrToExtract, vecDTR );
+}
+
+size_t StrUtilRef::Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+	DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17, DataTypeRef& D18, DataTypeRef& D19, DataTypeRef& D20,
+		DataTypeRef& D21, DataTypeRef& D22)
+{
+	std::vector<DataTypeRef*> vecDTR;
+	vecDTR.push_back(&D1);
+	vecDTR.push_back(&D2);
+	vecDTR.push_back(&D3);
+	vecDTR.push_back(&D4);
+	vecDTR.push_back(&D5);
+	vecDTR.push_back(&D6);
+	vecDTR.push_back(&D7);
+	vecDTR.push_back(&D8);
+	vecDTR.push_back(&D9);
+	vecDTR.push_back(&D10);
+	vecDTR.push_back(&D11);
+	vecDTR.push_back(&D12);
+	vecDTR.push_back(&D13);
+	vecDTR.push_back(&D14);
+	vecDTR.push_back(&D15);
+	vecDTR.push_back(&D16);
+	vecDTR.push_back(&D17);
+	vecDTR.push_back(&D18);
+	vecDTR.push_back(&D19);
+	vecDTR.push_back(&D20);
+	vecDTR.push_back(&D21);
+	vecDTR.push_back(&D22);
+
+	assert( m_pSplitStrategy );
+	return m_pSplitStrategy->Extract( StrToExtract, vecDTR );
+}
+
+size_t StrUtilRef::Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+	DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17, DataTypeRef& D18, DataTypeRef& D19, DataTypeRef& D20,
+		DataTypeRef& D21, DataTypeRef& D22, DataTypeRef& D23)
+{
+	std::vector<DataTypeRef*> vecDTR;
+	vecDTR.push_back(&D1);
+	vecDTR.push_back(&D2);
+	vecDTR.push_back(&D3);
+	vecDTR.push_back(&D4);
+	vecDTR.push_back(&D5);
+	vecDTR.push_back(&D6);
+	vecDTR.push_back(&D7);
+	vecDTR.push_back(&D8);
+	vecDTR.push_back(&D9);
+	vecDTR.push_back(&D10);
+	vecDTR.push_back(&D11);
+	vecDTR.push_back(&D12);
+	vecDTR.push_back(&D13);
+	vecDTR.push_back(&D14);
+	vecDTR.push_back(&D15);
+	vecDTR.push_back(&D16);
+	vecDTR.push_back(&D17);
+	vecDTR.push_back(&D18);
+	vecDTR.push_back(&D19);
+	vecDTR.push_back(&D20);
+	vecDTR.push_back(&D21);
+	vecDTR.push_back(&D22);
+	vecDTR.push_back(&D23);
+
+	assert( m_pSplitStrategy );
+	return m_pSplitStrategy->Extract( StrToExtract, vecDTR );
+}
+
+size_t StrUtilRef::Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+	DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17, DataTypeRef& D18, DataTypeRef& D19, DataTypeRef& D20,
+		DataTypeRef& D21, DataTypeRef& D22, DataTypeRef& D23, DataTypeRef& D24)
+{
+	std::vector<DataTypeRef*> vecDTR;
+	vecDTR.push_back(&D1);
+	vecDTR.push_back(&D2);
+	vecDTR.push_back(&D3);
+	vecDTR.push_back(&D4);
+	vecDTR.push_back(&D5);
+	vecDTR.push_back(&D6);
+	vecDTR.push_back(&D7);
+	vecDTR.push_back(&D8);
+	vecDTR.push_back(&D9);
+	vecDTR.push_back(&D10);
+	vecDTR.push_back(&D11);
+	vecDTR.push_back(&D12);
+	vecDTR.push_back(&D13);
+	vecDTR.push_back(&D14);
+	vecDTR.push_back(&D15);
+	vecDTR.push_back(&D16);
+	vecDTR.push_back(&D17);
+	vecDTR.push_back(&D18);
+	vecDTR.push_back(&D19);
+	vecDTR.push_back(&D20);
+	vecDTR.push_back(&D21);
+	vecDTR.push_back(&D22);
+	vecDTR.push_back(&D23);
+	vecDTR.push_back(&D24);
+
+	assert( m_pSplitStrategy );
+	return m_pSplitStrategy->Extract( StrToExtract, vecDTR );
+}
+
+size_t StrUtilRef::Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+	DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17, DataTypeRef& D18, DataTypeRef& D19, DataTypeRef& D20,
+		DataTypeRef& D21, DataTypeRef& D22, DataTypeRef& D23, DataTypeRef& D24, DataTypeRef& D25)
+{
+	std::vector<DataTypeRef*> vecDTR;
+	vecDTR.push_back(&D1);
+	vecDTR.push_back(&D2);
+	vecDTR.push_back(&D3);
+	vecDTR.push_back(&D4);
+	vecDTR.push_back(&D5);
+	vecDTR.push_back(&D6);
+	vecDTR.push_back(&D7);
+	vecDTR.push_back(&D8);
+	vecDTR.push_back(&D9);
+	vecDTR.push_back(&D10);
+	vecDTR.push_back(&D11);
+	vecDTR.push_back(&D12);
+	vecDTR.push_back(&D13);
+	vecDTR.push_back(&D14);
+	vecDTR.push_back(&D15);
+	vecDTR.push_back(&D16);
+	vecDTR.push_back(&D17);
+	vecDTR.push_back(&D18);
+	vecDTR.push_back(&D19);
+	vecDTR.push_back(&D20);
+	vecDTR.push_back(&D21);
+	vecDTR.push_back(&D22);
+	vecDTR.push_back(&D23);
+	vecDTR.push_back(&D24);
+	vecDTR.push_back(&D25);
+
+	assert( m_pSplitStrategy );
+	return m_pSplitStrategy->Extract( StrToExtract, vecDTR );
+}
+
+size_t StrUtilRef::Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+	DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17, DataTypeRef& D18, DataTypeRef& D19, DataTypeRef& D20,
+		DataTypeRef& D21, DataTypeRef& D22, DataTypeRef& D23, DataTypeRef& D24, DataTypeRef& D25, 
+		DataTypeRef& D26)
+{
+	std::vector<DataTypeRef*> vecDTR;
+	vecDTR.push_back(&D1);
+	vecDTR.push_back(&D2);
+	vecDTR.push_back(&D3);
+	vecDTR.push_back(&D4);
+	vecDTR.push_back(&D5);
+	vecDTR.push_back(&D6);
+	vecDTR.push_back(&D7);
+	vecDTR.push_back(&D8);
+	vecDTR.push_back(&D9);
+	vecDTR.push_back(&D10);
+	vecDTR.push_back(&D11);
+	vecDTR.push_back(&D12);
+	vecDTR.push_back(&D13);
+	vecDTR.push_back(&D14);
+	vecDTR.push_back(&D15);
+	vecDTR.push_back(&D16);
+	vecDTR.push_back(&D17);
+	vecDTR.push_back(&D18);
+	vecDTR.push_back(&D19);
+	vecDTR.push_back(&D20);
+	vecDTR.push_back(&D21);
+	vecDTR.push_back(&D22);
+	vecDTR.push_back(&D23);
+	vecDTR.push_back(&D24);
+	vecDTR.push_back(&D25);
+	vecDTR.push_back(&D26);
+
+	assert( m_pSplitStrategy );
+	return m_pSplitStrategy->Extract( StrToExtract, vecDTR );
+}
+
+size_t StrUtilRef::Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+	DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17, DataTypeRef& D18, DataTypeRef& D19, DataTypeRef& D20,
+		DataTypeRef& D21, DataTypeRef& D22, DataTypeRef& D23, DataTypeRef& D24, DataTypeRef& D25, 
+		DataTypeRef& D26, DataTypeRef& D27)
+{
+	std::vector<DataTypeRef*> vecDTR;
+	vecDTR.push_back(&D1);
+	vecDTR.push_back(&D2);
+	vecDTR.push_back(&D3);
+	vecDTR.push_back(&D4);
+	vecDTR.push_back(&D5);
+	vecDTR.push_back(&D6);
+	vecDTR.push_back(&D7);
+	vecDTR.push_back(&D8);
+	vecDTR.push_back(&D9);
+	vecDTR.push_back(&D10);
+	vecDTR.push_back(&D11);
+	vecDTR.push_back(&D12);
+	vecDTR.push_back(&D13);
+	vecDTR.push_back(&D14);
+	vecDTR.push_back(&D15);
+	vecDTR.push_back(&D16);
+	vecDTR.push_back(&D17);
+	vecDTR.push_back(&D18);
+	vecDTR.push_back(&D19);
+	vecDTR.push_back(&D20);
+	vecDTR.push_back(&D21);
+	vecDTR.push_back(&D22);
+	vecDTR.push_back(&D23);
+	vecDTR.push_back(&D24);
+	vecDTR.push_back(&D25);
+	vecDTR.push_back(&D26);
+	vecDTR.push_back(&D27);
+
+	assert( m_pSplitStrategy );
+	return m_pSplitStrategy->Extract( StrToExtract, vecDTR );
+}
+
+size_t StrUtilRef::Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+	DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17, DataTypeRef& D18, DataTypeRef& D19, DataTypeRef& D20,
+		DataTypeRef& D21, DataTypeRef& D22, DataTypeRef& D23, DataTypeRef& D24, DataTypeRef& D25, 
+		DataTypeRef& D26, DataTypeRef& D27, DataTypeRef& D28)
+{
+	std::vector<DataTypeRef*> vecDTR;
+	vecDTR.push_back(&D1);
+	vecDTR.push_back(&D2);
+	vecDTR.push_back(&D3);
+	vecDTR.push_back(&D4);
+	vecDTR.push_back(&D5);
+	vecDTR.push_back(&D6);
+	vecDTR.push_back(&D7);
+	vecDTR.push_back(&D8);
+	vecDTR.push_back(&D9);
+	vecDTR.push_back(&D10);
+	vecDTR.push_back(&D11);
+	vecDTR.push_back(&D12);
+	vecDTR.push_back(&D13);
+	vecDTR.push_back(&D14);
+	vecDTR.push_back(&D15);
+	vecDTR.push_back(&D16);
+	vecDTR.push_back(&D17);
+	vecDTR.push_back(&D18);
+	vecDTR.push_back(&D19);
+	vecDTR.push_back(&D20);
+	vecDTR.push_back(&D21);
+	vecDTR.push_back(&D22);
+	vecDTR.push_back(&D23);
+	vecDTR.push_back(&D24);
+	vecDTR.push_back(&D25);
+	vecDTR.push_back(&D26);
+	vecDTR.push_back(&D27);
+	vecDTR.push_back(&D28);
+
+	assert( m_pSplitStrategy );
+	return m_pSplitStrategy->Extract( StrToExtract, vecDTR );
+}
+
+size_t StrUtilRef::Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+	DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17, DataTypeRef& D18, DataTypeRef& D19, DataTypeRef& D20,
+		DataTypeRef& D21, DataTypeRef& D22, DataTypeRef& D23, DataTypeRef& D24, DataTypeRef& D25, 
+		DataTypeRef& D26, DataTypeRef& D27, DataTypeRef& D28, DataTypeRef& D29)
+{
+	std::vector<DataTypeRef*> vecDTR;
+	vecDTR.push_back(&D1);
+	vecDTR.push_back(&D2);
+	vecDTR.push_back(&D3);
+	vecDTR.push_back(&D4);
+	vecDTR.push_back(&D5);
+	vecDTR.push_back(&D6);
+	vecDTR.push_back(&D7);
+	vecDTR.push_back(&D8);
+	vecDTR.push_back(&D9);
+	vecDTR.push_back(&D10);
+	vecDTR.push_back(&D11);
+	vecDTR.push_back(&D12);
+	vecDTR.push_back(&D13);
+	vecDTR.push_back(&D14);
+	vecDTR.push_back(&D15);
+	vecDTR.push_back(&D16);
+	vecDTR.push_back(&D17);
+	vecDTR.push_back(&D18);
+	vecDTR.push_back(&D19);
+	vecDTR.push_back(&D20);
+	vecDTR.push_back(&D21);
+	vecDTR.push_back(&D22);
+	vecDTR.push_back(&D23);
+	vecDTR.push_back(&D24);
+	vecDTR.push_back(&D25);
+	vecDTR.push_back(&D26);
+	vecDTR.push_back(&D27);
+	vecDTR.push_back(&D28);
+	vecDTR.push_back(&D29);
+
+	assert( m_pSplitStrategy );
+	return m_pSplitStrategy->Extract( StrToExtract, vecDTR );
+}
+
+size_t StrUtilRef::Split( const std::wstring& StrToExtract, DataTypeRef& D1, DataTypeRef& D2, DataTypeRef& D3, DataTypeRef& D4,
+	DataTypeRef& D5, DataTypeRef& D6, DataTypeRef& D7, DataTypeRef& D8, DataTypeRef& D9, DataTypeRef& D10,
+		DataTypeRef& D11, DataTypeRef& D12, DataTypeRef& D13, DataTypeRef& D14, DataTypeRef& D15, 
+		DataTypeRef& D16, DataTypeRef& D17, DataTypeRef& D18, DataTypeRef& D19, DataTypeRef& D20,
+		DataTypeRef& D21, DataTypeRef& D22, DataTypeRef& D23, DataTypeRef& D24, DataTypeRef& D25, 
+		DataTypeRef& D26, DataTypeRef& D27, DataTypeRef& D28, DataTypeRef& D29, DataTypeRef& D30 )
+{
+	std::vector<DataTypeRef*> vecDTR;
+	vecDTR.push_back(&D1);
+	vecDTR.push_back(&D2);
+	vecDTR.push_back(&D3);
+	vecDTR.push_back(&D4);
+	vecDTR.push_back(&D5);
+	vecDTR.push_back(&D6);
+	vecDTR.push_back(&D7);
+	vecDTR.push_back(&D8);
+	vecDTR.push_back(&D9);
+	vecDTR.push_back(&D10);
+	vecDTR.push_back(&D11);
+	vecDTR.push_back(&D12);
+	vecDTR.push_back(&D13);
+	vecDTR.push_back(&D14);
+	vecDTR.push_back(&D15);
+	vecDTR.push_back(&D16);
+	vecDTR.push_back(&D17);
+	vecDTR.push_back(&D18);
+	vecDTR.push_back(&D19);
+	vecDTR.push_back(&D20);
+	vecDTR.push_back(&D21);
+	vecDTR.push_back(&D22);
+	vecDTR.push_back(&D23);
+	vecDTR.push_back(&D24);
+	vecDTR.push_back(&D25);
+	vecDTR.push_back(&D26);
+	vecDTR.push_back(&D27);
+	vecDTR.push_back(&D28);
+	vecDTR.push_back(&D29);
+	vecDTR.push_back(&D30);
+
+	assert( m_pSplitStrategy );
+	return m_pSplitStrategy->Extract( StrToExtract, vecDTR );
+}

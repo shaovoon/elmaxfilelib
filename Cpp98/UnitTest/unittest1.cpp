@@ -16,6 +16,12 @@
 #include "..\\FileIO\\Text\\Writer\\UTF8Writer.h"
 #include "..\\FileIO\\Text\\Reader\\UTF8Reader.h"
 
+#include "..\\FileIO\\Text\\Writer\\UTF32Writer.h"
+#include "..\\FileIO\\Text\\Reader\\UTF32Reader.h"
+
+#include "..\\FileIO\\Text\\Writer\\UTF32BEWriter.h"
+#include "..\\FileIO\\Text\\Reader\\UTF32BEReader.h"
+
 #include "..\\FileIO\\Text\\Utils\\StrtokStrategy.h"
 
 #include "..\\FileIO\\Binary\\Writer\\xBinaryWriter.h"
@@ -116,6 +122,76 @@ namespace UnitTest
 			writer.Close();
 
 			UTF8Reader reader;
+			Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+			bool eof = reader.IsEOF();
+			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+			if(eof==false)
+			{
+				std::wstring text = L"";
+				bool b = reader.ReadLine(text);
+				Assert::AreEqual(true, b, L"Cannot read 1st line");
+				Assert::AreEqual(line1, text, L"1st line is not the same");
+			}
+			eof = reader.IsEOF();
+			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+			if(eof==false)
+			{
+				std::wstring text = L"";
+				bool b = reader.ReadLine(text);
+				Assert::AreEqual(true, b, L"Cannot read 2nd line");
+				Assert::AreEqual(line2, text, L"2nd line is not the same");
+			}
+			reader.Close();
+		}
+		TEST_METHOD(UTF32)
+		{
+			using namespace Elmax;
+			UTF32Writer writer;
+			std::wstring file = GetTempPath(L"utf32.txt");
+			Assert::AreEqual(true, writer.Open(file, NEW), L"File cannot be opened for writing!");
+			std::wstring line1 = L"Hello My Friend!";
+			writer.WriteLine(line1);
+			std::wstring line2 = L"How are you?";
+			writer.WriteLine(line2);
+			writer.Flush();
+			writer.Close();
+
+			UTF32Reader reader;
+			Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+			bool eof = reader.IsEOF();
+			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+			if(eof==false)
+			{
+				std::wstring text = L"";
+				bool b = reader.ReadLine(text);
+				Assert::AreEqual(true, b, L"Cannot read 1st line");
+				Assert::AreEqual(line1, text, L"1st line is not the same");
+			}
+			eof = reader.IsEOF();
+			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+			if(eof==false)
+			{
+				std::wstring text = L"";
+				bool b = reader.ReadLine(text);
+				Assert::AreEqual(true, b, L"Cannot read 2nd line");
+				Assert::AreEqual(line2, text, L"2nd line is not the same");
+			}
+			reader.Close();
+		}
+		TEST_METHOD(UTF32BE)
+		{
+			using namespace Elmax;
+			UTF32BEWriter writer;
+			std::wstring file = GetTempPath(L"utf32be.txt");
+			Assert::AreEqual(true, writer.Open(file, NEW), L"File cannot be opened for writing!");
+			std::wstring line1 = L"Hello My Friend!";
+			writer.WriteLine(line1);
+			std::wstring line2 = L"How are you?";
+			writer.WriteLine(line2);
+			writer.Flush();
+			writer.Close();
+
+			UTF32BEReader reader;
 			Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
 			bool eof = reader.IsEOF();
 			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
@@ -270,6 +346,69 @@ namespace UnitTest
 			}
 			reader.Close();
 		}
+		TEST_METHOD(UTF32ReadAll)
+		{
+			using namespace Elmax;
+			UTF32Writer writer;
+			std::wstring file = GetTempPath(L"utf32ReadAll.txt");
+			Assert::AreEqual(true, writer.Open(file, NEW), L"File cannot be opened for writing!");
+			std::wstring line1 = L"Hello My Friend!";
+			writer.WriteLine(line1);
+			std::wstring line2 = L"How are you?";
+			writer.WriteLine(line2);
+			writer.Flush();
+			writer.Close();
+
+			UTF32Reader reader;
+			Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+			bool eof = reader.IsEOF();
+			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+			if(eof==false)
+			{
+				std::wstring text = L"";
+				bool b = reader.ReadAll(text);
+				std::wstring readText = line1;
+				readText += L"\n";
+				readText += line2;
+				readText += L"\n";
+
+				Assert::AreEqual(true, b, L"Cannot read all");
+				Assert::AreEqual(readText, text, L"Text is not the same");
+			}
+			reader.Close();
+		}
+		TEST_METHOD(UTF32BEReadAll)
+		{
+			using namespace Elmax;
+			UTF32BEWriter writer;
+			std::wstring file = GetTempPath(L"utf32BEReadAll.txt");
+			Assert::AreEqual(true, writer.Open(file, NEW), L"File cannot be opened for writing!");
+			std::wstring line1 = L"Hello My Friend!";
+			writer.WriteLine(line1);
+			std::wstring line2 = L"How are you?";
+			writer.WriteLine(line2);
+			writer.Flush();
+			writer.Close();
+
+			UTF32BEReader reader;
+			Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+			bool eof = reader.IsEOF();
+			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+			if(eof==false)
+			{
+				std::wstring text = L"";
+				bool b = reader.ReadAll(text);
+				std::wstring readText = line1;
+				readText += L"\n";
+				readText += line2;
+				readText += L"\n";
+
+				Assert::AreEqual(true, b, L"Cannot read all");
+				Assert::AreEqual(readText, text, L"Text is not the same");
+			}
+			reader.Close();
+		}
+
 		TEST_METHOD(UnicodeReadAll)
 		{
 			using namespace Elmax;
@@ -354,6 +493,72 @@ namespace UnitTest
 			writer.Close();
 
 			UTF8Reader reader;
+			Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+			bool eof = reader.IsEOF();
+			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+			if(eof==false)
+			{
+				std::wstring text = L"";
+				bool b = reader.ReadAll(text);
+
+				Assert::AreEqual(true, b, L"Cannot read all");
+				Assert::AreEqual(str, text, L"Text is not the same");
+			}
+			reader.Close();
+		}
+		TEST_METHOD(UTF32ReadAll2)
+		{
+			using namespace Elmax;
+			UTF32Writer writer;
+			std::wstring file = GetTempPath(L"utf32ReadAll2.txt");
+			Assert::AreEqual(true, writer.Open(file, NEW), L"File cannot be opened for writing!");
+			std::wstring str = L"Hello My Friend!";
+			std::wstring line2 = L"How are you?";
+			wchar_t ch2 = 0x6c34;
+			str += ch2;
+			wchar_t ch3 = 0xd834;
+			str += ch3;
+			wchar_t ch4 = 0xdd0b;
+			str += ch4;
+			str += line2;
+			writer.Write(str);
+			writer.Flush();
+			writer.Close();
+
+			UTF32Reader reader;
+			Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+			bool eof = reader.IsEOF();
+			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+			if(eof==false)
+			{
+				std::wstring text = L"";
+				bool b = reader.ReadAll(text);
+
+				Assert::AreEqual(true, b, L"Cannot read all");
+				Assert::AreEqual(str, text, L"Text is not the same");
+			}
+			reader.Close();
+		}
+		TEST_METHOD(UTF32BEReadAll2)
+		{
+			using namespace Elmax;
+			UTF32BEWriter writer;
+			std::wstring file = GetTempPath(L"utf32BEReadAll2.txt");
+			Assert::AreEqual(true, writer.Open(file, NEW), L"File cannot be opened for writing!");
+			std::wstring str = L"Hello My Friend!";
+			std::wstring line2 = L"How are you?";
+			wchar_t ch2 = 0x6c34;
+			str += ch2;
+			wchar_t ch3 = 0xd834;
+			str += ch3;
+			wchar_t ch4 = 0xdd0b;
+			str += ch4;
+			str += line2;
+			writer.Write(str);
+			writer.Flush();
+			writer.Close();
+
+			UTF32BEReader reader;
 			Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
 			bool eof = reader.IsEOF();
 			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
@@ -497,6 +702,98 @@ namespace UnitTest
 			writer.Close();
 
 			UTF8Reader reader;
+			Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+			bool eof = reader.IsEOF();
+			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+			if(eof==false)
+			{
+				std::wstring text = L"";
+				bool b = reader.ReadLine(text);
+				Assert::AreEqual(true, b, L"Cannot read 1st line");
+				Assert::AreEqual(split1, text, L"1st line is not the same");
+			}
+			eof = reader.IsEOF();
+			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+			if(eof==false)
+			{
+				std::wstring text = L"";
+				bool b = reader.ReadLine(text);
+				Assert::AreEqual(true, b, L"Cannot read 1st line");
+				Assert::AreEqual(split2, text, L"2nd line is not the same");
+			}
+			eof = reader.IsEOF();
+			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+			if(eof==false)
+			{
+				std::wstring text = L"";
+				bool b = reader.ReadLine(text);
+				Assert::AreEqual(true, b, L"Cannot read 2nd line");
+				Assert::AreEqual(line2, text, L"3rd line is not the same");
+			}
+			reader.Close();
+		}
+		TEST_METHOD(UTF32Newline)
+		{
+			using namespace Elmax;
+			UTF32Writer writer;
+			std::wstring file = GetTempPath(L"utf32Newline.txt");
+			Assert::AreEqual(true, writer.Open(file, NEW), L"File cannot be opened for writing!");
+			std::wstring line1 = L"Hello\nMy Friend!";
+			std::wstring split1 = L"Hello";
+			std::wstring split2 = L"My Friend!";
+			writer.WriteLine(line1);
+			std::wstring line2 = L"How are you?";
+			writer.WriteLine(line2);
+			writer.Flush();
+			writer.Close();
+
+			UTF32Reader reader;
+			Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+			bool eof = reader.IsEOF();
+			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+			if(eof==false)
+			{
+				std::wstring text = L"";
+				bool b = reader.ReadLine(text);
+				Assert::AreEqual(true, b, L"Cannot read 1st line");
+				Assert::AreEqual(split1, text, L"1st line is not the same");
+			}
+			eof = reader.IsEOF();
+			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+			if(eof==false)
+			{
+				std::wstring text = L"";
+				bool b = reader.ReadLine(text);
+				Assert::AreEqual(true, b, L"Cannot read 1st line");
+				Assert::AreEqual(split2, text, L"2nd line is not the same");
+			}
+			eof = reader.IsEOF();
+			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+			if(eof==false)
+			{
+				std::wstring text = L"";
+				bool b = reader.ReadLine(text);
+				Assert::AreEqual(true, b, L"Cannot read 2nd line");
+				Assert::AreEqual(line2, text, L"3rd line is not the same");
+			}
+			reader.Close();
+		}
+		TEST_METHOD(UTF32BENewline)
+		{
+			using namespace Elmax;
+			UTF32BEWriter writer;
+			std::wstring file = GetTempPath(L"utf32BENewline.txt");
+			Assert::AreEqual(true, writer.Open(file, NEW), L"File cannot be opened for writing!");
+			std::wstring line1 = L"Hello\nMy Friend!";
+			std::wstring split1 = L"Hello";
+			std::wstring split2 = L"My Friend!";
+			writer.WriteLine(line1);
+			std::wstring line2 = L"How are you?";
+			writer.WriteLine(line2);
+			writer.Flush();
+			writer.Close();
+
+			UTF32BEReader reader;
 			Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
 			bool eof = reader.IsEOF();
 			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
@@ -910,6 +1207,66 @@ namespace UnitTest
 			}
 			reader.Close();
 		}
+		TEST_METHOD(TextUTF32POD)
+		{
+			using namespace Elmax;
+			xTextWriter writer;
+			std::wstring file = GetTempPath(L"textUTF32POD.txt");
+			Assert::AreEqual(true, writer.Open(file, FT_UTF32, NEW), L"File cannot be opened for writing!");
+			int i = 25698;
+			double d = 1254.69;
+			writer.Write(L"{0},{1}", i, d);
+			writer.Close();
+
+			xTextReader reader;
+			Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+			bool eof = reader.IsEOF();
+			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+			if(eof==false)
+			{
+				int i2 = 0;
+				double d2 = 0.0;
+
+				StrtokStrategy strat(L",");
+				reader.SetSplitStrategy(&strat);
+				size_t totalRead = reader.ReadLine(i2, d2);
+				Assert::AreEqual((size_t)(2), totalRead, L"2 values are not read!");
+
+				Assert::AreEqual(i, i2, L"Integer values are not the same");
+				Assert::AreEqual(d, d2, L"Double values are not the same");
+			}
+			reader.Close();
+		}
+		TEST_METHOD(TextUTF32BEPOD)
+		{
+			using namespace Elmax;
+			xTextWriter writer;
+			std::wstring file = GetTempPath(L"textUTF32BEPOD.txt");
+			Assert::AreEqual(true, writer.Open(file, FT_UTF32BE, NEW), L"File cannot be opened for writing!");
+			int i = 25698;
+			double d = 1254.69;
+			writer.Write(L"{0},{1}", i, d);
+			writer.Close();
+
+			xTextReader reader;
+			Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+			bool eof = reader.IsEOF();
+			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+			if(eof==false)
+			{
+				int i2 = 0;
+				double d2 = 0.0;
+
+				StrtokStrategy strat(L",");
+				reader.SetSplitStrategy(&strat);
+				size_t totalRead = reader.ReadLine(i2, d2);
+				Assert::AreEqual((size_t)(2), totalRead, L"2 values are not read!");
+
+				Assert::AreEqual(i, i2, L"Integer values are not the same");
+				Assert::AreEqual(d, d2, L"Double values are not the same");
+			}
+			reader.Close();
+		}
 		TEST_METHOD(TextUnicodePOD)
 		{
 			using namespace Elmax;
@@ -1021,6 +1378,66 @@ namespace UnitTest
 				reader.SetSplitStrategy(&strat);
 				size_t totalRead = reader.ReadLine(i2, d2);
 				Assert::AreEqual((size_t)(2), totalRead, L"2 values are not read");
+				Assert::AreEqual(i, i2, L"Integer values are not the same");
+				Assert::AreEqual(d, d2, L"Double values are not the same");
+			}
+			reader.Close();
+		}
+		TEST_METHOD(TextUTF32PODWriteLine)
+		{
+			using namespace Elmax;
+			xTextWriter writer;
+			std::wstring file = GetTempPath(L"textUTF32PODWriteLine.txt");
+			Assert::AreEqual(true, writer.Open(file, FT_UTF32, NEW), L"File cannot be opened for writing!");
+			int i = 25698;
+			double d = 1254.69;
+			writer.WriteLine(L"{0},{1}", i, d);
+			writer.Close();
+
+			xTextReader reader;
+			Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+			bool eof = reader.IsEOF();
+			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+			if(eof==false)
+			{
+				int i2 = 0;
+				double d2 = 0.0;
+
+				StrtokStrategy strat(L",");
+				reader.SetSplitStrategy(&strat);
+				size_t totalRead = reader.ReadLine(i2, d2);
+				Assert::AreEqual((size_t)(2), totalRead, L"2 values are not read!");
+
+				Assert::AreEqual(i, i2, L"Integer values are not the same");
+				Assert::AreEqual(d, d2, L"Double values are not the same");
+			}
+			reader.Close();
+		}
+		TEST_METHOD(TextUTF32BEPODWriteLine)
+		{
+			using namespace Elmax;
+			xTextWriter writer;
+			std::wstring file = GetTempPath(L"textUTF32BEPODWriteLine.txt");
+			Assert::AreEqual(true, writer.Open(file, FT_UTF32BE, NEW), L"File cannot be opened for writing!");
+			int i = 25698;
+			double d = 1254.69;
+			writer.WriteLine(L"{0},{1}", i, d);
+			writer.Close();
+
+			xTextReader reader;
+			Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+			bool eof = reader.IsEOF();
+			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+			if(eof==false)
+			{
+				int i2 = 0;
+				double d2 = 0.0;
+
+				StrtokStrategy strat(L",");
+				reader.SetSplitStrategy(&strat);
+				size_t totalRead = reader.ReadLine(i2, d2);
+				Assert::AreEqual((size_t)(2), totalRead, L"2 values are not read!");
+
 				Assert::AreEqual(i, i2, L"Integer values are not the same");
 				Assert::AreEqual(d, d2, L"Double values are not the same");
 			}
@@ -1148,6 +1565,72 @@ namespace UnitTest
 			}
 			reader.Close();
 		}
+		TEST_METHOD(TextUTF32WString)
+		{
+			using namespace Elmax;
+			xTextWriter writer;
+			std::wstring file = GetTempPath(L"textUTF32WString.txt");
+			Assert::AreEqual(true, writer.Open(file, FT_UTF32, NEW), L"File cannot be opened for writing!");
+			int i = 25698;
+			double d = 1254.69;
+			std::wstring str = L"Coding Monkey";
+			writer.Write(L"{0},{1},{2}", i, str, d);
+			writer.Close();
+
+			xTextReader reader;
+			Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+			bool eof = reader.IsEOF();
+			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+			if(eof==false)
+			{
+				int i2 = 0;
+				std::wstring str2 = L"";
+				double d2 = 0.0;
+
+				StrtokStrategy strat(L",");
+				reader.SetSplitStrategy(&strat);
+				size_t totalRead = reader.ReadLine(i2, str2, d2);
+				Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read!");
+
+				Assert::AreEqual(i, i2, L"Integer values are not the same");
+				Assert::AreEqual(str, str2, L"String values are not the same");
+				Assert::AreEqual(d, d2, L"Double values are not the same");
+			}
+			reader.Close();
+		}
+		TEST_METHOD(TextUTF32BEWString)
+		{
+			using namespace Elmax;
+			xTextWriter writer;
+			std::wstring file = GetTempPath(L"textUTF32BEWString.txt");
+			Assert::AreEqual(true, writer.Open(file, FT_UTF32BE, NEW), L"File cannot be opened for writing!");
+			int i = 25698;
+			double d = 1254.69;
+			std::wstring str = L"Coding Monkey";
+			writer.Write(L"{0},{1},{2}", i, str, d);
+			writer.Close();
+
+			xTextReader reader;
+			Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+			bool eof = reader.IsEOF();
+			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+			if(eof==false)
+			{
+				int i2 = 0;
+				std::wstring str2 = L"";
+				double d2 = 0.0;
+
+				StrtokStrategy strat(L",");
+				reader.SetSplitStrategy(&strat);
+				size_t totalRead = reader.ReadLine(i2, str2, d2);
+				Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read!");
+
+				Assert::AreEqual(i, i2, L"Integer values are not the same");
+				Assert::AreEqual(str, str2, L"String values are not the same");
+				Assert::AreEqual(d, d2, L"Double values are not the same");
+			}
+			reader.Close();
+		}
 		TEST_METHOD(TextUnicodeWString)
 		{
 			using namespace Elmax;
@@ -1250,6 +1733,70 @@ namespace UnitTest
 			xTextWriter writer;
 			std::wstring file = GetTempPath(L"textUTF8WStringWriteLine.txt");
 			Assert::AreEqual(true, writer.Open(file, FT_UTF8, NEW), L"File cannot be opened for writing!");
+			int i = 25698;
+			double d = 1254.69;
+			std::wstring str = L"Coding Monkey";
+			writer.WriteLine(L"{0},{1},{2}", i, str, d);
+			writer.Close();
+
+			xTextReader reader;
+			Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+			bool eof = reader.IsEOF();
+			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+			if(eof==false)
+			{
+				int i2 = 0;
+				std::wstring str2 = L"";
+				double d2 = 0.0;
+
+				StrtokStrategy strat(L",");
+				reader.SetSplitStrategy(&strat);
+				size_t totalRead = reader.ReadLine(i2, str2, d2);
+				Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read!");
+				Assert::AreEqual(i, i2, L"Integer values are not the same");
+				Assert::AreEqual(str, str2, L"String values are not the same");
+				Assert::AreEqual(d, d2, L"Double values are not the same");
+			}
+			reader.Close();
+		}
+		TEST_METHOD(TextUTF32WStringWriteLine)
+		{
+			using namespace Elmax;
+			xTextWriter writer;
+			std::wstring file = GetTempPath(L"textUTF32WStringWriteLine.txt");
+			Assert::AreEqual(true, writer.Open(file, FT_UTF32, NEW), L"File cannot be opened for writing!");
+			int i = 25698;
+			double d = 1254.69;
+			std::wstring str = L"Coding Monkey";
+			writer.WriteLine(L"{0},{1},{2}", i, str, d);
+			writer.Close();
+
+			xTextReader reader;
+			Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+			bool eof = reader.IsEOF();
+			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+			if(eof==false)
+			{
+				int i2 = 0;
+				std::wstring str2 = L"";
+				double d2 = 0.0;
+
+				StrtokStrategy strat(L",");
+				reader.SetSplitStrategy(&strat);
+				size_t totalRead = reader.ReadLine(i2, str2, d2);
+				Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read!");
+				Assert::AreEqual(i, i2, L"Integer values are not the same");
+				Assert::AreEqual(str, str2, L"String values are not the same");
+				Assert::AreEqual(d, d2, L"Double values are not the same");
+			}
+			reader.Close();
+		}
+		TEST_METHOD(TextUTF32BEWStringWriteLine)
+		{
+			using namespace Elmax;
+			xTextWriter writer;
+			std::wstring file = GetTempPath(L"textUTF32BEWStringWriteLine.txt");
+			Assert::AreEqual(true, writer.Open(file, FT_UTF32BE, NEW), L"File cannot be opened for writing!");
 			int i = 25698;
 			double d = 1254.69;
 			std::wstring str = L"Coding Monkey";
@@ -1404,6 +1951,70 @@ namespace UnitTest
 			}
 			reader.Close();
 		}
+		TEST_METHOD(TextUTF32String)
+		{
+			using namespace Elmax;
+			xTextWriter writer;
+			std::wstring file = GetTempPath(L"textUTF32String.txt");
+			Assert::AreEqual(true, writer.Open(file, FT_UTF32, NEW), L"File cannot be opened for writing!");
+			int i = 25698;
+			double d = 1254.69;
+			std::string str = "Coding Monkey";
+			writer.Write(L"{0},{1},{2}", i, str, d);
+			writer.Close();
+
+			xTextReader reader;
+			Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+			bool eof = reader.IsEOF();
+			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+			if(eof==false)
+			{
+				int i2 = 0;
+				std::string str2 = "";
+				double d2 = 0.0;
+
+				StrtokStrategy strat(L",");
+				reader.SetSplitStrategy(&strat);
+				size_t totalRead = reader.ReadLine(i2, str2, d2);
+				Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read!");
+				Assert::AreEqual(i, i2, L"Integer values are not the same");
+				Assert::AreEqual(str, str2, L"String values are not the same");
+				Assert::AreEqual(d, d2, L"Double values are not the same");
+			}
+			reader.Close();
+		}
+		TEST_METHOD(TextUTF32BEString)
+		{
+			using namespace Elmax;
+			xTextWriter writer;
+			std::wstring file = GetTempPath(L"textUTF32BEString.txt");
+			Assert::AreEqual(true, writer.Open(file, FT_UTF32BE, NEW), L"File cannot be opened for writing!");
+			int i = 25698;
+			double d = 1254.69;
+			std::string str = "Coding Monkey";
+			writer.Write(L"{0},{1},{2}", i, str, d);
+			writer.Close();
+
+			xTextReader reader;
+			Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+			bool eof = reader.IsEOF();
+			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+			if(eof==false)
+			{
+				int i2 = 0;
+				std::string str2 = "";
+				double d2 = 0.0;
+
+				StrtokStrategy strat(L",");
+				reader.SetSplitStrategy(&strat);
+				size_t totalRead = reader.ReadLine(i2, str2, d2);
+				Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read!");
+				Assert::AreEqual(i, i2, L"Integer values are not the same");
+				Assert::AreEqual(str, str2, L"String values are not the same");
+				Assert::AreEqual(d, d2, L"Double values are not the same");
+			}
+			reader.Close();
+		}
 		TEST_METHOD(TextUnicodeString)
 		{
 			using namespace Elmax;
@@ -1506,6 +2117,70 @@ namespace UnitTest
 			xTextWriter writer;
 			std::wstring file = GetTempPath(L"textUTF8StringWriteLine.txt");
 			Assert::AreEqual(true, writer.Open(file, FT_UTF8, NEW), L"File cannot be opened for writing!");
+			int i = 25698;
+			double d = 1254.69;
+			std::string str = "Coding Monkey";
+			writer.WriteLine(L"{0},{1},{2}", i, str, d);
+			writer.Close();
+
+			xTextReader reader;
+			Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+			bool eof = reader.IsEOF();
+			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+			if(eof==false)
+			{
+				int i2 = 0;
+				std::string str2 = "";
+				double d2 = 0.0;
+
+				StrtokStrategy strat(L",");
+				reader.SetSplitStrategy(&strat);
+				size_t totalRead = reader.ReadLine(i2, str2, d2);
+				Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read!");
+				Assert::AreEqual(i, i2, L"Integer values are not the same");
+				Assert::AreEqual(str, str2, L"String values are not the same");
+				Assert::AreEqual(d, d2, L"Double values are not the same");
+			}
+			reader.Close();
+		}
+		TEST_METHOD(TextUTF32StringWriteLine)
+		{
+			using namespace Elmax;
+			xTextWriter writer;
+			std::wstring file = GetTempPath(L"textUTF32StringWriteLine.txt");
+			Assert::AreEqual(true, writer.Open(file, FT_UTF32, NEW), L"File cannot be opened for writing!");
+			int i = 25698;
+			double d = 1254.69;
+			std::string str = "Coding Monkey";
+			writer.WriteLine(L"{0},{1},{2}", i, str, d);
+			writer.Close();
+
+			xTextReader reader;
+			Assert::AreEqual(true, reader.Open(file), L"File cannot be opened for reading!");
+			bool eof = reader.IsEOF();
+			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
+			if(eof==false)
+			{
+				int i2 = 0;
+				std::string str2 = "";
+				double d2 = 0.0;
+
+				StrtokStrategy strat(L",");
+				reader.SetSplitStrategy(&strat);
+				size_t totalRead = reader.ReadLine(i2, str2, d2);
+				Assert::AreEqual((size_t)(3), totalRead, L"3 values are not read!");
+				Assert::AreEqual(i, i2, L"Integer values are not the same");
+				Assert::AreEqual(str, str2, L"String values are not the same");
+				Assert::AreEqual(d, d2, L"Double values are not the same");
+			}
+			reader.Close();
+		}
+		TEST_METHOD(TextUTF32BEStringWriteLine)
+		{
+			using namespace Elmax;
+			xTextWriter writer;
+			std::wstring file = GetTempPath(L"textUTF32BEStringWriteLine.txt");
+			Assert::AreEqual(true, writer.Open(file, FT_UTF32BE, NEW), L"File cannot be opened for writing!");
 			int i = 25698;
 			double d = 1254.69;
 			std::string str = "Coding Monkey";
