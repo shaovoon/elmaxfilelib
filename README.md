@@ -3,8 +3,8 @@ elmaxfilelib
 
 Elmax C++ File Library for writing and reading (Unicode) text or binary files
 
-Text File Usage
----------------
+**Text File Usage**
+
 Writing to a test file
 
 	using namespace Elmax;
@@ -38,8 +38,8 @@ Reading from a test file. For C++98 code, user need to set the split strategy. F
 	}
 	reader.Close();
 
-Binary File Usage
------------------
+**Binary File Usage**
+
 Writing to a binary file
 
 	using namespace Elmax;
