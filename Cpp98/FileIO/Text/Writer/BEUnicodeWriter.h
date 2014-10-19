@@ -32,11 +32,11 @@ private:
 
 	bool WriteLine( const wchar_t* text, size_t nBufLen );
 
-	static void ConvToBigEndian(wchar_t* p, size_t size);
+	void ConvToBigEndian(wchar_t* p, size_t size);
 
-	static unsigned short* ConvToBigEndianShort(const std::wstring& text);
+	unsigned short* ConvToBigEndianShort(const std::wstring& text);
 
-	static unsigned short* ConvToBigEndianShort(unsigned short* text, size_t len);
+	unsigned short* ConvToBigEndianShort(unsigned short* text, size_t len);
 	
 	bool BOMWritten;
 };

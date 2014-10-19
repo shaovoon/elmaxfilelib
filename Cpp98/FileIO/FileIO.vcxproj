@@ -38,7 +38,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\wong\Documents\Visual Studio 2010\boost_1_49_0\boost_1_49_0;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\wong\Documents\boost_1_55_0\boost_1_55_0;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>C:\Users\wong\Documents\Visual Studio 2010\boost_1_49_0\boost_1_49_0;$(IncludePath)</IncludePath>
@@ -87,6 +87,7 @@
     <ClInclude Include="Common\BaseConverter.h" />
     <ClInclude Include="Common\Common.h" />
     <ClInclude Include="Common\Enumeration.h" />
+    <ClInclude Include="Common\Platform.h" />
     <ClInclude Include="Common\RAII_Array.h" />
     <ClInclude Include="ElmaxFile.h" />
     <ClInclude Include="Microsoft\WinOperation.h" />
@@ -131,6 +132,7 @@
     <ClCompile Include="Common\BaseConverter.cpp" />
     <ClCompile Include="Common\Common.cpp" />
     <ClCompile Include="Common\Enumeration.cpp" />
+    <ClCompile Include="Common\Platform.cpp" />
     <ClCompile Include="Common\RAII_Array.cpp" />
     <ClCompile Include="Microsoft\WinOperation.cpp" />
     <ClCompile Include="stdafx.cpp">

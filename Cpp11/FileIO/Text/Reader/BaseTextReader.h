@@ -3,6 +3,7 @@
 #include <cstdio>
 #include <string>
 #include "../../Common/Common.h"
+#include "../../Common/Platform.h"
 
 namespace Elmax
 {
@@ -30,6 +31,7 @@ public:
 	int GetLastError(std::wstring& str);
 	void ClearLastError();
 
+
 protected:
 	bool FileToContents( 
 		const wchar_t* pszSource, 
@@ -44,6 +46,14 @@ protected:
 
 	std::wstring RemoveReturnCarriage(const std::wstring& text);
 
+	bool IsBigEndian() {return isBigEndian;}
+
+	size_t ReadRawBytes(char* arr, size_t size);
+	size_t ReadRaw(wchar_t* arr, size_t size, bool readBigEndian);
+	size_t ReadRaw(unsigned int* arr, size_t size, bool readBigEndian);
+	size_t ReadRaw(unsigned short* arr, size_t size, bool readBigEndian);
+
+
 	FILE* fp;
 	std::wstring contents;
 	std::wstring filename;
@@ -52,6 +62,7 @@ protected:
 	int errNum;
 
 	bool hasBOM;
+	bool isBigEndian;
 
 private:
 	BaseTextReader(const BaseTextReader&) {}

@@ -113,12 +113,12 @@ bool UnicodeWriter::Write( const wchar_t* text, size_t nBufLen )
 
 		if( pszDest )
 		{
-			fwrite( pszDest, 2, nDest, fp );
+			WriteRaw(pszDest, nDest, false);
 		}
 	}
 	else
 	{
-		fwrite( text, 2, nBufLen, fp );
+		WriteRaw(const_cast<wchar_t*>(text), nBufLen, false);
 	}
 #else
 	if(sizeof(wchar_t)==4)
@@ -132,7 +132,7 @@ bool UnicodeWriter::Write( const wchar_t* text, size_t nBufLen )
 				if(upperPlane)
 				{
 					RAII_Array<unsigned short> sharr = utf16::ConvertToUTF16(text, arrLen);
-					fwrite( sharr.GetPtr(), 2, arrLen, fp );
+					WriteRaw(sharr.GetPtr(), arrLen, false);
 				}
 				else
 				{
@@ -141,7 +141,7 @@ bool UnicodeWriter::Write( const wchar_t* text, size_t nBufLen )
 					{
 						sharr.GetPtr()[i] = (unsigned short)(text[i]);
 					}
-					fwrite( sharr.GetPtr(), 2, nBufLen, fp );
+					WriteRaw(sharr.GetPtr(), nBufLen, false);
 				}
 			}
 			else if(nBufLen<=30&&upperPlane==false)
@@ -152,7 +152,7 @@ bool UnicodeWriter::Write( const wchar_t* text, size_t nBufLen )
 				{
 					sharrStack[i] = (unsigned short)(text[i]);
 				}
-				fwrite( sharrStack, 2, nBufLen, fp );
+				WriteRaw(sharrStack, nBufLen, false);
 			}
 		}
 	}
@@ -160,7 +160,7 @@ bool UnicodeWriter::Write( const wchar_t* text, size_t nBufLen )
 	{
 		if( text )
 		{
-			fwrite( text, 2, nBufLen, fp );
+			WriteRaw(text, nBufLen, false);
 		}
 	}
 #endif
@@ -191,16 +191,18 @@ bool UnicodeWriter::WriteLine( const wchar_t* text, size_t nBufLen )
 
 		if( pszDest )
 		{
-			fwrite( pszDest, 2, nDest, fp );
+			WriteRaw(pszDest, nDest, false);
+
 			wchar_t newline[] = L"\r\n";
-			fwrite( newline, 2, wcslen(newline), fp );
+			WriteRaw(newline, wcslen(newline), false);
 		}
 	}
 	else
 	{
-		fwrite( text, 2, nBufLen, fp );
+		WriteRaw(const_cast<wchar_t*>(text), nBufLen, false);
+
 		wchar_t newline[] = L"\r\n";
-		fwrite( newline, 2, wcslen(newline), fp );
+		WriteRaw(newline, wcslen(newline), false);
 	}
 #else
 	if(sizeof(wchar_t)==4)
@@ -214,7 +216,7 @@ bool UnicodeWriter::WriteLine( const wchar_t* text, size_t nBufLen )
 				if(upperPlane)
 				{
 					RAII_Array<unsigned short> sharr = utf16::ConvertToUTF16(text, arrLen);
-					fwrite( sharr.GetPtr(), 2, arrLen, fp );
+					WriteRaw(sharr.GetPtr(), arrLen, false);
 				}
 				else
 				{
@@ -223,7 +225,7 @@ bool UnicodeWriter::WriteLine( const wchar_t* text, size_t nBufLen )
 					{
 						sharr.GetPtr()[i] = (unsigned short)(text[i]);
 					}
-					fwrite( sharr.GetPtr(), 2, nBufLen, fp );
+					WriteRaw(sharr.GetPtr(), nBufLen, false);
 				}
 			}
 			else if(nBufLen<=30&&upperPlane==false)
@@ -234,19 +236,21 @@ bool UnicodeWriter::WriteLine( const wchar_t* text, size_t nBufLen )
 				{
 					sharrStack[i] = (unsigned short)(text[i]);
 				}
-				fwrite( sharrStack, 2, nBufLen, fp );
+				WriteRaw(sharrStack, nBufLen, false);
 			}
-			wchar_t newline[] = L"\n";
-			fwrite( newline, 2, wcslen(newline), fp );
+			unsigned short newline[1];
+			newline[0] = '\n';
+			WriteRaw(newline, 1, false);
 		}
 	}
 	else
 	{
 		if( text )
 		{
-			fwrite( text, 2, nBufLen, fp );
+			WriteRaw(text, nBufLen, false);
+
 			wchar_t newline[] = L"\n";
-			fwrite( newline, 2, wcslen(newline), fp );
+			WriteRaw(newline, wcslen(newline), false);
 		}
 	}
 #endif

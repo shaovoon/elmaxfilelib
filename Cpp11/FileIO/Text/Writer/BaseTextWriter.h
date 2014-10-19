@@ -38,10 +38,17 @@ protected:
 
 	bool ContainsNewline(const wchar_t* text, size_t len);
 
+	bool IsBigEndian() {return isBigEndian;}
+
+	bool WriteRaw(const wchar_t* arr, size_t size, bool writeBigEndian);
+	bool WriteRaw(unsigned int* arr, size_t size, bool writeBigEndian);
+	bool WriteRaw(unsigned short* arr, size_t size, bool writeBigEndian);
+
 	FILE* fp;
 
 	std::wstring err;
 	int errNum;
+	bool isBigEndian;
 };
 
 }

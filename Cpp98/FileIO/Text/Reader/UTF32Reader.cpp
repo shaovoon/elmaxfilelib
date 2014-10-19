@@ -85,7 +85,7 @@ bool UTF32Reader::Read( std::wstring& text, size_t len )
 
 	RAII_Array<char> buf(len+2);
 
-	size_t lenRead = fread(buf.GetPtr(), 1, len, fp);
+	size_t lenRead = ReadRawBytes(buf.GetPtr(), len);
 	if(lenRead!=len)
 	{
 		errNum = ELMAX_READ_ERROR;
@@ -145,7 +145,7 @@ bool UTF32Reader::ReadAll( std::wstring& text )
 
 	RAII_Array<char> buf(size+4);
 
-	size_t lenRead = fread(buf.GetPtr(), 1, size, fp);
+	size_t lenRead = ReadRawBytes(buf.GetPtr(), size);
 	if(lenRead!=size)
 	{
 		errNum = ELMAX_READ_ERROR;
@@ -208,7 +208,7 @@ bool UTF32Reader::ReadLine( std::wstring& text )
 		while (!feof(fp))
 		{
 			unsigned int ui= 0;
-			if(fread(&ui, 4, 1, fp)==1)
+			if(ReadRaw(&ui, 1, false)==1)
 			{
 				wchar_t ch = ui;
 				if(ch != L'\r' && ch != L'\n')
@@ -226,7 +226,7 @@ bool UTF32Reader::ReadLine( std::wstring& text )
 		while (!feof(fp))
 		{
 			unsigned int ui= 0;
-			if(fread(&ui, 4, 1, fp)==1)
+			if(ReadRaw(&ui, 1, false)==1)
 			{
 				wchar_t ch = ui;
 				if(ch != L'\r' && ch != L'\n')

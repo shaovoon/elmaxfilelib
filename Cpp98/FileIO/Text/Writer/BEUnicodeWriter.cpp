@@ -264,6 +264,9 @@ bool BEUnicodeWriter::WriteLine( const wchar_t* text, size_t nBufLen )
 
 void BEUnicodeWriter::ConvToBigEndian(wchar_t* p, size_t size)
 {
+	if(isBigEndian)
+		return;
+
 	char swap[2];
 	UnionText unionText;
 	for(size_t i=0; i<size; ++i)
@@ -286,12 +289,15 @@ unsigned short* BEUnicodeWriter::ConvToBigEndianShort(const std::wstring& text)
 	for(size_t i=0; i<text.size(); ++i)
 	{
 		unionText.ch = text[i];
-		swap[0] = unionText.arr[1];
-		swap[1] = unionText.arr[0];
- 
-		unionText.arr[0] = swap[0];
-		unionText.arr[1] = swap[1];
- 
+		if(!isBigEndian) // no need to swap.
+		{
+			swap[0] = unionText.arr[1];
+			swap[1] = unionText.arr[0];
+
+			unionText.arr[0] = swap[0];
+			unionText.arr[1] = swap[1];
+		}
+
 		arr.GetPtr()[i] = (unsigned short)(unionText.ch);
 	}
  
@@ -306,11 +312,14 @@ unsigned short* BEUnicodeWriter::ConvToBigEndianShort(unsigned short* arr, size_
 	for(size_t i=0; i<len; ++i)
 	{
 		unionText.ch = arr[i];
-		swap[0] = unionText.arr[1];
-		swap[1] = unionText.arr[0];
+		if(!isBigEndian) // no need to swap if platform is big endian
+		{
+			swap[0] = unionText.arr[1];
+			swap[1] = unionText.arr[0];
 
-		unionText.arr[0] = swap[0];
-		unionText.arr[1] = swap[1];
+			unionText.arr[0] = swap[0];
+			unionText.arr[1] = swap[1];
+		}
 
 		arr[i] = (unsigned short)(unionText.ch);
 	}

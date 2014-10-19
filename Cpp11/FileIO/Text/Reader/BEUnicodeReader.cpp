@@ -21,7 +21,7 @@ bool BEUnicodeReader::IsValid(const std::wstring& file)
 {
 	FILE* f = FileOpen(file, L"rb");
 
-	if(f==nullptr)
+	if(f==NULL)
 		return false;
 
 	unsigned char tt[2] = {0,0};
@@ -44,7 +44,7 @@ bool BEUnicodeReader::IsValid(const std::wstring& file)
 
 void BEUnicodeReader::ReadBOM()
 {
-	if(fp==nullptr)
+	if(fp==NULL)
 		return;
 
 	unsigned char tt[2] = {0,0};
@@ -68,7 +68,7 @@ bool BEUnicodeReader::Open(const std::wstring& file)
 
 	fp = FileOpen(file, L"rb");
 
-	if(fp == nullptr)
+	if(fp == NULL)
 	{
 		errNum = ELMAX_FILE_NOT_OPENED;
 		err = GetErrorMsg(errNum);
@@ -76,17 +76,17 @@ bool BEUnicodeReader::Open(const std::wstring& file)
 
 	ReadBOM();
 	
-	return fp != nullptr;
+	return fp != NULL;
 }
 
 bool BEUnicodeReader::Read( std::wstring& text, size_t len )
 {
-	if(fp == nullptr)
+	if(fp == NULL)
 		return false;
 
 	RAII_Array<char> buf(len+2);
 
-	size_t lenRead = fread(buf.GetPtr(), 1, len, fp);
+	size_t lenRead = ReadRawBytes(buf.GetPtr(), len);
 	if(lenRead!=len)
 	{
 		errNum = ELMAX_READ_ERROR;
@@ -100,10 +100,12 @@ bool BEUnicodeReader::Read( std::wstring& text, size_t len )
 
 #ifdef _MICROSOFT
 	wchar_t* wp = (wchar_t*)(buf.GetPtr());
-	ConvToLittleEndian(wp, len/2);
+	if(!isBigEndian)
+		Platform::SwapOrder(wp, len/2);
+
 	if(ContainsNewline(wp, len))
 	{
-		wchar_t* pszDest = nullptr;
+		wchar_t* pszDest = NULL;
 		size_t nDest = 0;
 
 		if(FileToContents( wp, len, pszDest, nDest ))
@@ -143,7 +145,7 @@ bool BEUnicodeReader::ReadAll( std::wstring& text )
 	if(size==0)
 		return false;
 
-	if(fp == nullptr)
+	if(fp == NULL)
 		return false;
 
 	if(hasBOM)
@@ -151,7 +153,7 @@ bool BEUnicodeReader::ReadAll( std::wstring& text )
 
 	RAII_Array<char> buf(size+2);
 
-	size_t lenRead = fread(buf.GetPtr(), 1, size, fp);
+	size_t lenRead = ReadRawBytes(buf.GetPtr(), size);
 	if(lenRead!=size)
 	{
 		errNum = ELMAX_READ_ERROR;
@@ -165,11 +167,14 @@ bool BEUnicodeReader::ReadAll( std::wstring& text )
 
 #ifdef _MICROSOFT
 	wchar_t* wp = (wchar_t*)(buf.GetPtr());
-	ConvToLittleEndian(wp, size/2);
+
+	if(!isBigEndian)
+		Platform::SwapOrder(wp, size/2);
+
 	size_t len = wcslen(wp);
 	if(ContainsNewline(wp, len))
 	{
-		wchar_t* pszDest = nullptr;
+		wchar_t* pszDest = NULL;
 		size_t nDest = 0;
 
 		if(FileToContents( wp, len, pszDest, nDest ))
@@ -186,9 +191,10 @@ bool BEUnicodeReader::ReadAll( std::wstring& text )
 	if(sizeof(wchar_t)==4)
 	{
 		unsigned short* shp = (unsigned short*)(buf.GetPtr());
-		RAII_Array<wchar_t> arr = ConvToLittleEndianShort(shp, size/2);
+		if(!isBigEndian)
+			Platform::SwapOrder(shp, size/2);
 
-		text = arr.GetPtr();
+		text = utf16::ConvertToWString(shp, size/2);
 
 		if(ContainsReturnCarriage(text))
 			text = RemoveReturnCarriage(text);
@@ -196,7 +202,8 @@ bool BEUnicodeReader::ReadAll( std::wstring& text )
 	else
 	{
 		wchar_t* wp = (wchar_t*)(buf.GetPtr());
-		ConvToLittleEndian(wp, size/2);
+		if(!isBigEndian)
+			Platform::SwapOrder(wp, size/2);
 
 		text = wp;
 
@@ -210,7 +217,7 @@ bool BEUnicodeReader::ReadAll( std::wstring& text )
 
 bool BEUnicodeReader::ReadLine( std::wstring& text )
 {
-	if(fp == nullptr)
+	if(fp == NULL)
 		return false;
 
 	text = L"";
@@ -220,9 +227,9 @@ bool BEUnicodeReader::ReadLine( std::wstring& text )
 		while (!feof(fp))
 		{
 			unsigned short sh = 0;
-			if(fread(&sh, 2, 1, fp)==1)
+			if(ReadRaw(&sh, 1, true)==1)
 			{
-				unsigned short conv1 = ConvToLittleEndianShort(sh);
+				unsigned short conv1 = sh;
 				wchar_t ch = (wchar_t)conv1;
 
 				if(ch != L'\r' && ch != L'\n')
@@ -232,9 +239,9 @@ bool BEUnicodeReader::ReadLine( std::wstring& text )
 						if(!feof(fp))
 						{
 							unsigned short sh2 = 0;
-							if(fread(&sh2, 2, 1, fp)==1)
+							if(ReadRaw(&sh2, 1, true)==1)
 							{
-								unsigned short conv2 = ConvToLittleEndianShort(sh2);
+								unsigned short conv2 = sh2;
 
 								if(utf16::Is2ndSurrogate(conv2))
 								{
@@ -272,7 +279,8 @@ bool BEUnicodeReader::ReadLine( std::wstring& text )
 		{
 			ch = fgetwc(fp);
 
-			ch = ConvToLittleEndian(ch);
+			if(!isBigEndian)
+				ch = Platform::SwapOrder(ch);
 
 			if(ch != L'\r' && ch != L'\n')
 				text += ch;
@@ -286,7 +294,7 @@ bool BEUnicodeReader::ReadLine( std::wstring& text )
 
 bool BEUnicodeReader::IsEOF()
 {
-	if(fp!=nullptr)
+	if(fp!=NULL)
 	{
 		return feof(fp) != 0; // not eof yet
 	}
@@ -384,7 +392,7 @@ wchar_t* BEUnicodeReader::ConvToLittleEndianShort(unsigned short* p, size_t size
 		return arr.Detach();
 	}
 
-	return nullptr;
+	return NULL;
 }
 
 wchar_t BEUnicodeReader::ConvToLittleEndianShort(unsigned short ch1, unsigned short ch2)

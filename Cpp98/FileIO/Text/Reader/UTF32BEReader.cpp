@@ -86,7 +86,7 @@ bool UTF32BEReader::Read( std::wstring& text, size_t len )
 
 	RAII_Array<char> buf(len+2);
 
-	size_t lenRead = fread(buf.GetPtr(), 1, len, fp);
+	size_t lenRead = ReadRawBytes(buf.GetPtr(), len);
 	if(lenRead!=len)
 	{
 		errNum = ELMAX_READ_ERROR;
@@ -147,7 +147,7 @@ bool UTF32BEReader::ReadAll( std::wstring& text )
 
 	RAII_Array<char> buf(size+4);
 
-	size_t lenRead = fread(buf.GetPtr(), 1, size, fp);
+	size_t lenRead = ReadRawBytes(buf.GetPtr(), size);
 	if(lenRead!=size)
 	{
 		errNum = ELMAX_READ_ERROR;
@@ -212,9 +212,9 @@ bool UTF32BEReader::ReadLine( std::wstring& text )
 		{
 			unsigned int ui= 0;
 		
-			if(fread(&ui, 4, 1, fp)==1)
+			if(ReadRaw(&ui, 1, true)==1)
 			{
-				wchar_t ch = utf16::SwapEndian(ui);
+				wchar_t ch = ui;
 				if(ch != L'\r' && ch != L'\n')
 				{
 					text += ch;
@@ -230,13 +230,13 @@ bool UTF32BEReader::ReadLine( std::wstring& text )
 		while (!feof(fp))
 		{
 			unsigned int ui= 0;
-			if(fread(&ui, 4, 1, fp)==1)
+			if(ReadRaw(&ui, 1, true)==1)
 			{
-				wchar_t ch = utf16::SwapEndian(ui);
+				wchar_t ch = ui;
 				if(ch != L'\r' && ch != L'\n')
 				{
 					std::vector<wchar_t> vec;
-					utf16::ConvertFromUTF32BEToUTF16Char(ui, vec);
+					utf16::ConvertFromUTF32ToUTF16Char(ui, vec);
 					for(size_t i=0; i<vec.size(); ++i)
 						text += vec[i];
 				}

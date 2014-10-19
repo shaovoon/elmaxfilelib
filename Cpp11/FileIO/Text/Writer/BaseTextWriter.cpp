@@ -1,4 +1,5 @@
 #include "BaseTextWriter.h"
+#include "../../Common/Platform.h"
 #include <vector>
 
 using namespace Elmax;
@@ -6,9 +7,10 @@ using namespace Elmax;
 #define VECTOR_RESERVE 50000
 
 BaseTextWriter::BaseTextWriter(void)
-	: fp(nullptr)
+	: fp(NULL)
 	, err(L"")
 	, errNum(0)
+	, isBigEndian(Platform::IsBigEndian())
 {
 }
 
@@ -19,17 +21,17 @@ BaseTextWriter::~BaseTextWriter(void)
 
 void BaseTextWriter::Close()
 {
-	if(fp!=nullptr)
+	if(fp!=NULL)
 	{
 		fflush(fp);
 		fclose(fp);
-		fp = nullptr;
+		fp = NULL;
 	}
 }
 
 void BaseTextWriter::Flush()
 {
-	if(fp!=nullptr)
+	if(fp!=NULL)
 		fflush(fp);
 }
 
@@ -123,3 +125,47 @@ void BaseTextWriter::ClearLastError()
 	errNum = 0;
 }
 
+bool BaseTextWriter::WriteRaw(const wchar_t* arr, size_t size, bool writeBigEndian)
+{
+	if(!fp)
+		return false;
+
+	if(writeBigEndian!=isBigEndian) // if both platform and file endian matches, no swapping needed.
+	{
+		Platform::SwapOrder(const_cast<wchar_t*>(arr), size);
+	}
+
+	fwrite( arr, sizeof(wchar_t), size, fp );
+
+	return true;
+}
+
+bool BaseTextWriter::WriteRaw(unsigned int* arr, size_t size, bool writeBigEndian)
+{
+	if(!fp)
+		return false;
+
+	if(writeBigEndian!=isBigEndian) // if both platform and file endian matches, no swapping needed.
+	{
+		Platform::SwapOrder(arr, size);
+	}
+
+	fwrite( arr, sizeof(unsigned int), size, fp );
+
+	return true;
+}
+
+bool BaseTextWriter::WriteRaw(unsigned short* arr, size_t size, bool writeBigEndian)
+{
+	if(!fp)
+		return false;
+
+	if(writeBigEndian!=isBigEndian) // if both platform and file endian matches, no swapping needed.
+	{
+		Platform::SwapOrder(arr, size);
+	}
+
+	fwrite( arr, sizeof(unsigned short), size, fp );
+
+	return true;
+}

@@ -9,10 +9,11 @@ using namespace Elmax;
 #define VECTOR_RESERVE 50000
 
 BaseTextReader::BaseTextReader(void)
-	: fp(nullptr)
+	: fp(NULL)
 	, err(L"")
 	, errNum(0)
 	, hasBOM(false)
+	, isBigEndian(Platform::IsBigEndian())
 {
 }
 
@@ -23,10 +24,10 @@ BaseTextReader::~BaseTextReader(void)
 
 void BaseTextReader::Close()
 {
-	if(fp!=nullptr)
+	if(fp!=NULL)
 	{
 		fclose(fp);
-		fp = nullptr;
+		fp = NULL;
 	}
 }
 
@@ -183,3 +184,54 @@ void BaseTextReader::ClearLastError()
 	errNum = 0;
 }
 
+size_t BaseTextReader::ReadRawBytes(char* arr, size_t size)
+{
+	if(!fp)
+		return false;
+
+	return fread( arr, sizeof(char), size, fp );
+}
+
+size_t BaseTextReader::ReadRaw(wchar_t* arr, size_t size, bool readBigEndian)
+{
+	if(!fp)
+		return false;
+
+	size_t len = fread( arr, sizeof(wchar_t), size, fp );
+
+	if(readBigEndian!=isBigEndian) // if both platform and file endian matches, no swapping needed.
+	{
+		Platform::SwapOrder(arr, size);
+	}
+
+	return len;
+}
+
+size_t BaseTextReader::ReadRaw(unsigned int* arr, size_t size, bool readBigEndian)
+{
+	if(!fp)
+		return false;
+
+	size_t len = fread( arr, sizeof(unsigned int), size, fp );
+	
+	if(readBigEndian!=isBigEndian) // if both platform and file endian matches, no swapping needed.
+	{
+		Platform::SwapOrder(arr, size);
+	}
+
+	return len;
+}
+
+size_t BaseTextReader::ReadRaw(unsigned short* arr, size_t size, bool readBigEndian)
+{
+	if(!fp)
+		return false;
+
+	size_t len = fread( arr, sizeof(unsigned short), size, fp );
+	if(readBigEndian!=isBigEndian) // if both platform and file endian matches, no swapping needed.
+	{
+		Platform::SwapOrder(arr, size);
+	}
+
+	return len;
+}

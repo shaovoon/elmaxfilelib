@@ -1,4 +1,5 @@
 #pragma once
+#include <cstdio>
 
 class Platform
 {
@@ -33,4 +34,13 @@ public:
 	{
 		return sizeof(size_t) == 8;
 	}
+
+	inline static wchar_t SwapOrder(wchar_t wch);
+	static void SwapOrder(wchar_t* arr, size_t size);
+
+	inline static unsigned int SwapOrder(unsigned int wch);
+	static void SwapOrder(unsigned int* arr, size_t size);
+
+	inline static unsigned short SwapOrder(unsigned short wch);
+	static void SwapOrder(unsigned short* arr, size_t size);
 };

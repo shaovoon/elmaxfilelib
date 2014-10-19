@@ -85,7 +85,7 @@ bool UnicodeReader::Read( std::wstring& text, size_t len )
 
 	RAII_Array<char> buf(len+2);
 
-	size_t lenRead = fread(buf.GetPtr(), 1, len, fp);
+	size_t lenRead = ReadRawBytes(buf.GetPtr(), len);
 	if(lenRead!=len)
 	{
 		errNum = ELMAX_READ_ERROR;
@@ -100,6 +100,9 @@ bool UnicodeReader::Read( std::wstring& text, size_t len )
 	wchar_t* wp = (wchar_t*)(buf.GetPtr());
 
 #ifdef _MICROSOFT
+	if(isBigEndian)
+		Platform::SwapOrder(wp, len/2);
+
 	if(ContainsNewline(wp, len))
 	{
 		wchar_t* pszDest = NULL;
@@ -118,6 +121,9 @@ bool UnicodeReader::Read( std::wstring& text, size_t len )
 	if(sizeof(wchar_t)==4)
 	{
 		unsigned short* sharr = (unsigned short*)(buf.GetPtr());
+		if(isBigEndian)
+			Platform::SwapOrder(sharr, len/2);
+
 		size_t charLen = 0;
 		if(utf16::ContainsSurrogate(sharr, len/2, charLen))
 		{
@@ -133,7 +139,12 @@ bool UnicodeReader::Read( std::wstring& text, size_t len )
 		}
 	}
 	else
+	{
+		if(isBigEndian)
+			Platform::SwapOrder(wp, len/2);
+
 		text = wp;
+	}
 #endif
 
 	return true;
@@ -154,7 +165,7 @@ bool UnicodeReader::ReadAll( std::wstring& text )
 
 	RAII_Array<char> buf(size+2);
 
-	size_t lenRead = fread(buf.GetPtr(), 1, size, fp);
+	size_t lenRead = ReadRawBytes(buf.GetPtr(), size);
 	if(lenRead!=size)
 	{
 		errNum = ELMAX_READ_ERROR;
@@ -188,6 +199,9 @@ bool UnicodeReader::ReadAll( std::wstring& text )
 	if(sizeof(wchar_t)==4)
 	{
 		unsigned short* sharr = (unsigned short*)(buf.GetPtr());
+		if(isBigEndian)
+			Platform::SwapOrder(sharr, size/2);
+
 		size_t charLen = 0;
 		if(utf16::ContainsSurrogate(sharr, size/2, charLen))
 		{
@@ -207,6 +221,9 @@ bool UnicodeReader::ReadAll( std::wstring& text )
 	}
 	else
 	{
+		if(isBigEndian)
+			Platform::SwapOrder(wp, size/2);
+
 		text = wp;
 		if(ContainsReturnCarriage(text))
 			text = RemoveReturnCarriage(text);
@@ -228,7 +245,7 @@ bool UnicodeReader::ReadLine( std::wstring& text )
 		while (!feof(fp))
 		{
 			unsigned short sh = 0;
-			if(fread(&sh, 2, 1, fp)==1)
+			if(ReadRaw(&sh, 1, false)==1)
 			{
 				wchar_t ch = (wchar_t)(sh);
 				if(ch != L'\r' && ch != L'\n')
@@ -238,7 +255,7 @@ bool UnicodeReader::ReadLine( std::wstring& text )
 						if(!feof(fp))
 						{
 							unsigned short sh2 = 0;
-							if(fread(&sh2, 2, 1, fp)==1)
+							if(ReadRaw(&sh2, 1, false)==1)
 							{
 								if(utf16::Is2ndSurrogate(sh2))
 								{
@@ -274,6 +291,9 @@ bool UnicodeReader::ReadLine( std::wstring& text )
 		while (!feof(fp))
 		{
 			ch = fgetwc(fp);
+
+			if(isBigEndian)
+				ch = Platform::SwapOrder(ch);
 
 			if(ch != L'\r' && ch != L'\n')
 				text += ch;

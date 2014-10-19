@@ -244,6 +244,7 @@ std::wstring utf16::ConvertToWString(unsigned short* src, size_t srcArrLen)
 	return dest;
 }
 
+#ifdef _MICROSOFT
 // This method is for Windows.
 void utf16::ConvertToUTF32(const std::wstring& src, std::vector<unsigned int>& vec)
 {
@@ -272,6 +273,23 @@ void utf16::ConvertToUTF32(const std::wstring& src, std::vector<unsigned int>& v
 	}
 
 }
+#else
+void utf16::ConvertToUTF32(const std::wstring& src, std::vector<unsigned int>& vec)
+{
+	vec.clear();
+	for(size_t i=0; i<src.size(); ++i)
+	{
+		vec.push_back( src[i] );
+	}
+}
+#endif
+
+void utf16::ConvertToUTF32BE(const std::wstring& src, std::vector<unsigned int>& vec)
+{
+	ConvertToUTF32(src, vec);
+	SwapEndian(vec);
+}
+
 
 union FourBytes
 {
@@ -317,47 +335,6 @@ unsigned int utf16::SwapEndian(unsigned int ui)
 
 #ifdef _MICROSOFT
 // This method is for Windows.
-void utf16::ConvertToUTF32BE(const std::wstring& src, std::vector<unsigned int>& vec)
-{
-	vec.clear();
-	for(size_t i=0; i<src.size(); ++i)
-	{
-		if(src[i] >= 0xd800 && src[i] < 0xdc00)
-		{
-			if(i+1 < src.size())
-			{
-				if (src[i+1] >= 0xdc00 && src[i+1] < 0xe000)
-				{
-					vec.push_back( ((src[i] & 0x3ff) << 10) + (src[i+1] & 0x3ff) + 0x10000 );
-
-					++i;
-				}
-				else
-					vec.push_back(src[i]);
-			}
-			else
-				vec.push_back(src[i]);
-		}
-		else
-			vec.push_back(src[i]);
-
-	}
-	
-	SwapEndian(vec);
-}
-#else
-// This method is for Linux.
-void utf16::ConvertToUTF32BE(const std::wstring& src, std::vector<unsigned int>& vec)
-{
-	vec.clear();
-	for(size_t i=0; i<src.size(); ++i)
-	{
-		vec.push_back(SwapEndian(src[i]));
-	}
-}
-#endif
-
-// This method is for Windows.
 void utf16::ConvertToUTF32(wchar_t* src, size_t srcArrLen, std::vector<unsigned int>& vec)
 {
 	vec.clear();
@@ -385,35 +362,23 @@ void utf16::ConvertToUTF32(wchar_t* src, size_t srcArrLen, std::vector<unsigned 
 	}
 
 }
-
-// This method is for Windows.
-void utf16::ConvertToUTF32BE(wchar_t* src, size_t srcArrLen, std::vector<unsigned int>& vec)
+#else
+void utf16::ConvertToUTF32(wchar_t* src, size_t srcArrLen, std::vector<unsigned int>& vec)
 {
 	vec.clear();
 	for(size_t i=0; i<srcArrLen; ++i)
 	{
-		if(src[i] >= 0xd800 && src[i] < 0xdc00)
-		{
-			if(i+1 < srcArrLen)
-			{
-				if (src[i+1] >= 0xdc00 && src[i+1] < 0xe000)
-				{
-					vec.push_back( ((src[i] & 0x3ff) << 10) + (src[i+1] & 0x3ff) + 0x10000 ) ;
-
-					++i;
-				}
-				else
-					vec.push_back(src[i]);
-			}
-			else
-				vec.push_back(src[i]);
-		}
-		else
-			vec.push_back(src[i]);
-
+		vec.push_back(src[i]);
 	}
+}
+#endif
+
+void utf16::ConvertToUTF32BE(wchar_t* src, size_t srcArrLen, std::vector<unsigned int>& vec)
+{
+	ConvertToUTF32(src, srcArrLen, vec);
 	SwapEndian(vec);
 }
+
 
 wchar_t utf16::ConvertToWChar(unsigned short src1, unsigned short src2)
 {
