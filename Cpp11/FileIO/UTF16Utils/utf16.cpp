@@ -1,5 +1,6 @@
 #include "utf16.h"
 #include "../Common/RAII_Array.h"
+#include "../Common/Platform.h"
 
 using namespace Elmax;
 
@@ -287,7 +288,10 @@ void utf16::ConvertToUTF32(const std::wstring& src, std::vector<unsigned int>& v
 void utf16::ConvertToUTF32BE(const std::wstring& src, std::vector<unsigned int>& vec)
 {
 	ConvertToUTF32(src, vec);
-	SwapEndian(vec);
+	if(Platform::IsLittleEndian())
+	{
+		SwapEndian(vec);
+	}
 }
 
 
@@ -376,7 +380,10 @@ void utf16::ConvertToUTF32(wchar_t* src, size_t srcArrLen, std::vector<unsigned 
 void utf16::ConvertToUTF32BE(wchar_t* src, size_t srcArrLen, std::vector<unsigned int>& vec)
 {
 	ConvertToUTF32(src, srcArrLen, vec);
-	SwapEndian(vec);
+	if(Platform::IsLittleEndian())
+	{
+		SwapEndian(vec);
+	}
 }
 
 

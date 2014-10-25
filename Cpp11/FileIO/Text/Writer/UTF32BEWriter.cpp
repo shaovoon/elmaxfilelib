@@ -118,18 +118,9 @@ bool UTF32BEWriter::Write( const wchar_t* text, size_t nBufLen )
 #else
 	if( text )
 	{
-		if(sizeof(wchar_t)==4)
-		{
-			std::vector<unsigned int> vec;
-			utf16::ConvertToUTF32(text, vec);
-			WriteRaw(&vec[0], vec.size(), true);
-		}
-		else
-		{
-			std::vector<unsigned int> vec;
-			utf16::ConvertToUTF32(text, vec);
-			WriteRaw(&vec[0], vec.size(), true);
-		}
+		std::vector<unsigned int> vec;
+		utf16::ConvertToUTF32(text, vec);
+		WriteRaw(&vec[0], vec.size(), true);
 	}
 #endif
 
@@ -177,20 +168,10 @@ bool UTF32BEWriter::WriteLine( const wchar_t* text, size_t nBufLen )
 #else
 	if( text )
 	{
-		if(sizeof(wchar_t)==4)
-		{
-			std::vector<unsigned int> vec;
-			utf16::ConvertToUTF32(text, vec);
-			vec.push_back((unsigned int)('\n'));
-			WriteRaw(&vec[0], vec.size(), true);
-		}
-		else
-		{
-			std::vector<unsigned int> vec;
-			utf16::ConvertToUTF32(text, vec);
-			vec.push_back((unsigned int)('\n'));
-			WriteRaw(&vec[0], vec.size(), true);
-		}
+		std::vector<unsigned int> vec;
+		utf16::ConvertToUTF32(text, vec);
+		vec.push_back((unsigned int)('\n'));
+		WriteRaw(&vec[0], vec.size(), true);
 	}
 #endif
 
