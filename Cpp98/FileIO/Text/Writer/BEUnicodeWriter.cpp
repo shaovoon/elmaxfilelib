@@ -52,8 +52,6 @@ bool BEUnicodeWriter::WriteBOM()
 		errNum = ELMAX_WRITE_ERROR;
 		err = GetErrorMsg(errNum);
 		throw std::runtime_error("Write BOM error");
-
-		return false;
 	}
 
 	return true;

@@ -391,8 +391,6 @@ wchar_t* BEUnicodeReader::ConvToLittleEndianShort(unsigned short* p, size_t size
 		}
 		return arr.Detach();
 	}
-
-	return NULL;
 }
 
 wchar_t BEUnicodeReader::ConvToLittleEndianShort(unsigned short ch1, unsigned short ch2)

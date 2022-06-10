@@ -1,6 +1,5 @@
 #include "../Utils/StrUtilRef.h"
 #include "../../Common/BaseConverter.h"
-#include <boost/lexical_cast.hpp>
 #include <cassert>
 
 using namespace Elmax;
@@ -202,7 +201,7 @@ std::wstring StrUtilRef::Replace( std::wstring& fmtstr, std::vector<std::wstring
 
 std::wstring StrUtilRef::Anchor( int i )
 {
-	std::string temp = boost::lexical_cast<std::string>(i);
+	std::string temp = std::to_string(i);
 	std::wstring str2 = BaseConverter::ConvToString(temp);
 
 	std::wstring str = L"{";

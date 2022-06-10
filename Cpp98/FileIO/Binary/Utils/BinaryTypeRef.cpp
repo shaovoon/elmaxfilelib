@@ -48,8 +48,6 @@ char* BinaryTypeRef::GetAddress()
 	default:
 		return NULL;
 	}
-
-	return NULL;
 }
 
 

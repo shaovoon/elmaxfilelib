@@ -46,8 +46,6 @@ char* BinaryTypeReadRef::GetAddress()
 	default:
 		return NULL;
 	}
-
-	return NULL;
 }
 
 void BinaryTypeReadRef::DeferredMake()
