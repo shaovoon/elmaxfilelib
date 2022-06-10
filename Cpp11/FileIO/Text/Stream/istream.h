@@ -5,7 +5,6 @@
 #endif
 
 #include <string>
-#include <boost/lexical_cast.hpp>
 #include "../../Common/BaseConverter.h"
 
 namespace Elmax
@@ -46,13 +45,19 @@ private:
 			if(split_at_a_time(result))
 			{
 				std::string temp = BaseConverter::ConvToString(result);
-				val = boost::lexical_cast<T>(temp);
+
+				std::stringstream ss;
+				ss << temp;
+				ss >> val;
 			}
 		}
 		else
 		{
 			std::string temp = BaseConverter::ConvToString(m_str);
-			val = boost::lexical_cast<T>(temp);
+			std::stringstream ss;
+			ss << temp;
+			ss >> val;
+
 			m_str = L"";
 		}
 	}

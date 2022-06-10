@@ -120,8 +120,6 @@ bool xTextReader::Open(const std::wstring& file, FILE_TYPE ftype)
 			break;
 		}
 	}
-
-	return false;
 }
 
 void xTextReader::Close()

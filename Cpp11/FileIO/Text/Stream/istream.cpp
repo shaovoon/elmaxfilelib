@@ -80,12 +80,12 @@ istream& istream::operator >>(std::string& val)
 		{
 			RAII_Array<char> pBuf(result.size()+1);
 			if( nullptr == pBuf.GetPtr() )
-				throw boost::bad_lexical_cast();
+				throw std::runtime_error("nullptr == pBuf.GetPtr()");
 			size_t RetSize=0;
 			errno_t err = wcstombs_s( &RetSize, pBuf.GetPtr(), result.size()+1, result.c_str(), result.size()+1 );
 
 			if( 0 != err )
-				throw boost::bad_lexical_cast();
+				throw std::runtime_error("0 != err");
 
 			val=pBuf.GetPtr();
 		}
@@ -94,12 +94,12 @@ istream& istream::operator >>(std::string& val)
 	{
 		RAII_Array<char> pBuf(m_str.size()+1);
 		if( nullptr == pBuf.GetPtr() )
-			throw boost::bad_lexical_cast();
+			throw std::runtime_error("nullptr == pBuf.GetPtr()");
 		size_t RetSize=0;
 		errno_t err = wcstombs_s( &RetSize, pBuf.GetPtr(), m_str.size()+1, m_str.c_str(), m_str.size()+1 );
 
 		if( 0 != err )
-			throw boost::bad_lexical_cast();
+			throw std::runtime_error("0 != err");
 
 		val=pBuf.GetPtr();
 		m_str = L"";
@@ -113,7 +113,7 @@ istream& istream::operator >>(std::string& val)
 		{
 			RAII_Array<char> pBuf(result.size()+1);
 			if( nullptr == pBuf.GetPtr() )
-				throw boost::bad_lexical_cast();
+				throw std::runtime_error("nullptr == pBuf.GetPtr()");
 			wcstombs( pBuf.GetPtr(), result.c_str(), result.size()+1 );
 
 			val=pBuf.GetPtr();
@@ -123,7 +123,7 @@ istream& istream::operator >>(std::string& val)
 	{
 		RAII_Array<char> pBuf(m_str.size()+1);
 		if( nullptr == pBuf.GetPtr() )
-			throw boost::bad_lexical_cast();
+			throw std::runtime_error("nullptr == pBuf.GetPtr()");
 		wcstombs( pBuf.GetPtr(), m_str.c_str(), m_str.size()+1 );
 
 		val=pBuf.GetPtr();

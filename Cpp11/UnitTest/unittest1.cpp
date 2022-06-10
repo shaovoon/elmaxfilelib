@@ -33,7 +33,7 @@
 
 #include "..\\FileIO\\Text\\Utils\\StrUtil.h"
 
-#if _MSC_VER == 1800
+#if _MSC_VER >= 1800
 	#ifdef _DEBUG
 		#pragma comment(lib, "..\\Debug\\FileIO_2013.lib")
 	#else
@@ -2253,15 +2253,13 @@ namespace UnitTest
 			xTextWriter writer;
 			std::wstring file = GetTempPath(L"TextAllOtherTypes.txt");
 			Assert::AreEqual(true, writer.Open(file, FT_UNICODE, NEW), L"File cannot be opened for writing!");
-			char c = 118;
-			unsigned char uc = 176;
 			short s = 15670;
 			unsigned short us = 40597;
 			unsigned int ui = 3569858236;
 			__int64 i64 = 35698582368L;
 			unsigned __int64 ui64 = 36693588379L;
 			float f = 1254.69f;
-			writer.Write(L"{0},{1},{2},{3},{4},{5},{6},{7}", c, uc, s, us, ui, i64, ui64, f);
+			writer.Write(L"{0},{1},{2},{3},{4},{5}", s, us, ui, i64, ui64, f);
 			writer.Close();
 
 			xTextReader reader;
@@ -2270,8 +2268,6 @@ namespace UnitTest
 			Assert::AreEqual(false, eof, L"EOF is reached prematurely!");
 			if(eof==false)
 			{
-				char c2 = 0;
-				unsigned char uc2 = 0;
 				short s2 = 0;
 				unsigned short us2 = 0;
 				unsigned int ui2 = 0;
@@ -2280,10 +2276,8 @@ namespace UnitTest
 				float f2 = 0.0f;
 
 				reader.SetDelimiter(L",");
-				size_t totalRead = reader.ReadLine(c2, uc2, s2, us2, ui2, i642, ui642, f2);
-				Assert::AreEqual((size_t)(8), totalRead, L"8 values are not read!");
-				Assert::AreEqual(c, c2, L"Char values are not the same");
-				Assert::AreEqual(uc, uc2, L"Unsigned char values are not the same");
+				size_t totalRead = reader.ReadLine(s2, us2, ui2, i642, ui642, f2);
+				Assert::AreEqual((size_t)(6), totalRead, L"6 values are not read!");
 				Assert::AreEqual(s, s2, L"Short values are not the same");
 				Assert::AreEqual(true, us2==us, L"Unsigned short values are not the same");
 				Assert::AreEqual(ui, ui2, L"Unsigned Integer values are not the same");

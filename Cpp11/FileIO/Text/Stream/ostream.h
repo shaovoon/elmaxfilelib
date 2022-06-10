@@ -2,7 +2,6 @@
 
 #include <string>
 #include "../../Common/BaseConverter.h"
-#include <boost/lexical_cast.hpp>
 
 namespace Elmax
 {
