@@ -1,4 +1,4 @@
-##elmaxfilelib
+## elmaxfilelib
 
 Elmax C++ File Library for writing and reading (Unicode) text or binary files
 
